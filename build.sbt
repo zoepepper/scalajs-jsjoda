@@ -1,38 +1,42 @@
-name := "Scala.js js-joda as java.time"
+import sbt.Keys._
 
-normalizedName := "scalajs-js-joda-as-java-time"
+def BaseProject(name: String): Project =
+  Project(name, file(name))
+    .settings(
+      organization := "com.zoepepper",
+      version := "1.0.2-SNAPSHOT",
+      scalaVersion := "2.11.8",
+      licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
+      scmInfo := Some(ScmInfo(
+        url("https://github.com/zoepepper/scalajs-js-joda-as-java-time"),
+        "scm:git:git@github.com:zoepepper/scalajs-js-joda-as-java-time.git",
+        Some("scm:git:git@github.com:zoepepper/scalajs-js-joda-as-java-time.git"))),
+      publishMavenStyle := true,
+      pomExtra :=
+        <developers>
+          <developer>
+            <id>zoepepper</id>
+            <name>Zoë Pepper</name>
+            <url>https://github.com/zoepepper/</url>
+          </developer>
+        </developers>,
+      pomIncludeRepository := { _ => false }
+    )
+    .enablePlugins(ScalaJSPlugin)
 
-version := "1.0.0-SNAPSHOT"
+lazy val facade =
+  BaseProject("facade")
+    .settings(
+      name := "scalajs-jsjoda"
+    )
 
-organization := "com.zoepepper"
-
-scalaVersion := "2.11.8"
-
-licenses += ("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause"))
-
-scmInfo := Some(ScmInfo(
-  url("https://github.com/zoepepper/scalajs-js-joda-as-java-time"),
-  "scm:git:git@github.com:zoepepper/scalajs-js-joda-as-java-time.git",
-  Some("scm:git:git@github.com:zoepepper/scalajs-js-joda-as-java-time.git")))
-
-publishMavenStyle := true
-
-//publishTo := {
-//  val nexus = "https://oss.sonatype.org/"
-//  if (isSnapshot.value)
-//    Some("snapshots" at nexus + "content/repositories/snapshots")
-//  else
-//    Some("releases" at nexus + "service/local/staging/deploy/maven2")
-//}
-
-pomExtra := (
-  <developers>
-    <developer>
-      <id>zoepepper</id>
-      <name>Zoë Pepper</name>
-      <url>https://github.com/zoepepper/</url>
-    </developer>
-  </developers>
-  )
-
-pomIncludeRepository := { _ => false }
+lazy val javaTime =
+  BaseProject("java-time-drop-in")
+    .settings(
+      name := "scalajs-jsjoda-as-java-time",
+      mappings in(Compile, packageBin) ~= {
+        _.filter(!_._2.endsWith(".class"))
+      },
+      exportJars := true
+    )
+    .dependsOn(facade)

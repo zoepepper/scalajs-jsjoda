@@ -1,4 +1,8 @@
-package java.time.temporal
+package com.zoepepper.facades.jsjoda.temporal
+
+import java.time.temporal.{TemporalField, TemporalQuery, ValueRange}
+
+import scala.scalajs.js
 
 @js.native
 class TemporalAccessor extends js.Object {

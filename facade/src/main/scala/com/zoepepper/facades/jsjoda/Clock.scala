@@ -1,4 +1,10 @@
-package java.time
+package com.zoepepper.facades.jsjoda
+
+import java.time
+import java.time.{ZoneId, ZoneOffset}
+
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.Clock")

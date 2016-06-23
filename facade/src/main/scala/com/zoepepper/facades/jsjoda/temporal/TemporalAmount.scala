@@ -1,4 +1,9 @@
-package java.time.temporal
+package com.zoepepper.facades.jsjoda.temporal
+
+import java.time.temporal
+import java.time.temporal.TemporalUnit
+
+import scala.scalajs.js
 
 @js.native
 class TemporalAmount extends js.Object {

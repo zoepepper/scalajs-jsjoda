@@ -1,6 +1,13 @@
-package java.time
+package com.zoepepper.facades.jsjoda
 
-import java.time.temporal.{ChronoUnit, Temporal, TemporalAmount, TemporalUnit}
+import java.jsjoda.temporal.TemporalAmount
+import java.time
+import java.time.temporal.{ChronoUnit, TemporalUnit}
+
+import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount}
+
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.Duration")
