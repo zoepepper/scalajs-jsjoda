@@ -1,7 +1,5 @@
 package com.zoepepper.facades.jsjoda
 
-import java.jsjoda.temporal.TemporalAmount
-import java.time
 import java.time.temporal.{ChronoUnit, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount}

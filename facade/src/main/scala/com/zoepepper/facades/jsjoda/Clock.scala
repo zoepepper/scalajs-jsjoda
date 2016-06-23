@@ -1,6 +1,5 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time
 import java.time.{ZoneId, ZoneOffset}
 
 import scala.scalajs.js

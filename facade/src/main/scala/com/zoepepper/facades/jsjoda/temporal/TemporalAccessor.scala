@@ -1,6 +1,6 @@
 package com.zoepepper.facades.jsjoda.temporal
 
-import java.time.temporal.{TemporalField, TemporalQuery, ValueRange}
+import java.time.temporal.{TemporalField, ValueRange}
 
 import scala.scalajs.js
 

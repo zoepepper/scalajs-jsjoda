@@ -1,6 +1,6 @@
 package com.zoepepper.facades.jsjoda.chrono
 
-import java.time.chrono.{ChronoLocalDate, Chronology}
+import java.time.chrono.Chronology
 import java.time.ZoneOffset
 
 import com.zoepepper.facades.jsjoda.Instant

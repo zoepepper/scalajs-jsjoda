@@ -1,6 +1,5 @@
 package com.zoepepper.facades.jsjoda.chrono
 
-import java.jsjoda.format
 import java.time.temporal.{TemporalField, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter

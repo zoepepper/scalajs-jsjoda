@@ -1,6 +1,5 @@
 package com.zoepepper.facades.jsjoda.temporal
 
-import java.time.temporal
 import java.time.temporal.TemporalUnit
 
 import scala.scalajs.js

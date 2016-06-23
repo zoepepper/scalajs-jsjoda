@@ -1,10 +1,10 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time
-import java.time.{Clock, Instant, LocalDateTime, ZoneId}
-import java.time.temporal._
+import java.time.ZoneId
+import java.time.temporal.{TemporalAdjuster, TemporalField, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
+import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
@@ -18,8 +18,8 @@ object LocalTime extends js.Object {
   def of(hour: Int, minute: Int, second: Int, nanoOfSecond: Int): LocalTime = js.native
   def ofSecondOfDay(secondOfDay: Double, nanoOfSecond: Int = 0): LocalTime = js.native
   def ofNanoOfDay(nanoOfDay: Double): LocalTime = js.native
-  def from(temporal: temporal.Temporal): LocalTime = js.native
-  def parse(text: String, formatter: format.DateTimeFormatter = ???): LocalTime = js.native
+  def from(temporal: Temporal): LocalTime = js.native
+  def parse(text: String, formatter: DateTimeFormatter = ???): LocalTime = js.native
 
   val MAX: LocalDate = js.native
   val MIN: LocalDate = js.native
@@ -50,19 +50,19 @@ class LocalTime private(hour: Int, minute: Int, second: Int, nanoOfSecond: Int) 
   def plusMinutes(minutesToAdd: Double): LocalTime = js.native
   def plusSeconds(secondsToAdd: Double): LocalTime = js.native
   def plusNanos(nanosToAdd: Double): LocalTime = js.native
-  def minus(amount: temporal.TemporalAmount): LocalTime = js.native
+  def minus(amount: TemporalAmount): LocalTime = js.native
   def minus(amount: Double, unit: TemporalUnit): LocalTime = js.native
   def minusHours(hoursToSubtract: Double): LocalTime = js.native
   def minusMinutes(minutesToSubtract: Double): LocalTime = js.native
   def minusSeconds(secondsToSubtract: Double): LocalTime = js.native
   def minusNanos(nanosToSubtract: Double): LocalTime = js.native
-  def adjustInto(temporal: temporal.Temporal): temporal.Temporal = js.native
-  def until(endExclusive: temporal.Temporal, unit: TemporalUnit): Double = js.native
+  def adjustInto(temporal: Temporal): Temporal = js.native
+  def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
   def atDate(date: LocalDate): LocalDateTime = js.native
   def toSecondOfDay(): Int = js.native
   def toNanoOfDay(): Long = js.native
   def compareTo(other: LocalTime): Int = js.native
   def isAfter(other: LocalTime): Boolean = js.native
   def isBefore(other: LocalTime): Boolean = js.native
-  def format(formatter: format.DateTimeFormatter): String = js.native
+  def format(formatter: DateTimeFormatter): String = js.native
 }
