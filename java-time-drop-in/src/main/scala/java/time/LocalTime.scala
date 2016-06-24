@@ -14,8 +14,8 @@ object LocalTime {
   def ofSecondOfDay(secondOfDay: Long): LocalTime = LocalTimeF.ofSecondOfDay(secondOfDay)
   def ofNanoOfDay(nanoOfDay: Long): LocalTime = LocalTimeF.ofNanoOfDay(nanoOfDay)
 //  def from(temporal: Temporal): LocalTime = js.native
-  def parse(text: String): LocalTime = LocalTimeF.parse(text)
-  def parse(text: String, formatter: DateTimeFormatter): LocalTime = LocalTimeF.parse(text, formatter)
+  def parse(text: CharSequence): LocalTime = LocalTimeF.parse(text.toString)
+  def parse(text: CharSequence, formatter: DateTimeFormatter): LocalTime = LocalTimeF.parse(text.toString, formatter)
 
   val MAX: LocalDate = LocalTimeF.MAX
   val MIN: LocalDate = LocalTimeF.MIN

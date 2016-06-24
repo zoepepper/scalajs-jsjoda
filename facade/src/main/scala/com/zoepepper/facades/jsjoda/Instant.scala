@@ -11,7 +11,7 @@ import scala.scalajs.js.annotation.JSName
 @JSName("JSJoda.Instant")
 object Instant extends js.Object {
   def now(clock: Clock = ???): Instant = js.native
-  def ofEpochSecond(epochSecond: Double, nanoAdjustment: Int = ???): Instant = js.native
+  def ofEpochSecond(epochSecond: Double, nanoAdjustment: Double = ???): Instant = js.native
   def ofEpochMilli(epochMilli: Double): Instant = js.native
   def from(temporal: Temporal): Instant = js.native
   def parse(text: String): Instant = js.native

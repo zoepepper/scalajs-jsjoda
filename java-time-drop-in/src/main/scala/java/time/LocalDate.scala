@@ -1,5 +1,6 @@
 package java.time
 
+import java.time.chrono.ChronoLocalDate
 import java.time.format.DateTimeFormatter
 
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
@@ -14,14 +15,14 @@ object LocalDate {
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = LocalDateF.ofYearDay(year, dayOfYear)
   def ofEpochDay(epochDay: Double = ???): LocalDate = LocalDateF.ofEpochDay(epochDay)
 //  def from(temporal: Temporal): LocalDate = js.native
-  def parse(text: String): LocalDate = LocalDateF.parse(text)
-  def parse(text: String, formatter: DateTimeFormatter): LocalDate = LocalDateF.parse(text, formatter)
+  def parse(text: CharSequence): LocalDate = LocalDateF.parse(text.toString)
+  def parse(text: CharSequence, formatter: DateTimeFormatter): LocalDate = LocalDateF.parse(text.toString, formatter)
 
   val MAX: LocalDate = LocalDateF.MAX
   val MIN: LocalDate = LocalDateF.MIN
 }
 
-class LocalDate protected[time](protected[time] val f: LocalDateF) /*extends ChronoLocalDate*/ {
+class LocalDate protected[time](f: LocalDateF) extends ChronoLocalDate(f) {
   def getYear(): Int = f.getYear()
 //  def getMonth(): Month = f.getMonth()
   def getMonthValue(): Int = f.getMonthValue()
@@ -58,10 +59,6 @@ class LocalDate protected[time](protected[time] val f: LocalDateF) /*extends Chr
 //  def atTime(hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalDateTime = js.native
 //  def atStartOfDay(zone: ZoneId = ???): LocalDateTime = js.native
   def toEpochDay(): Long = f.toEpochDay()
-  def compareTo(other: LocalDate): Int = f.compareTo(other)
-  def isAfter(other: LocalDate): Boolean = f.isAfter(other)
-  def isBefore(other: LocalDate): Boolean = f.isBefore(other)
-  def isEqual(other: LocalDate): Boolean = f.isEqual(other)
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()

@@ -13,7 +13,7 @@ object Duration {
 //  def of(amount: Long, unit: TemporalUnit): Duration = js.native
 //  def from(amount: Double): Duration = js.native
 //  def between(startInclusive: Temporal, endExclusive: Temporal): Duration = js.native
-  def parse(text: String): Duration = DurationF.parse(text)
+  def parse(text: CharSequence): Duration = DurationF.parse(text.toString)
 
   val ZERO: Duration = DurationF.ZERO
 }

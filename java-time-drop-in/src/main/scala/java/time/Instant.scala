@@ -10,10 +10,10 @@ object Instant {
   def now(): Instant = InstantF.now()
   def now(clock: Clock): Instant = InstantF.now(clock)
   def ofEpochSecond(epochSecond: Long): Instant = InstantF.ofEpochSecond(epochSecond)
-  def ofEpochSecond(epochSecond: Long, nanoAdjustment: Int): Instant = InstantF.ofEpochSecond(epochSecond, nanoAdjustment)
+  def ofEpochSecond(epochSecond: Long, nanoAdjustment: Long): Instant = InstantF.ofEpochSecond(epochSecond, nanoAdjustment)
   def ofEpochMilli(epochMilli: Long): Instant = InstantF.ofEpochSecond(epochMilli)
   //  def from(temporal: Temporal): Instant = scalajs.js.native
-  def parse(text: String): Instant = InstantF.parse(text)
+  def parse(text: CharSequence): Instant = InstantF.parse(text.toString)
 
   val EPOCH: Instant = InstantF.EPOCH
   val MAX: Instant = InstantF.MAX

@@ -21,8 +21,8 @@ object LocalDateTime {
   def of(date: LocalDate, time: LocalTime): LocalDateTime = LocalDateTimeF.of(date, time)
   //  def ofEpochSecond(epochSecond: Double, nanoOfSecond: Int, offset: ZoneOffset): LocalDateTime = js.native
   //  def from(temporal: Temporal): LocalDateTime = js.native
-  def parse(text: String): LocalDateTime = LocalDateTimeF.parse(text)
-  def parse(text: String, formatter: DateTimeFormatter): LocalDateTime = LocalDateTimeF.parse(text, formatter)
+  def parse(text: CharSequence): LocalDateTime = LocalDateTimeF.parse(text.toString)
+  def parse(text: CharSequence, formatter: DateTimeFormatter): LocalDateTime = LocalDateTimeF.parse(text.toString, formatter)
 
   val MAX: LocalDateTime = LocalDateTimeF.MAX
   val MIN: LocalDateTime = LocalDateTimeF.MIN
