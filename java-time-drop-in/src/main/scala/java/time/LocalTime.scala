@@ -24,10 +24,10 @@ object LocalTime {
 }
 
 class LocalTime protected[time](protected[time] val f: LocalTimeF) /*extends temporal.Temporal*/ {
-  def getHour(): Int = js.native
-  def getMinute(): Int = js.native
-  def getSecond(): Int = js.native
-  def getNano(): Int = js.native
+  def getHour(): Int = f.getHour()
+  def getMinute(): Int = f.getMinute()
+  def getSecond(): Int = f.getSecond()
+  def getNano(): Int = f.getNano()
 //  def isSupported(field: TemporalField): Boolean = js.native
 //  def isSupported(unit: TemporalUnit): Boolean = js.native
 //  def getLong(unit: TemporalUnit): Long = js.native

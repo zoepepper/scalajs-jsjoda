@@ -1,14 +1,6 @@
 package java.time.format
 
-import java.text.ParsePosition
-import java.time.Period
-import java.time.chrono.Chronology
-
-import com.zoepepper.facades.jsjoda.Instant
-import com.zoepepper.facades.jsjoda.temporal.{TemporalAccessor, TemporalQuery}
 import com.zoepepper.facades.jsjoda.format.{DateTimeFormatter => DateTimeFormatterF}
-
-import scala.scalajs.js
 
 object DateTimeFormatter {
 //  def parsedExcessDays(): TemporalQuery[Period] = js.native
@@ -25,13 +17,12 @@ object DateTimeFormatter {
   val PARSED_LEAP_SECOND: DateTimeFormatter = DateTimeFormatterF.PARSED_LEAP_SECOND
 }
 
-@js.native
 class DateTimeFormatter protected[time](protected[time] val f: DateTimeFormatterF) {
 //  def getDecimalStyle(): DecimalStyle = js.native
 //  def getChronology(): Chronology = js.native
 //  def withChronology(chrono: Chronology): DateTimeFormatter = js.native
 //  def format(temporal: TemporalAccessor): String = js.native
-  def parse(text: String): TemporalAccessor = f.parse(text)
+//  def parse(text: String): TemporalAccessor = f.parse(text)
 //  def parse[T](text: String, query: TemporalQuery[T]): T = js.native
 //  def parseUnresolved(text: String, position: ParsePosition): TemporalAccessor = js.native
 
