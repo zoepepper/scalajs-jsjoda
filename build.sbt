@@ -4,7 +4,7 @@ def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
-      version := "1.0.2-SNAPSHOT",
+      version := "0.0.1-SNAPSHOT",
       scalaVersion := "2.11.8",
       licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
       scmInfo := Some(ScmInfo(
@@ -18,6 +18,11 @@ def BaseProject(name: String): Project =
             <id>zoepepper</id>
             <name>Zoë Pepper</name>
             <url>https://github.com/zoepepper/</url>
+          </developer>
+          <developer>
+            <id>rpiaggio</id>
+            <name>Raúl Piaggio</name>
+            <url>https://github.com/rpiaggio/</url>
           </developer>
         </developers>,
       pomIncludeRepository := { _ => false }
