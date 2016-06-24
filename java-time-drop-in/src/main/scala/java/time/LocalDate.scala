@@ -1,5 +1,7 @@
 package java.time
 
+import java.time.format.DateTimeFormatter
+
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
 
 object LocalDate {
@@ -12,15 +14,14 @@ object LocalDate {
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = LocalDateF.ofYearDay(year, dayOfYear)
   def ofEpochDay(epochDay: Double = ???): LocalDate = LocalDateF.ofEpochDay(epochDay)
 //  def from(temporal: Temporal): LocalDate = js.native
-//  def parse(text: String, formatter: format.DateTimeFormatter = ???): LocalDate = js.native
+  def parse(text: String): LocalDate = LocalDateF.parse(text)
+  def parse(text: String, formatter: DateTimeFormatter): LocalDate = LocalDateF.parse(text, formatter)
 
   val MAX: LocalDate = LocalDateF.MAX
   val MIN: LocalDate = LocalDateF.MIN
 }
 
 class LocalDate protected[time](protected[time] val f: LocalDateF) /*extends ChronoLocalDate*/ {
-  private def this(seconds: Double, nanoOfSecond: Int) = this(null) // For binary compatibility.
-
   def getYear(): Int = f.getYear()
 //  def getMonth(): Month = f.getMonth()
   def getMonthValue(): Int = f.getMonthValue()

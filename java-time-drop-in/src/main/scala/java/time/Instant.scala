@@ -21,8 +21,6 @@ object Instant {
 }
 
 class Instant protected[time](protected[time] val f: InstantF) {
-  def this(seconds: Double, nanoOfSecond: Int) = this(null) // For binary compatibility.
-
   def getEpochSecond(): Long = f.getEpochSecond().toLong
   def getNano(): Int = f.getNano()
   //  def isSupported(field: TemporalField): Boolean = scalajs.js.native

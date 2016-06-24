@@ -10,8 +10,6 @@ object Clock extends {
 }
 
 class Clock protected[time](protected[time] val f: ClockF) {
-  def this() = this(null) // For binary compatibility.
-
   def millis(): Long = f.millis().toLong
   def instant(): Instant = f.instant()
 //  def zone(): ZoneId = clockF.zone

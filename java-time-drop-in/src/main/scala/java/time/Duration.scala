@@ -19,8 +19,6 @@ object Duration {
 }
 
 class Duration protected[time](protected[time] val f: DurationF) /*extends TemporalAmount*/ {
-  def this(seconds: Long, nano: Int) = this(null) // For binary compatibility.
-
   def getSeconds(): Long = f.getSeconds().toLong
   def getNano(): Int = f.getNano()
   def isZero(): Boolean = f.isZero()
