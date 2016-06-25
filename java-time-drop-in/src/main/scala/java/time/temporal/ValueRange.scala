@@ -1,10 +1,8 @@
 package java.time.temporal
 
-import com.zoepepper.facades.jsjoda.temporal.{TemporalField, ValueRange => ValueRangeF}
+import com.zoepepper.facades.jsjoda.temporal.{ValueRange => ValueRangeF}
 
-import scala.scalajs.js
-
-class ValueRange protected[temporal](protected[temporal] val f: ValueRangeF) {
+class ValueRange protected[time](protected[time] val f: ValueRangeF) {
   def isFixed(): Boolean = f.isFixed
   def getMinimum(): Long = f.minimum.toLong
   def getLargestMinimum(): Long = f.largestMinimum.toLong

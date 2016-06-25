@@ -28,9 +28,9 @@ object DateTimeFormatter extends js.Object {
 }
 
 @js.native
-class DateTimeFormatter extends js.Object {
-  @JSName("decimalStyle") def getDecimalStyle(): DecimalStyle = js.native
-  @JSName("chronology") def getChronology(): Chronology = js.native
+class DateTimeFormatter protected[jsjoda]() extends js.Object {
+  def decimalStyle: DecimalStyle = js.native
+  def chronology: Chronology = js.native
   def withChronology(chrono: Chronology): DateTimeFormatter = js.native
   def format(temporal: TemporalAccessor): String = js.native
   def parse(text: String): TemporalAccessor = js.native

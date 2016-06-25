@@ -1,10 +1,7 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time.ZoneId
-import java.time.temporal.{TemporalAdjuster, TemporalField, TemporalUnit}
-
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
-import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount}
+import com.zoepepper.facades.jsjoda.temporal._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
@@ -13,8 +10,8 @@ import scala.scalajs.js.annotation.JSName
 @JSName("JSJoda.LocalTime")
 object LocalTime extends js.Object {
   def now(clock: Clock = ???): LocalTime = js.native
-  def now(zone: ZoneId): LocalTime = js.native
-  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalTime = js.native
+//  def now(zone: ZoneId): LocalTime = js.native
+//  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalTime = js.native
   def of(hour: Int, minute: Int, second: Int, nanoOfSecond: Int): LocalTime = js.native
   def ofSecondOfDay(secondOfDay: Double, nanoOfSecond: Int = 0): LocalTime = js.native
   def ofNanoOfDay(nanoOfDay: Double): LocalTime = js.native
@@ -28,17 +25,15 @@ object LocalTime extends js.Object {
 }
 
 @js.native
-class LocalTime private(hour: Int, minute: Int, second: Int, nanoOfSecond: Int) extends temporal.Temporal {
-  @JSName("hour") def getHour(): Int = js.native
-  @JSName("minute") def getMinute(): Int = js.native
-  @JSName("second") def getSecond(): Int = js.native
-  @JSName("nano") def getNano(): Int = js.native
-  def isSupported(field: TemporalField): Boolean = js.native
+class LocalTime protected[jsjoda]() extends temporal.Temporal {
+  def hour: Int = js.native
+  def minute: Int = js.native
+  def second: Int = js.native
+  def nano: Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
   def getLong(unit: TemporalUnit): Long = js.native
-  def `with`(adjuster: TemporalAdjuster, newValue: Double): LocalTime = js.native
+  def `with`(adjuster: TemporalAdjuster): LocalTime = js.native
   def `with`(field: TemporalField, newValue: Double): LocalTime = js.native
-  def withTemporalAdjuster(adjuster: TemporalAdjuster): LocalTime = js.native
   def withHour(hour: Int): LocalTime = js.native
   def withMinute(minute: Int): LocalTime = js.native
   def withSecond(second: Int): LocalTime = js.native

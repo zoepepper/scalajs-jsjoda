@@ -15,7 +15,7 @@ object Clock extends js.Object {
 }
 
 @js.native
-class Clock extends js.Object {
+class Clock protected[jsjoda]() extends js.Object {
   def millis(): Double = js.native
   def instant(): Instant = js.native
   def zone(): ZoneId = js.native

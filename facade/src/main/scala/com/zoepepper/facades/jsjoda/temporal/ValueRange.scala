@@ -12,7 +12,7 @@ object ValueRange extends js.Object {
 }
 
 @js.native
-class ValueRange private(minSmallest: Double, minLargest: Double, maxSmallest: Double, maxLargest: Double) extends js.Object {
+class ValueRange protected[jsjoda]() extends js.Object {
   def isFixed: Boolean = js.native
   def minimum: Double = js.native
   def largestMinimum: Double = js.native

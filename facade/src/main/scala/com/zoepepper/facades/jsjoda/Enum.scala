@@ -5,4 +5,4 @@ import scala.scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.Enum")
-class Enum extends js.Object
+class Enum protected[jsjoda]() extends js.Object

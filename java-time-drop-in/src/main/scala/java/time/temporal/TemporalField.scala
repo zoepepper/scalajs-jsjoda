@@ -1,18 +1,21 @@
 package java.time.temporal
 
-import com.zoepepper.facades.jsjoda.temporal.{TemporalField => TemporalFieldF}
+import com.zoepepper.facades.jsjoda.temporal.{ChronoField => ChronoFieldF}
 
-abstract class TemporalField protected[temporal](protected[temporal] val f: TemporalFieldF) {
-  def adjustInto[R <: Temporal](temporal: R, newValue: Long): R
-  def getBaseUnit(): TemporalUnit
-//  def getDisplayName(locale: Locale): String
-  def getFrom(temporal: TemporalAccessor): Long
-  def getRangeUnit(): TemporalUnit
-  def isDateBased(): Boolean
-  def isSupportedBy(temporal: TemporalAccessor): Boolean
-  def isTimeBased(): Boolean
-  def range(): ValueRange
-  def rangeRefinedBy(temporal: TemporalAccessor): ValueRange
-//  def resolve(fieldValues: java.util.Map[TemporalField, Long], partialTemporal: TemporalAccessor, resolverStyle: ResolverStyle): TemporalAccessor
-  def toString(): String
+class TemporalField protected[time](protected[time] val f: ChronoFieldF) {
+  def range(): ValueRange = f.range
+  def rangeRefinedBy(temporal: TemporalAccessor): ValueRange = f.rangeRefinedBy(temporal)
+  def getFrom(temporal: TemporalAccessor): Long = f.getFrom(temporal)
+  def isSupportedBy(temporal: TemporalAccessor): Boolean = f.isSupportedBy(temporal)
+  def isDateBased(): Boolean = f.isDateBased
+  def getRangeUnit(): TemporalUnit = f.rangeUnit
+  def getBaseUnit(): TemporalUnit = f.baseUnit
+  def isTimeBased(): Boolean = f.isTimeBased
+  //  def adjustInto[R <: Temporal](temporal: R, newValue: Long): R
+  //  def getDisplayName(locale: Locale): String
+  //  def resolve(fieldValues: java.util.Map[TemporalField, Long], partialTemporal: TemporalAccessor, resolverStyle: ResolverStyle): TemporalAccessor
+
+  override def toString(): String = f.toString()
+  override def hashCode(): Int = f.hashCode()
+  override def equals(obj: Any): Boolean = f.equals(obj)
 }

@@ -1,8 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time.temporal.{TemporalAdjuster, TemporalField, TemporalUnit}
-
-import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount}
+import com.zoepepper.facades.jsjoda.temporal._
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
@@ -22,15 +20,13 @@ object Instant extends js.Object {
 }
 
 @js.native
-class Instant private(seconds: Double, nanoOfSecond: Int) extends Temporal {
-  @JSName("epochSecond") def getEpochSecond(): Double = js.native
-  @JSName("nano") def getNano(): Int = js.native
-  def isSupported(field: TemporalField): Boolean = js.native
+class Instant protected[jsjoda]() extends Temporal {
+  def epochSecoond: Double = js.native
+  def nano: Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
   def getLong(unit: TemporalUnit): Long = js.native
-  def `with`(adjuster: TemporalAdjuster, newValue: Double): Instant = js.native
+  def `with`(adjuster: TemporalAdjuster): Instant = js.native
   def `with`(field: TemporalField, newValue: Double): Instant = js.native
-  def withTemporalAdjuster(adjuster: TemporalAdjuster): Instant = js.native
   def truncatedTo(unit: TemporalUnit): Instant = js.native
   def plus(amount: TemporalAmount): Instant = js.native
   def plus(amount: Double, unit: TemporalUnit): Instant = js.native

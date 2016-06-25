@@ -1,7 +1,5 @@
 package com.zoepepper.facades.jsjoda.temporal
 
-import java.time.temporal.TemporalUnit
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
 
@@ -37,11 +35,11 @@ object ChronoField extends js.Object {
   val YEAR: ChronoField = js.native
   val ERA: ChronoField = js.native
   val INSTANT_SECONDS: ChronoField = js.native
-  val OFFSET_SECONDS  : ChronoField = js.native
+  val OFFSET_SECONDS: ChronoField = js.native
 }
 
 @js.native
-class ChronoField extends TemporalField {
+class ChronoField protected[jsjoda]() extends TemporalField {
   def name: String = js.native
   def baseUnit: TemporalUnit = js.native
   def rangeUnit: TemporalUnit = js.native

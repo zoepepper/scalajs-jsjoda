@@ -1,11 +1,10 @@
 package java.time.temporal
 
-import scala.scalajs.js
+import com.zoepepper.facades.jsjoda.temporal.{TemporalAmount => TemporalAmountF}
 
-@js.native
-class TemporalAmount extends js.Object {
-  def get(unit: TemporalUnit): Double = js.native
-  def getUnits: js.Array[TemporalUnit] = js.native
-  def addTo(temporal: Temporal): Temporal = js.native
-  def subtractFrom(temporal: Temporal): Temporal = js.native
+abstract class TemporalAmount protected[time](protected[time] val f: TemporalAmountF) {
+  def addTo(temporal: Temporal): Temporal
+  def get(unit: TemporalUnit): Long = f.get(unit).toLong
+  def getUnits: java.util.List[TemporalUnit] = f.getUnits
+  def subtractFrom(temporal: Temporal): Temporal
 }
