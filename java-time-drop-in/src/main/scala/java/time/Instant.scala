@@ -4,10 +4,6 @@ import java.time.temporal.{Temporal, TemporalAdjuster, TemporalAmount, TemporalF
 
 import com.zoepepper.facades.jsjoda.{Instant => InstantF}
 
-import scala.scalajs
-import scala.scalajs.js
-
-
 object Instant {
   def now(): Instant = InstantF.now()
   def now(clock: Clock): Instant = InstantF.now(clock)
@@ -26,9 +22,9 @@ class Instant protected[time](f: InstantF) extends Temporal(f) with TemporalAdju
   def getEpochSecond(): Long = f.getEpochSecond().toLong
   def getNano(): Int = f.getNano()
   def isSupported(unit: TemporalUnit): Boolean = f.isSupported(unit)
-//  def `with`(adjuster: TemporalAdjuster): Instant = f.`with`(adjuster)
+  def `with`(adjuster: TemporalAdjuster): Instant = f.`with`(adjuster)
   def `with`(field: TemporalField, newValue: Long): Instant = f.`with`(field, newValue)
-  //  def truncatedTo(unit: TemporalUnit): Instant = js.native
+  def truncatedTo(unit: TemporalUnit): Instant = f.truncatedTo(unit)
   def plus(amount: TemporalAmount): Instant = f.plus(amount)
   def plus(amountToAdd: Long, unit: TemporalUnit): Instant = f.plus(amountToAdd, unit)
   def plusSeconds(secondsToAdd: Long): Instant = f.plusSeconds(secondsToAdd)
@@ -39,7 +35,7 @@ class Instant protected[time](f: InstantF) extends Temporal(f) with TemporalAdju
   def minusSeconds(secondsToSubtract: Long): Instant = f.minusSeconds(secondsToSubtract)
   def minusMillis(millisToSubtract: Long): Instant = f.minusMillis(millisToSubtract)
   def minusNanos(nanosToSubtract: Long): Instant = f.minusNanos(nanosToSubtract)
-//  def adjustInto(temporal: Temporal): Temporal = f.adjustInto(temporal)
+  def adjustInto(temporal: Temporal): Temporal = f2Temporal(f.adjustInto(temporal), temporal)
   def toEpochMilli(): Long = f.toEpochMilli().toLong
   def compareTo(otherInstant: Instant): Int = f.compareTo(otherInstant)
   def isAfter(otherInstant: Instant): Boolean = f.isAfter(otherInstant)

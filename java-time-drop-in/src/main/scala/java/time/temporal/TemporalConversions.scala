@@ -1,5 +1,8 @@
 package java.time.temporal
 
+import java.time.chrono.HijrahDate
+import java.time.{BaseConversions, Instant, LocalDate, LocalDateTime, LocalTime}
+
 import com.zoepepper.facades.jsjoda.temporal.{ChronoField => ChronoFieldF}
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit => ChronoUnitF}
 import com.zoepepper.facades.jsjoda.temporal.{Temporal => TemporalF}
@@ -10,10 +13,14 @@ import com.zoepepper.facades.jsjoda.temporal.{TemporalField => TemporalFieldF}
 import com.zoepepper.facades.jsjoda.temporal.{TemporalQuery => TemporalQueryF}
 import com.zoepepper.facades.jsjoda.temporal.{TemporalUnit => TemporalUnitF}
 import com.zoepepper.facades.jsjoda.temporal.{ValueRange => ValueRangeF}
+import com.zoepepper.facades.jsjoda.{Instant => InstantF}
+import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
+import com.zoepepper.facades.jsjoda.{LocalDateTime => LocalDateTimeF}
+import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 
 import scala.language.implicitConversions
 
-trait TemporalConversions {
+trait TemporalConversions extends BaseConversions {
   implicit def chronoField2F(chronoField: ChronoField): ChronoFieldF = chronoField.f
   implicit def f2ChronoField(f: ChronoFieldF): ChronoField = new ChronoField(f)
 
@@ -21,10 +28,26 @@ trait TemporalConversions {
   implicit def f2ChronoUnit(f: ChronoUnitF): ChronoUnit = new ChronoUnit(f)
 
   implicit def temporal2F[R <: Temporal](temporal: R): TemporalF = temporal.f.asInstanceOf[TemporalF]
+  def f2Temporal[R <: Temporal](f: TemporalF, target: R): Temporal = target.getClass match {
+    // All known Temporal implementing classes.
+    //    case c if c == classOf[HijrahDate] => f.asInstanceOf[HijrahDateF]
+    case c if c == classOf[Instant] => f.asInstanceOf[InstantF]
+    //    case c if c == classOf[JapaneseDate] => f.asInstanceOf[JapaneseDateF]
+//    case c if c == classOf[LocalDate] => f.asInstanceOf[LocalDateF]
+//    case c if c == classOf[LocalDateTime] => f.asInstanceOf[LocalDateTimeF]
+//    case c if c == classOf[LocalTime] => f.asInstanceOf[LocalDateTimeF]
+    //    case c if c == classOf[MinguoDate] => f.asInstanceOf[MinguoDateF]
+    //    case c if c == classOf[OffsetDateTime] => f.asInstanceOf[OffsetDateTimeF]
+    //    case c if c == classOf[OffsetTime] => f.asInstanceOf[OffsetTimeF]
+    //    case c if c == classOf[ThaiBuddhistDate] => f.asInstanceOf[ThaiBuddhistDateF]
+    //    case c if c == classOf[Year] => f.asInstanceOf[YearF]
+    //    case c if c == classOf[YearMonth] => f.asInstanceOf[YearMonthF]
+    //    case c if c == classOf[ZonedDateTime] => f.asInstanceOf[ZonedDateTimeF]
+  }
 
   implicit def temporalAccessor2F(temporalAccessor: TemporalAccessor): TemporalAccessorF = temporalAccessor.f
 
-//  implicit def temporalAdjuster2F(temporalAdjuster: TemporalAdjuster): TemporalAdjusterF = temporalAdjuster.f.asInstanceOf[TemporalAdjusterF]
+  implicit def temporalAdjuster2F(temporalAdjuster: TemporalAdjuster): TemporalAdjusterF = temporalAdjuster.taf
 
   implicit def temporalAmount2F(temporalAmount: TemporalAmount): TemporalAmountF = temporalAmount.f.asInstanceOf[TemporalAmountF]
 

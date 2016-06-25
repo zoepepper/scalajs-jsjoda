@@ -2,8 +2,8 @@ package java.time.temporal
 
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAdjuster => TemporalAdjusterF}
 
-trait TemporalAdjuster {
-//  protected[time] val f: AnyRef
+trait TemporalAdjuster { self: TemporalAccessor =>
+  protected[time] val taf: TemporalAdjusterF = self.f.asInstanceOf[TemporalAdjusterF]
 
-//  def adjustInto(temporal: Temporal): Temporal // How do we wrap the result?
+  def adjustInto(temporal: Temporal): Temporal
 }
