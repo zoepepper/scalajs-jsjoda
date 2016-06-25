@@ -2,7 +2,6 @@ package java.time
 
 import java.time.format.DateTimeFormatter
 
-import scala.scalajs.js
 import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 
 object LocalTime {
