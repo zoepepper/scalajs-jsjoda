@@ -56,7 +56,7 @@ class LocalDate protected[jsjoda]() extends ChronoLocalDate {
   def minusWeeks(weeksToSubtract: Double): LocalDate = js.native
   def minusDays(daysToSubtract: Double): LocalDate = js.native
   def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
-//  def until(endDate: ChronoLocalDate): Period = js.native
+  def until(endDate: ChronoLocalDate): Period = js.native
   def atTime(time: LocalTime): LocalDateTime = js.native
   def atTime(hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalDateTime = js.native
   def atStartOfDay(zone: ZoneId = ???): LocalDateTime = js.native

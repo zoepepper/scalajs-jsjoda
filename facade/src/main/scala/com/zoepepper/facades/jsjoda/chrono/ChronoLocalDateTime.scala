@@ -7,8 +7,8 @@ import scala.scalajs.js
 
 @js.native
 trait ChronoLocalDateTime[D <: ChronoLocalDate] extends Temporal {
-//  def chronology: Chronology
-  def adjustInto(temporal: Temporal): Temporal
-//  def toInstant(offset: ZoneOffset): Instant
-//  def toEpochSecond(offset: ZoneOffset): Long
+  def chronology: IsoChronology = js.native
+  def adjustInto(temporal: Temporal): Temporal = js.native
+  def toInstant(offset: ZoneOffset): Instant = js.native
+  def toEpochSecond(offset: ZoneOffset): Long = js.native
 }

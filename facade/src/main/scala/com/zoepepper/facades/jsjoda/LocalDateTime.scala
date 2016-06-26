@@ -1,6 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
-import com.zoepepper.facades.jsjoda.chrono.ChronoLocalDateTime
+import com.zoepepper.facades.jsjoda.chrono.{ChronoLocalDate, ChronoLocalDateTime}
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
 
@@ -11,14 +11,14 @@ import scala.scalajs.js.annotation.JSName
 @JSName("JSJoda.LocalDateTime")
 object LocalDateTime extends js.Object {
   def now(clock: Clock = ???): LocalDateTime = js.native
-  //  def now(zone: ZoneId): LocalDateTime = js.native
-  //  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDateTime = js.native
+  def now(zone: ZoneId): LocalDateTime = js.native
+  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDateTime = js.native
   def of(year: Int, month: Int, dayOfMonth: Int, hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalDateTime = js.native
-  //  def of(year: Int, month: Month, dayOfMonth: Int): LocalDateTime = js.native
-  //  def of(year: Int, month: Month, dayOfMonth: Int, second: Int): LocalDateTime = js.native
-  //  def of(year: Int, month: Month, dayOfMonth: Int, second: Int, nanoOfSecond: Int): LocalDateTime = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int): LocalDateTime = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int, second: Int): LocalDateTime = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int, second: Int, nanoOfSecond: Int): LocalDateTime = js.native
   def of(date: LocalDate, time: LocalTime): LocalDateTime = js.native
-//  def ofEpochSecond(epochSecond: Double, nanoOfSecond: Int, offset: ZoneOffset): LocalDateTime = js.native
+  def ofEpochSecond(epochSecond: Double, nanoOfSecond: Int, offset: ZoneOffset): LocalDateTime = js.native
   def from(temporal: Temporal): LocalDateTime = js.native
   def parse(text: String, formatter: DateTimeFormatter = ???): LocalDateTime = js.native
 
@@ -27,7 +27,7 @@ object LocalDateTime extends js.Object {
 }
 
 @js.native
-class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[chrono.ChronoLocalDate] {
+class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalDate] {
   def year: Int = js.native
   def month: Month = js.native
   def monthValue: Int = js.native
@@ -73,7 +73,7 @@ class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[chrono.Chron
   def minusSeconds(secondsToSubtract: Double): LocalDateTime = js.native
   def minusNanos(nanosToSubtract: Double): LocalDateTime = js.native
   def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
-//  def atZone(zone: ZoneId): ZonedDateTime = js.native
+//    def atZone(zone: ZoneId): ZonedDateTime = js.native
   def toLocalDate(): LocalDate = js.native
   def toLocalTime(): LocalTime = js.native
   def compareTo(other: LocalDateTime): Int = js.native
@@ -81,5 +81,4 @@ class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[chrono.Chron
   def isBefore(other: LocalDateTime): Boolean = js.native
   def isEqual(other: LocalDateTime): Boolean = js.native
   def format(formatter: DateTimeFormatter): String = js.native
-  def adjustInto(temporal: Temporal): Temporal = js.native
 }
