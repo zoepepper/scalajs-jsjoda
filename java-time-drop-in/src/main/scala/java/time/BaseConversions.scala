@@ -14,6 +14,7 @@ import com.zoepepper.facades.jsjoda.{Year => YearF}
 import com.zoepepper.facades.jsjoda.{YearMonth => YearMonthF}
 import com.zoepepper.facades.jsjoda.{ZoneId => ZoneIdF}
 import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
+import com.zoepepper.facades.jsjoda.{ZonedDateTime => ZonedDateTimeF}
 
 import scala.language.implicitConversions
 
@@ -32,4 +33,5 @@ trait BaseConversions {
   implicit def f2YearMonth(f: YearMonthF): YearMonth = new YearMonth(f)
   implicit def zoneId2F(zoneId: ZoneId): ZoneIdF = zoneId.zoneIdF
   implicit def f2ZoneOffset(f: ZoneOffsetF): ZoneOffset = new ZoneOffset(f)
+  implicit def f2ZonedDateTime(f: ZonedDateTimeF): ZonedDateTime = new ZonedDateTime(f)
 }

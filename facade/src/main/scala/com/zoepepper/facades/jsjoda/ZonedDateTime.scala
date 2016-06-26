@@ -14,7 +14,7 @@ object ZonedDateTime extends js.Object {
   def now(zone: ZoneId): ZonedDateTime = js.native
   def ofInstant(instant: Instant, zone: ZoneId): ZonedDateTime = js.native
   def ofInstant(localDateTime: LocalDateTime, offset: ZoneOffset, zone: ZoneId): ZonedDateTime = js.native
-  def of(year: Int, month: Month, dayOfMonth: Int, hour: Int, minute: Int, second: Int, nanoOfSecond: Int, zone: ZoneId): ZonedDateTime = js.native
+  def of(year: Int, month: Int, dayOfMonth: Int, hour: Int, minute: Int, second: Int, nanoOfSecond: Int, zone: ZoneId): ZonedDateTime = js.native
   def of(date: LocalDate, time: LocalTime, zone: ZoneId): ZonedDateTime = js.native
   def of(localDateTime: LocalDateTime, zone: ZoneId): ZonedDateTime = js.native
   def ofLocal(localDateTime: LocalDateTime, zone: ZoneId, preferredOffsetZoneOffset: ZoneOffset): ZonedDateTime = js.native
