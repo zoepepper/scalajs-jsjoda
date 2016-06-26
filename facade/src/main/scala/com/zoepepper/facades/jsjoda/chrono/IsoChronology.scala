@@ -10,6 +10,8 @@ import scala.scalajs.js.annotation.JSName
 @JSName("JSJoda.IsoChronology")
 object IsoChronology extends js.Object {
   def isLeapYear(prolepticYear: Double): Boolean = js.native
+
+  val INSTANCE: IsoChronology = js.native
 }
 
 @js.native

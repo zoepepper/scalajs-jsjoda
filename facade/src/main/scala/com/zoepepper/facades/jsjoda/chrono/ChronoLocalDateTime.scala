@@ -9,6 +9,6 @@ import scala.scalajs.js
 trait ChronoLocalDateTime[D <: ChronoLocalDate] extends Temporal {
 //  def chronology: Chronology
   def adjustInto(temporal: Temporal): Temporal
-  def toInstant(offset: ZoneOffset): Instant
-  def toEpochSecond(offset: ZoneOffset): Long
+//  def toInstant(offset: ZoneOffset): Instant
+//  def toEpochSecond(offset: ZoneOffset): Long
 }

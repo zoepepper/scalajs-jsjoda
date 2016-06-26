@@ -1,6 +1,6 @@
 package java.time.zone
 
-import java.time.{Duration, Instant, LocalDateTime, ZoneOffset}
+import java.time.{Duration, Instant, LocalDateTime, Wraps, ZoneOffset}
 
 import com.zoepepper.facades.jsjoda.zone.{ZoneRules => ZoneRulesF}
 
@@ -12,7 +12,7 @@ object ZoneRules {
          lastRules: java.util.List[ZoneOffsetTransitionRule]) = ???
 }
 
-class ZoneRules protected[time](protected[time] val f: ZoneRulesF) {
+class ZoneRules protected[time](f: ZoneRulesF) extends Wraps(f) {
   def getDaylightSavings(instant: Instant): Duration = ???
   def getOffset(instant: Instant): ZoneOffset = f.offset(instant)
   def getOffset(localDateTime: LocalDateTime): ZoneOffset = f.offset(localDateTime)

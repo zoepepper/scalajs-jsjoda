@@ -42,6 +42,4 @@ trait BaseConversions {
 
 //  implicit def zoneOffset2F(zoneOffset: ZoneOffset): ZoneOffsetF = zoneOffset.f
   implicit def f2ZoneOffset(f: ZoneOffsetF): ZoneOffset = new ZoneOffset(f)
-
-  implicit def unwrapF[T <: AnyRef](wrapper: Wraps[T]): T = wrapper.f
 }

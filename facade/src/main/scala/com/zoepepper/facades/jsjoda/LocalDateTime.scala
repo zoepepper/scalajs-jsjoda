@@ -29,7 +29,7 @@ object LocalDateTime extends js.Object {
 @js.native
 class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[chrono.ChronoLocalDate] {
   def year: Int = js.native
-//  def month: Month = js.native
+  def month: Month = js.native
   def monthValue: Int = js.native
   def dayOfMonth: Int = js.native
   def dayOfYear: Int = js.native
