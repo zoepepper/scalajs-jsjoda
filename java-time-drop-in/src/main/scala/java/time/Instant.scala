@@ -18,7 +18,8 @@ object Instant {
   val MIN: Instant = InstantF.MIN
 }
 
-class Instant protected[time](f: InstantF) extends Wraps(f) with Temporal with TemporalAdjuster {
+class Instant protected[time](f: InstantF) extends Wraps(f) with Comparable[Instant]
+  with Temporal with TemporalAdjuster {
   def getEpochSecond(): Long = f.getEpochSecond().toLong
   def getNano(): Int = f.getNano()
   def isSupported(unit: TemporalUnit): Boolean = f.isSupported(unit)
@@ -35,7 +36,6 @@ class Instant protected[time](f: InstantF) extends Wraps(f) with Temporal with T
   def minusSeconds(secondsToSubtract: Long): Instant = f.minusSeconds(secondsToSubtract)
   def minusMillis(millisToSubtract: Long): Instant = f.minusMillis(millisToSubtract)
   def minusNanos(nanosToSubtract: Long): Instant = f.minusNanos(nanosToSubtract)
-  def adjustInto(temporal: Temporal): Temporal = f2Temporal(f.adjustInto(temporal), temporal)
   def toEpochMilli(): Long = f.toEpochMilli().toLong
   def compareTo(otherInstant: Instant): Int = f.compareTo(otherInstant)
   def isAfter(otherInstant: Instant): Boolean = f.isAfter(otherInstant)
