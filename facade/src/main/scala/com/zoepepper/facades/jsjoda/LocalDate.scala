@@ -17,7 +17,7 @@ object LocalDate extends js.Object {
   def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = js.native
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = js.native
   def ofEpochDay(epochDay: Double): LocalDate = js.native
-  def from(temporal: Temporal): LocalDate = js.native
+  def from(temporal: TemporalAccessor): LocalDate = js.native
   def parse(text: String, formatter: format.DateTimeFormatter = ???): LocalDate = js.native
 
   val MAX: LocalDate = js.native

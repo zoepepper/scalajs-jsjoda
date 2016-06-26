@@ -3,13 +3,13 @@ package java.time
 import java.Wraps
 import java.time.chrono.{ChronoLocalDate, ChronoPeriod, Era, IsoChronology}
 import java.time.format.DateTimeFormatter
-import java.time.temporal.{Temporal, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
+import java.time.temporal.{Temporal, TemporalAccessor, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
 import java.util.Comparator
 
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
 
 object LocalDate {
-  def from(temporal: Temporal): LocalDate = LocalDateF.from(temporal)
+  def from(temporal: TemporalAccessor): LocalDate = LocalDateF.from(temporal)
   def now(): LocalDate = LocalDateF.now()
   def now(clock: Clock): LocalDate = LocalDateF.now(clock)
   def now(zone: ZoneId): LocalDate = LocalDateF.now(zone)
