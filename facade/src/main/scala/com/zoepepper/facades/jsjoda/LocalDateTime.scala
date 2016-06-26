@@ -39,7 +39,6 @@ class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalD
   def second: Int = js.native
   def nano: Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
-  def getLong(unit: TemporalUnit): Double = js.native
   def `with`(adjuster: TemporalAdjuster): LocalDateTime = js.native
   def `with`(field: TemporalField, newValue: Double): LocalDateTime = js.native
   def withFieldAndValue(field: TemporalField, value: Double): LocalDateTime = js.native
@@ -72,7 +71,6 @@ class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalD
   def minusMinutes(minutesToSubtract: Double): LocalDateTime = js.native
   def minusSeconds(secondsToSubtract: Double): LocalDateTime = js.native
   def minusNanos(nanosToSubtract: Double): LocalDateTime = js.native
-  def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
 //    def atZone(zone: ZoneId): ZonedDateTime = js.native
   def toLocalDate(): LocalDate = js.native
   def toLocalTime(): LocalTime = js.native

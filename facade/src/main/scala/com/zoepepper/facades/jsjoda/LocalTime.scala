@@ -31,7 +31,6 @@ class LocalTime protected[jsjoda]() extends temporal.Temporal {
   def second: Int = js.native
   def nano: Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
-  def getLong(unit: TemporalUnit): Double = js.native
   def `with`(adjuster: TemporalAdjuster): LocalTime = js.native
   def `with`(field: TemporalField, newValue: Double): LocalTime = js.native
   def withHour(hour: Int): LocalTime = js.native
@@ -52,7 +51,6 @@ class LocalTime protected[jsjoda]() extends temporal.Temporal {
   def minusSeconds(secondsToSubtract: Double): LocalTime = js.native
   def minusNanos(nanosToSubtract: Double): LocalTime = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
-  def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
   def atDate(date: LocalDate): LocalDateTime = js.native
   def toSecondOfDay(): Int = js.native
   def toNanoOfDay(): Long = js.native

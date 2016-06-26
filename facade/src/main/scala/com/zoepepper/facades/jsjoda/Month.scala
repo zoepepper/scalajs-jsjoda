@@ -29,7 +29,6 @@ object Month extends js.Object {
 @js.native
 class Month extends Temporal {
   def value: Int = js.native
-  def getLong(unit: TemporalUnit): Double = js.native
   def plus(months: Double): Month = js.native
   def minus(months: Double): Month = js.native
   def length(leapYear: Boolean): Int = js.native
@@ -43,7 +42,6 @@ class Month extends Temporal {
   def minus(amount: TemporalAmount): Month = js.native
   def plus(amountToAdd: Double, unit: TemporalUnit): Month = js.native
   def plus(amount: TemporalAmount): Month = js.native
-  def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
-  def `with`(adjuster: TemporalAdjuster): Temporal = js.native
-  def `with`(field: TemporalField, newValue: Double): Temporal = js.native
+  def `with`(adjuster: TemporalAdjuster): Month = js.native
+  def `with`(field: TemporalField, newValue: Double): Month = js.native
 }

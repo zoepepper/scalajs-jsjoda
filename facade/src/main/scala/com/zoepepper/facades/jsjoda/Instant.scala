@@ -24,7 +24,6 @@ class Instant protected[jsjoda]() extends Temporal {
   def epochSecoond: Double = js.native
   def nano: Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
-  def getLong(unit: TemporalUnit): Double = js.native
   def `with`(adjuster: TemporalAdjuster): Instant = js.native
   def `with`(field: TemporalField, newValue: Double): Instant = js.native
   def truncatedTo(unit: TemporalUnit): Instant = js.native
@@ -39,7 +38,6 @@ class Instant protected[jsjoda]() extends Temporal {
   def minusMillis(millisToSubtract: Double): Instant = js.native
   def minusNanos(nanosToSubtract: Double): Instant = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
-  def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
   def toEpochMilli(): Double = js.native
   def compareTo(otherInstant: Instant): Int = js.native
   def isAfter(otherInstant: Instant): Boolean = js.native
