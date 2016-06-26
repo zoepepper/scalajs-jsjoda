@@ -14,7 +14,7 @@ object Year extends js.Object {
   def of(isoYear: Int): Year = js.native
   def from(temporal: TemporalAccessor): Year = js.native
   def parse(text: String, formatter: DateTimeFormatter = ???): Year = js.native
-  def isLeap(year: Int): Boolean = js.native
+  def isLeap(year: Double): Boolean = js.native
 
   val MAX_VALUE: Year = js.native
   val MIN_VALUE: Year = js.native
