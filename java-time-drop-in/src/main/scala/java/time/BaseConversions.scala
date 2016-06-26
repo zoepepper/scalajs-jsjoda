@@ -10,6 +10,7 @@ import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 import com.zoepepper.facades.jsjoda.{Month => MonthF}
 import com.zoepepper.facades.jsjoda.{MonthDay => MonthDayF}
 import com.zoepepper.facades.jsjoda.{Period => PeriodF}
+import com.zoepepper.facades.jsjoda.{YearMonth => YearMonthF}
 import com.zoepepper.facades.jsjoda.{ZoneId => ZoneIdF}
 import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
 
@@ -26,6 +27,7 @@ trait BaseConversions {
   implicit def f2Month(f: MonthF): Month = new Month(f)
   implicit def f2MonthDay(f: MonthDayF): MonthDay = new MonthDay(f)
   implicit def f2Period(f: PeriodF): Period = new Period(f)
+  implicit def f2YearMonth(f: YearMonthF): YearMonth = new YearMonth(f)
   implicit def zoneId2F(zoneId: ZoneId): ZoneIdF = zoneId.zoneIdF
   implicit def f2ZoneOffset(f: ZoneOffsetF): ZoneOffset = new ZoneOffset(f)
 }

@@ -13,8 +13,8 @@ object YearMonth extends js.Object {
   def now(zone: ZoneId): YearMonth = js.native
   def of(year: Int, month: Int): YearMonth = js.native
   def of(year: Int, month: Month): YearMonth = js.native
-  def from(temporal: TemporalAccessor): Year = js.native
-  def parse(text: String, formatter: DateTimeFormatter = ???): Year = js.native
+  def from(temporal: TemporalAccessor): YearMonth = js.native
+  def parse(text: String, formatter: DateTimeFormatter = ???): YearMonth = js.native
 }
 
 @js.native
