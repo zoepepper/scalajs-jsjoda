@@ -17,7 +17,7 @@ object Duration extends js.Object {
   def ofMillis(millis: Double): Duration = js.native
   def ofNanos(nanos: Double): Duration = js.native
   def of(amount: Double, unit: TemporalUnit): Duration = js.native
-  def from(amount: Double): Duration = js.native
+  def from(amount: TemporalAmount): Duration = js.native
   def between(startInclusive: Temporal, endExclusive: Temporal): Duration = js.native
   def parse(text: String): Duration = js.native
 

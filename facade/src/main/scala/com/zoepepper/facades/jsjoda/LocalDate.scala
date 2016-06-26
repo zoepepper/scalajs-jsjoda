@@ -11,8 +11,8 @@ import scala.scalajs.js.annotation.JSName
 @JSName("JSJoda.LocalDate")
 object LocalDate extends js.Object {
   def now(clock: Clock = ???): LocalDate = js.native
-//  def now(zone: ZoneId): LocalDate = js.native
-//  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDate = js.native
+  def now(zone: ZoneId): LocalDate = js.native
+  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDate = js.native
   def of(year: Int, month: Int, dayOfMonth: Int): LocalDate = js.native
 //  def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = js.native
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = js.native
@@ -59,7 +59,7 @@ class LocalDate protected[jsjoda]() extends ChronoLocalDate {
 //  def until(endDate: ChronoLocalDate): Period = js.native
   def atTime(time: LocalTime): LocalDateTime = js.native
   def atTime(hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalDateTime = js.native
-//  def atStartOfDay(zone: ZoneId = ???): LocalDateTime = js.native
+  def atStartOfDay(zone: ZoneId = ???): LocalDateTime = js.native
   def toEpochDay(): Long = js.native
   def compareTo(other: LocalDate): Int = js.native
   def isAfter(other: LocalDate): Boolean = js.native

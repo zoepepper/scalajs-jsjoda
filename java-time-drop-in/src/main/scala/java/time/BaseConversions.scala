@@ -7,6 +7,7 @@ import com.zoepepper.facades.jsjoda.{Instant => InstantF}
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
 import com.zoepepper.facades.jsjoda.{LocalDateTime => LocalDateTimeF}
 import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
+import com.zoepepper.facades.jsjoda.{Month => MonthF}
 import com.zoepepper.facades.jsjoda.{ZoneId => ZoneIdF}
 import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
 
@@ -19,7 +20,7 @@ trait BaseConversions {
 //  implicit def dayOfWeek2F(dayOfWeek: DayOfWeek): DayOfWeekF = dayOfWeek.f
   implicit def f2DayOfWeek(f: DayOfWeekF): DayOfWeek = new DayOfWeek(f)
 
-  implicit def duration2F(duration: Duration): DurationF = duration.f
+//  implicit def duration2F(duration: Duration): DurationF = duration.f
   implicit def f2Duration(f: DurationF): Duration = new Duration(f)
 
 //  implicit def instant2F(instant: Instant): InstantF = instant.f.asInstanceOf[InstantF]
@@ -33,6 +34,9 @@ trait BaseConversions {
 
   implicit def localTime2F(localTime: LocalTime): LocalTimeF = localTime.f
   implicit def f2LocalTime(f: LocalTimeF): LocalTime = new LocalTime(f)
+
+//  implicit def month2F(month: Month): MonthF = month.f
+  implicit def f2LocalTime(f: MonthF): Month = new Month(f)
 
   implicit def zoneId2F(zoneId: ZoneId): ZoneIdF = zoneId.zoneIdF
 
