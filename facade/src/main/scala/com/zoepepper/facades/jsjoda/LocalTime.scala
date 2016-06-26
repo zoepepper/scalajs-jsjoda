@@ -12,10 +12,10 @@ object LocalTime extends js.Object {
   def now(clock: Clock = ???): LocalTime = js.native
   def now(zone: ZoneId): LocalTime = js.native
   def ofInstant(instant: Instant, zone: ZoneId = ???): LocalTime = js.native
-  def of(hour: Int, minute: Int, second: Int, nanoOfSecond: Int): LocalTime = js.native
+  def of(hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalTime = js.native
   def ofSecondOfDay(secondOfDay: Double, nanoOfSecond: Int = 0): LocalTime = js.native
   def ofNanoOfDay(nanoOfDay: Double): LocalTime = js.native
-  def from(temporal: Temporal): LocalTime = js.native
+  def from(temporal: TemporalAccessor): LocalTime = js.native
   def parse(text: String, formatter: DateTimeFormatter = ???): LocalTime = js.native
 
   val MAX: LocalDate = js.native

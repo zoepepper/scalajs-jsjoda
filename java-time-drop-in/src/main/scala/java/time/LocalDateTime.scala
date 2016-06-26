@@ -30,6 +30,12 @@ object LocalDateTime {
 }
 
 class LocalDateTime protected[time](f: LocalDateTimeF) extends Wraps(f) with ChronoLocalDateTime[LocalDate] {
+  def atOffset(offset: ZoneOffset): OffsetDateTime = ???
+//  def atZone(zone: ZoneId): ZonedDateTime = ???
+  def compareTo(other: ChronoLocalDateTime[_]): Int = f.compareTo(other.asInstanceOf[LocalDateTime])
+  
+
+
   def getYear(): Int = f.getYear()
 //  def getMonth(): Month = f.getMonth()
   def getMonthValue(): Int = f.getMonthValue()
@@ -80,7 +86,7 @@ class LocalDateTime protected[time](f: LocalDateTimeF) extends Wraps(f) with Chr
 //  def atZone(zone: ZoneId): ZonedDateTime = js.native
   def toLocalDate(): LocalDate = f.toLocalDate()
   def toLocalTime(): LocalTime = f.toLocalTime()
-  def compareTo(other: LocalDateTime): Int = f.compareTo(other)
+
   def isAfter(other: LocalDateTime): Boolean = f.isAfter(other)
   def isBefore(other: LocalDateTime): Boolean = f.isBefore(other)
   def isEqual(other: LocalDateTime): Boolean = f.isEqual(other)

@@ -1,18 +1,20 @@
 package java.time
 
 import java.time.format.DateTimeFormatter
+import java.time.temporal.{Temporal, TemporalAccessor, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 
 object LocalTime {
+  def from(temporal: TemporalAccessor): LocalTime = LocalTimeF.from(temporal)
   def now(): LocalTime = LocalTimeF.now()
   def now(clock: Clock): LocalTime = LocalTimeF.now(clock)
-//  def now(zone: ZoneId): LocalTime = js.native
-//  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalTime = js.native
+  def now(zone: ZoneId): LocalTime = LocalTimeF.now(zone)
+  def of(hour: Int, minute: Int): LocalTime = LocalTimeF.of(hour, minute)
+  def of(hour: Int, minute: Int, second: Int): LocalTime = LocalTimeF.of(hour, minute, second)
   def of(hour: Int, minute: Int, second: Int, nanoOfSecond: Int): LocalTime = LocalTimeF.of(hour, minute, second, nanoOfSecond)
-  def ofSecondOfDay(secondOfDay: Long): LocalTime = LocalTimeF.ofSecondOfDay(secondOfDay)
   def ofNanoOfDay(nanoOfDay: Long): LocalTime = LocalTimeF.ofNanoOfDay(nanoOfDay)
-//  def from(temporal: Temporal): LocalTime = js.native
+  def ofSecondOfDay(secondOfDay: Long): LocalTime = LocalTimeF.ofSecondOfDay(secondOfDay)
   def parse(text: CharSequence): LocalTime = LocalTimeF.parse(text.toString)
   def parse(text: CharSequence, formatter: DateTimeFormatter): LocalTime = LocalTimeF.parse(text.toString, formatter)
 
@@ -22,43 +24,40 @@ object LocalTime {
   val NOON: LocalDate = LocalTimeF.NOON
 }
 
-class LocalTime protected[time](protected[time] val f: LocalTimeF) /*extends temporal.Temporal*/ {
-  def getHour(): Int = f.getHour()
-  def getMinute(): Int = f.getMinute()
-  def getSecond(): Int = f.getSecond()
-  def getNano(): Int = f.getNano()
-//  def isSupported(field: TemporalField): Boolean = js.native
-//  def isSupported(unit: TemporalUnit): Boolean = js.native
-//  def getLong(unit: TemporalUnit): Long = js.native
-//  def `with`(adjuster: TemporalAdjuster, newValue: Double): LocalTime = js.native
-//  def `with`(field: TemporalField, newValue: Double): LocalTime = js.native
-//  def withTemporalAdjuster(adjuster: TemporalAdjuster): LocalTime = js.native
-  def withHour(hour: Int): LocalTime = f.withHour(hour)
-  def withMinute(minute: Int): LocalTime = f.withMinute(minute)
-  def withSecond(second: Int): LocalTime = f.withSecond(second)
-  def withNano(nano: Int): LocalTime = f.withNano(nano)
-//  def truncatedTo(unit: TemporalUnit): LocalTime = js.native
-//  def plus(amount: temporal.TemporalAmount): LocalTime = js.native
-//  def plus(amount: Long, unit: TemporalUnit): LocalTime = js.native
-  def plusHours(hoursToAdd: Long): LocalTime = f.plusHours(hoursToAdd)
-  def plusMinutes(minutesToAdd: Long): LocalTime = f.plusMinutes(minutesToAdd)
-  def plusSeconds(secondsToAdd: Long): LocalTime = f.plusSeconds(secondsToAdd)
-  def plusNanos(nanosToAdd: Long): LocalTime = f.plusNanos(nanosToAdd)
-//  def minus(amount: TemporalAmount): LocalTime = js.native
-//  def minus(amount: Long, unit: TemporalUnit): LocalTime = js.native
+class LocalTime protected[time](f: LocalTimeF) extends Wraps(f) with Comparable[LocalTime]
+  with Temporal with TemporalAdjuster {
+  def atDate(date: LocalDate): LocalDateTime = f.atDate(date)
+  def atOffset(offset: ZoneOffset): OffsetTime = ???
+  def compareTo(other: LocalTime): Int = f.compareTo(other)
+  def format(formatter: DateTimeFormatter): String = f.format(formatter)
+  def getHour(): Int = f.hour
+  def getMinute(): Int = f.minute
+  def getSecond(): Int = f.second
+  def getNano(): Int = f.nano
+  def isAfter(other: LocalTime): Boolean = f.isAfter(other)
+  def isBefore(other: LocalTime): Boolean = f.isBefore(other)
+  def isSupported(unit: TemporalUnit): Boolean = f.isSupported(unit)
+  def minus(amount: TemporalAmount): LocalTime = f.minus(amount)
+  def minus(amount: Long, unit: TemporalUnit): LocalTime = f.minus(amount, unit)
   def minusHours(hoursToSubtract: Long): LocalTime = f.minusHours(hoursToSubtract)
   def minusMinutes(minutesToSubtract: Long): LocalTime = f.minusMinutes(minutesToSubtract)
   def minusSeconds(secondsToSubtract: Long): LocalTime = f.minusSeconds(secondsToSubtract)
   def minusNanos(nanosToSubtract: Long): LocalTime = f.minusNanos(nanosToSubtract)
-//  def adjustInto(temporal: Temporal): Temporal = js.native
-//  def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
-//  def atDate(date: LocalDate): LocalDateTime = js.native
-  def toSecondOfDay(): Int = f.toSecondOfDay()
+  def plus(amount: TemporalAmount): LocalTime = f.plus(amount)
+  def plus(amount: Long, unit: TemporalUnit): LocalTime = f.plus(amount, unit)
+  def plusHours(hoursToAdd: Long): LocalTime = f.plusHours(hoursToAdd)
+  def plusMinutes(minutesToAdd: Long): LocalTime = f.plusMinutes(minutesToAdd)
+  def plusSeconds(secondsToAdd: Long): LocalTime = f.plusSeconds(secondsToAdd)
+  def plusNanos(nanosToAdd: Long): LocalTime = f.plusNanos(nanosToAdd)
   def toNanoOfDay(): Long = f.toNanoOfDay()
-  def compareTo(other: LocalTime): Int = f.compareTo(other)
-  def isAfter(other: LocalTime): Boolean = f.isAfter(other)
-  def isBefore(other: LocalTime): Boolean = f.isBefore(other)
-  def format(formatter: DateTimeFormatter): String = f.format(formatter)
+  def toSecondOfDay(): Int = f.toSecondOfDay()
+  def truncatedTo(unit: TemporalUnit): LocalTime = f.truncatedTo(unit)
+  def `with`(adjuster: TemporalAdjuster): LocalTime = f.`with`(adjuster)
+  def `with`(field: TemporalField, newValue: Long): LocalTime = f.`with`(field, newValue)
+  def withHour(hour: Int): LocalTime = f.withHour(hour)
+  def withMinute(minute: Int): LocalTime = f.withMinute(minute)
+  def withSecond(second: Int): LocalTime = f.withSecond(second)
+  def withNano(nano: Int): LocalTime = f.withNano(nano)
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
