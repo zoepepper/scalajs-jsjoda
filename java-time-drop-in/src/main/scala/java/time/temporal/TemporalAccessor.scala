@@ -10,6 +10,6 @@ trait TemporalAccessor {self: Wrapper =>
   def get(field: TemporalField): Int = temporalAccessorF.get(field)
   def getLong(field: TemporalField): Long = temporalAccessorF.get(field).toLong
   def isSupported(field: TemporalField): Boolean = temporalAccessorF.isSupported(field)
-//  def query[T](query: TemporalQuery[T]): T = f.query(query) We should wrap result
+  def query[T](query: TemporalQuery[T]): T = ??? // How can we wrap result?
   def range(field: TemporalField): ValueRange = temporalAccessorF.range(field)
 }
