@@ -6,6 +6,7 @@ def BaseProject(name: String): Project =
       organization := "com.zoepepper",
       version := "0.0.1-SNAPSHOT",
       scalaVersion := "2.11.8",
+      scalacOptions ++= Seq("-feature"),
       licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
       scmInfo := Some(ScmInfo(
         url("https://github.com/zoepepper/scalajs-js-joda-as-java-time"),
