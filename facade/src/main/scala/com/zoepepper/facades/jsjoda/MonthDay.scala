@@ -31,6 +31,7 @@ class MonthDay extends Temporal {
   def compareTo(other: MonthDay): Int = js.native
   def isAfter(other: MonthDay): Boolean = js.native
   def isBefore(other: MonthDay): Boolean = js.native
+  def format(formatter: DateTimeFormatter): String = js.native
 
   def minus(amountToSubtract: Double, unit: TemporalUnit): MonthDay = js.native
   def minus(amount: TemporalAmount): MonthDay = js.native
