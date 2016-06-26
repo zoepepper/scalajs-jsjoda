@@ -1,8 +1,12 @@
 package java.time.temporal
 
+import java.time.Wrapper
+
 import com.zoepepper.facades.jsjoda.temporal.{TemporalQuery => TemporalQueryF}
 
-abstract class TemporalQuery[R] protected[time](protected[time] val f: TemporalQueryF[_]) {
+trait TemporalQuery[R] { self: Wrapper =>
+  protected[time] val temporalQueryF = self.f.asInstanceOf[TemporalQueryF[_]]
+
   def queryFrom(temporal: TemporalAccessor): R
 
   override def toString(): String = f.toString()

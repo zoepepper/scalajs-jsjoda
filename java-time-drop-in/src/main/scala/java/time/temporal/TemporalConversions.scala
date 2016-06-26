@@ -53,7 +53,7 @@ trait TemporalConversions extends BaseConversions {
 
   implicit def temporalField2F(temporalField: TemporalField): TemporalFieldF = temporalField.temporalFieldF
 
-  implicit def temporalQuery2F[R](temporalQuery: TemporalQuery[R]): TemporalQueryF[_] = temporalQuery.f
+  implicit def temporalQuery2F[R](temporalQuery: TemporalQuery[R]): TemporalQueryF[_] = temporalQuery.temporalQueryF
 
   implicit def temporalUnit2F(temporalUnit: TemporalUnit): TemporalUnitF = temporalUnit.temporalUnitF
 
