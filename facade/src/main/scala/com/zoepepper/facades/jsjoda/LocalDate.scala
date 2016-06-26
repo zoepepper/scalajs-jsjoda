@@ -16,7 +16,7 @@ object LocalDate extends js.Object {
   def of(year: Int, month: Int, dayOfMonth: Int): LocalDate = js.native
   def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = js.native
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = js.native
-  def ofEpochDay(epochDay: Double = ???): LocalDate = js.native
+  def ofEpochDay(epochDay: Double): LocalDate = js.native
   def from(temporal: Temporal): LocalDate = js.native
   def parse(text: String, formatter: format.DateTimeFormatter = ???): LocalDate = js.native
 
@@ -60,7 +60,7 @@ class LocalDate protected[jsjoda]() extends ChronoLocalDate {
   def atTime(time: LocalTime): LocalDateTime = js.native
   def atTime(hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalDateTime = js.native
   def atStartOfDay(zone: ZoneId = ???): LocalDateTime = js.native
-  def toEpochDay(): Long = js.native
+  def toEpochDay(): Double = js.native
   def compareTo(other: LocalDate): Int = js.native
   def isAfter(other: LocalDate): Boolean = js.native
   def isBefore(other: LocalDate): Boolean = js.native

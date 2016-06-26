@@ -1,5 +1,7 @@
 package java.time.format
 
+import java.time.Wraps
+
 import com.zoepepper.facades.jsjoda.format.{DateTimeFormatter => DateTimeFormatterF}
 
 object DateTimeFormatter {
@@ -17,7 +19,7 @@ object DateTimeFormatter {
   val PARSED_LEAP_SECOND: DateTimeFormatter = DateTimeFormatterF.PARSED_LEAP_SECOND
 }
 
-class DateTimeFormatter protected[time](protected[time] val f: DateTimeFormatterF) {
+class DateTimeFormatter protected[time](f: DateTimeFormatterF) extends Wraps(f) {
 //  def getDecimalStyle(): DecimalStyle = js.native
 //  def getChronology(): Chronology = js.native
 //  def withChronology(chrono: Chronology): DateTimeFormatter = js.native

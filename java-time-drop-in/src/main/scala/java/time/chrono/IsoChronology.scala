@@ -14,6 +14,7 @@ object IsoChronology {
 }
 
 class IsoChronology protected[time](f: IsoChronologyF) extends Wraps(f) with Chronology {
+  def compareTo(other: Chronology): Int = ???
   def date(era: Era, yearOfEra: Int, month: Int, dayOfMonth: Int): LocalDate = ???
   def date(prolepticYear: Int, month: Int, dayOfMonth: Int): LocalDate = ???
   def date(temporal: TemporalAccessor): LocalDate = ???

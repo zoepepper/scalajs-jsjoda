@@ -9,6 +9,7 @@ import com.zoepepper.facades.jsjoda.chrono.{ChronoLocalDate => ChronoLocalDateF}
 
 object ChronoLocalDate {
   def from(temporal: TemporalAccessor): ChronoLocalDate = ???
+  def timeLineOrder(): Comparator[ChronoLocalDate] = ???
 }
 
 trait ChronoLocalDate extends Comparable[ChronoLocalDate] with Temporal with TemporalAdjuster {
@@ -24,10 +25,9 @@ trait ChronoLocalDate extends Comparable[ChronoLocalDate] with Temporal with Tem
   def isBefore(other: ChronoLocalDate): Boolean
   def isEqual(other: ChronoLocalDate): Boolean
   def isLeapYear(): Boolean
-    def isSupported(unit: TemporalUnit): Boolean
+  def isSupported(unit: TemporalUnit): Boolean
   def lengthOfMonth(): Int
   def lengthOfYear(): Int
-  def timeLineOrder(): Comparator[ChronoLocalDate]
   def toEpochDay(): Long
   def until(endDateExclusive: ChronoLocalDate): ChronoPeriod
 }
