@@ -2,4 +2,4 @@ package java.time
 
 import java.Unwrapper
 
-package object temporal extends Unwrapper with TemporalConversions with TraversableConversions
+package object temporal extends Unwrapper with BaseConversions with TemporalConversions with TraversableConversions

@@ -1,8 +1,8 @@
 package com.zoepepper.facades.jsjoda.format
 
-import com.zoepepper.facades.jsjoda.Period
+import com.zoepepper.facades.jsjoda.{Period, ZoneId}
 import com.zoepepper.facades.jsjoda.chrono.IsoChronology
-import com.zoepepper.facades.jsjoda.temporal.{TemporalAccessor, TemporalQuery}
+import com.zoepepper.facades.jsjoda.temporal.{TemporalAccessor, TemporalField, TemporalQuery}
 
 import scalajs.js
 import scalajs.js.annotation.JSName
@@ -11,7 +11,7 @@ import scalajs.js.annotation.JSName
 @JSName("JSJoda.DateTimeFormatter")
 object DateTimeFormatter extends js.Object {
   def parsedExcessDays(): TemporalQuery[Period] = js.native
-  def parsedLeapSecond(): Boolean = js.native
+  def parsedLeapSecond(): TemporalQuery[Boolean] = js.native
   def ofPattern(pattern: String): DateTimeFormatter = js.native
 
   val ISO_LOCAL_DATE: DateTimeFormatter = js.native
@@ -33,4 +33,7 @@ class DateTimeFormatter protected[jsjoda]() extends js.Object {
   def parse(text: String): TemporalAccessor = js.native
   def parse[T](text: String, query: TemporalQuery[T]): T = js.native
   def parseUnresolved(text: String, position: ParsePosition): TemporalAccessor = js.native
+  val resolverFields: js.Array[TemporalField] = js.native
+  val resolverStyle: ResolverStyle = js.native
+  val zone: ZoneId = js.native
 }

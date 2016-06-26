@@ -20,7 +20,7 @@ import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 
 import scala.language.implicitConversions
 
-trait TemporalConversions extends BaseConversions {
+trait TemporalConversions { self: BaseConversions =>
   implicit def f2ChronoField(f: ChronoFieldF): ChronoField = new ChronoField(f)
 
   implicit def f2ChronoUnit(f: ChronoUnitF): ChronoUnit = new ChronoUnit(f)
