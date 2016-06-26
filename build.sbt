@@ -4,7 +4,7 @@ def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
-      version := "0.0.3-SNAPSHOT",
+      version := "1.0.0",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq("-feature"),
       licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
