@@ -1,5 +1,6 @@
 package java.time
 
+import java.time.chrono. ChronoLocalDateTime
 import java.time.format.DateTimeFormatter
 
 import com.zoepepper.facades.jsjoda.{LocalDateTime => LocalDateTimeF}
@@ -28,7 +29,7 @@ object LocalDateTime {
   val MIN: LocalDateTime = LocalDateTimeF.MIN
 }
 
-class LocalDateTime protected[time](protected[time] val f: LocalDateTimeF) /*extends ChronoLocalDateTime[chrono.ChronoLocalDate]*/ {
+class LocalDateTime protected[time](f: LocalDateTimeF) extends Wraps(f) with ChronoLocalDateTime[LocalDate] {
   def getYear(): Int = f.getYear()
 //  def getMonth(): Month = f.getMonth()
   def getMonthValue(): Int = f.getMonthValue()
