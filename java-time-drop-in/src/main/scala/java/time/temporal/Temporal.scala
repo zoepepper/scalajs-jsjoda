@@ -8,6 +8,6 @@ abstract class Temporal protected[time](f: TemporalF) extends TemporalAccessor(f
   def plus(amountToAdd: Long, unit: TemporalUnit): Temporal
   def plus(amount: TemporalAmount): Temporal
   def until(endExclusive: Temporal, unit: TemporalUnit): Long = f.until(endExclusive, unit).toLong
-//  def `with`(adjuster: TemporalAdjuster): Temporal
+  def `with`(adjuster: TemporalAdjuster): Temporal
   def `with`(field: TemporalField, newValue: Long): Temporal
 }

@@ -7,6 +7,7 @@ import com.zoepepper.facades.jsjoda.{Instant => InstantF}
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
 import com.zoepepper.facades.jsjoda.{LocalDateTime => LocalDateTimeF}
 import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
+import com.zoepepper.facades.jsjoda.{ZoneId => ZoneIdF}
 
 import scala.language.implicitConversions
 
@@ -31,4 +32,7 @@ trait BaseConversions {
 
   implicit def localTime2F(localTime: LocalTime): LocalTimeF = localTime.f
   implicit def f2LocalTime(f: LocalTimeF): LocalTime = new LocalTime(f)
+
+  implicit def zoneId2F(zoneId: ZoneId): ZoneIdF = zoneId.f
+  implicit def f2ZoneId(f: ZoneIdF): ZoneId = new ZoneId(f)
 }

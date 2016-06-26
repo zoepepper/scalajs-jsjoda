@@ -1,5 +1,8 @@
 package java.time.temporal
 
+import java.time.format.ResolverStyle
+import java.util.Locale
+
 import com.zoepepper.facades.jsjoda.temporal.{ChronoField => ChronoFieldF}
 
 class TemporalField protected[time](protected[time] val f: ChronoFieldF) {
@@ -11,9 +14,10 @@ class TemporalField protected[time](protected[time] val f: ChronoFieldF) {
   def getRangeUnit(): TemporalUnit = f.rangeUnit
   def getBaseUnit(): TemporalUnit = f.baseUnit
   def isTimeBased(): Boolean = f.isTimeBased
-  //  def adjustInto[R <: Temporal](temporal: R, newValue: Long): R
-  //  def getDisplayName(locale: Locale): String
-  //  def resolve(fieldValues: java.util.Map[TemporalField, Long], partialTemporal: TemporalAccessor, resolverStyle: ResolverStyle): TemporalAccessor
+  def adjustInto[R <: Temporal](temporal: R, newValue: Long): R = ???
+  def getDisplayName(locale: Locale): String = ???
+  def resolve(fieldValues: java.util.Map[TemporalField, Long], partialTemporal: TemporalAccessor,
+              resolverStyle: ResolverStyle): TemporalAccessor = ???
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
