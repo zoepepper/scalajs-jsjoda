@@ -8,6 +8,7 @@ import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
 import com.zoepepper.facades.jsjoda.{LocalDateTime => LocalDateTimeF}
 import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 import com.zoepepper.facades.jsjoda.{ZoneId => ZoneIdF}
+import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
 
 import scala.language.implicitConversions
 
@@ -21,7 +22,7 @@ trait BaseConversions {
   implicit def duration2F(duration: Duration): DurationF = duration.f
   implicit def f2Duration(f: DurationF): Duration = new Duration(f)
 
-  implicit def instant2F(instant: Instant): InstantF = instant.f.asInstanceOf[InstantF]
+//  implicit def instant2F(instant: Instant): InstantF = instant.f.asInstanceOf[InstantF]
   implicit def f2Instant(f: InstantF): Instant = new Instant(f)
 
   implicit def localDate2F(localDate: LocalDate): LocalDateF = localDate.f
@@ -33,6 +34,10 @@ trait BaseConversions {
   implicit def localTime2F(localTime: LocalTime): LocalTimeF = localTime.f
   implicit def f2LocalTime(f: LocalTimeF): LocalTime = new LocalTime(f)
 
-  implicit def zoneId2F(zoneId: ZoneId): ZoneIdF = zoneId.f
-  implicit def f2ZoneId(f: ZoneIdF): ZoneId = new ZoneId(f)
+  implicit def zoneId2F(zoneId: ZoneId): ZoneIdF = zoneId.zoneIdF
+
+//  implicit def zoneOffset2F(zoneOffset: ZoneOffset): ZoneOffsetF = zoneOffset.f
+  implicit def f2ZoneOffset(f: ZoneOffsetF): ZoneOffset = new ZoneOffset(f)
+
+  implicit def unwrapF[T <: AnyRef](wrapper: Wraps[T]): T = wrapper.f
 }

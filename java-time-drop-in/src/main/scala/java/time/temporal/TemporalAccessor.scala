@@ -1,13 +1,15 @@
 package java.time.temporal
 
+import java.time.Wrapper
+
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAccessor => TemporalAccessorF}
 
-// TemporalAccessor is the most generic class, encompassing all Temporal and TemporalAdjuster classes.
-// Therefore, it will be the one to keep the facade reference.
-abstract class TemporalAccessor protected[time](protected[time] val f: TemporalAccessorF) {
-  def get(field: TemporalField): Int = f.get(field).toInt
-  def getLong(field: TemporalField): Long = f.get(field).toLong
-  def isSupported(field: TemporalField): Boolean = f.isSupported(field)
+trait TemporalAccessor {self: Wrapper =>
+  protected[time] val temporalAccessorF = self.f.asInstanceOf[TemporalAccessorF]
+
+  def get(field: TemporalField): Int = temporalAccessorF.get(field)
+  def getLong(field: TemporalField): Long = temporalAccessorF.get(field).toLong
+  def isSupported(field: TemporalField): Boolean = temporalAccessorF.isSupported(field)
 //  def query[T](query: TemporalQuery[T]): T = f.query(query) We should wrap result
-  def range(field: TemporalField): ValueRange = f.range(field)
+  def range(field: TemporalField): ValueRange = temporalAccessorF.range(field)
 }

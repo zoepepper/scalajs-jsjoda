@@ -27,7 +27,7 @@ trait TemporalConversions extends BaseConversions {
   implicit def chronoUnit2F(chronoUnit: ChronoUnit): ChronoUnitF = chronoUnit.f
   implicit def f2ChronoUnit(f: ChronoUnitF): ChronoUnit = new ChronoUnit(f)
 
-  implicit def temporal2F[R <: Temporal](temporal: R): TemporalF = temporal.f.asInstanceOf[TemporalF]
+  implicit def temporal2F[R <: Temporal](temporal: R): TemporalF = temporal.temporalF
   def f2Temporal[R <: Temporal](f: TemporalF, target: R): Temporal = target.getClass match {
     // All known Temporal implementing classes.
     //    case c if c == classOf[HijrahDate] => f.asInstanceOf[HijrahDateF]
@@ -45,9 +45,9 @@ trait TemporalConversions extends BaseConversions {
     //    case c if c == classOf[ZonedDateTime] => f.asInstanceOf[ZonedDateTimeF]
   }
 
-  implicit def temporalAccessor2F(temporalAccessor: TemporalAccessor): TemporalAccessorF = temporalAccessor.f
+  implicit def temporalAccessor2F(temporalAccessor: TemporalAccessor): TemporalAccessorF = temporalAccessor.temporalAccessorF
 
-  implicit def temporalAdjuster2F(temporalAdjuster: TemporalAdjuster): TemporalAdjusterF = temporalAdjuster.taf
+  implicit def temporalAdjuster2F(temporalAdjuster: TemporalAdjuster): TemporalAdjusterF = temporalAdjuster.temporalAdjusterF
 
   implicit def temporalAmount2F(temporalAmount: TemporalAmount): TemporalAmountF = temporalAmount.f.asInstanceOf[TemporalAmountF]
 
