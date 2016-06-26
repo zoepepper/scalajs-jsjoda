@@ -32,7 +32,7 @@ class LocalDate protected[jsjoda]() extends ChronoLocalDate {
   def dayOfMonth: Int = js.native
   def dayOfYear: Int = js.native
   def dayOfWeek: DayOfWeek = js.native
-  def getLong(unit: TemporalUnit): Long = js.native
+  def getLong(unit: TemporalUnit): Double = js.native
 //  def chronology: Chronology = js.native
   def isLeapYear(): Boolean = js.native
   def lengthOfMonth(): Int = js.native

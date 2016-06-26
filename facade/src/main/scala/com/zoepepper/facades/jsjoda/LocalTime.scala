@@ -31,7 +31,7 @@ class LocalTime protected[jsjoda]() extends temporal.Temporal {
   def second: Int = js.native
   def nano: Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
-  def getLong(unit: TemporalUnit): Long = js.native
+  def getLong(unit: TemporalUnit): Double = js.native
   def `with`(adjuster: TemporalAdjuster): LocalTime = js.native
   def `with`(field: TemporalField, newValue: Double): LocalTime = js.native
   def withHour(hour: Int): LocalTime = js.native

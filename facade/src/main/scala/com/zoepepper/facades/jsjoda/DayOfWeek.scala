@@ -27,7 +27,7 @@ object DayOfWeek extends js.Object {
 @js.native
 class DayOfWeek protected[jsjoda]() extends TemporalAccessor {
   def value: Int = js.native
-  def getLong(field: TemporalField): Long = js.native
+  def getLong(field: TemporalField): Double = js.native
   def plus(days: Double): DayOfWeek = js.native
   def minus(days: Double): DayOfWeek = js.native
   def adjustInto(temporal: TemporalAdjusters): Temporal = js.native

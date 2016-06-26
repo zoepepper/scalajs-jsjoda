@@ -1,5 +1,11 @@
 package java.time
 
-class ZoneOffset extends ZoneId {
+import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
+
+object ZoneOffset {
+
+}
+
+class ZoneOffset protected[time](f: ZoneOffsetF) extends ZoneId(f) {
 
 }
