@@ -2,19 +2,24 @@ package java.time
 
 import java.time.chrono.ChronoLocalDate
 import java.time.format.DateTimeFormatter
+import java.time.temporal.Temporal
 
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
+
+import scala.scalajs
+import scala.scalajs.js
 
 object LocalDate {
   def now(): LocalDate = LocalDateF.now()
   def now(clock: Clock): LocalDate = LocalDateF.now(clock)
-//  def now(zone: ZoneId): LocalDate = js.native
-//  def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDate = js.native
+  def now(zone: ZoneId): LocalDate = LocalDateF.now(zone)
+  def ofInstant(instant: Instant): LocalDate = LocalDateF.ofInstant(instant)
+  def ofInstant(instant: Instant, zone: ZoneId): LocalDate = LocalDateF.ofInstant(instant, zone)
   def of(year: Int, month: Int, dayOfMonth: Int): LocalDate = LocalDateF.of(year, month, dayOfMonth)
-//  def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = LocalDateF.of(year, month, dayOfMonth)
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = LocalDateF.ofYearDay(year, dayOfYear)
   def ofEpochDay(epochDay: Double = ???): LocalDate = LocalDateF.ofEpochDay(epochDay)
-//  def from(temporal: Temporal): LocalDate = js.native
+  def from(temporal: Temporal): LocalDate = LocalDateF.from(temporal)
   def parse(text: CharSequence): LocalDate = LocalDateF.parse(text.toString)
   def parse(text: CharSequence, formatter: DateTimeFormatter): LocalDate = LocalDateF.parse(text.toString, formatter)
 
@@ -23,12 +28,12 @@ object LocalDate {
 }
 
 class LocalDate protected[time](f: LocalDateF) extends ChronoLocalDate(f) {
-  def getYear(): Int = f.getYear()
-//  def getMonth(): Month = f.getMonth()
-  def getMonthValue(): Int = f.getMonthValue()
-  def getDayOfMonth(): Int = f.getDayOfMonth()
-  def getDayOfYear(): Int = f.getDayOfYear()
-  def getDayOfWeek(): DayOfWeek = f.getDayOfWeek()
+  def getYear(): Int = f.year
+  def getMonth(): Month = f.month
+  def getMonthValue(): Int = f.monthValue
+  def getDayOfMonth(): Int = f.dayOfMonth
+  def getDayOfYear(): Int = f.dayOfYear
+  def getDayOfWeek(): DayOfWeek = f.dayOfWeek
 //  def getLong(unit: TemporalUnit): Long = js.native
 //  def getChronology(): Chronology = js.native
   def isLeapYear(): Boolean = f.isLeapYear()
