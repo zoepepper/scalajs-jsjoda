@@ -1,8 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time.Period
-
-import com.zoepepper.facades.jsjoda.chrono.ChronoLocalDate
+import com.zoepepper.facades.jsjoda.chrono.{ChronoLocalDate, IsoChronology}
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
 
@@ -35,7 +33,7 @@ class LocalDate protected[jsjoda]() extends ChronoLocalDate {
   def dayOfYear: Int = js.native
   def dayOfWeek: DayOfWeek = js.native
   def getLong(unit: TemporalUnit): Double = js.native
-//  def chronology: Chronology = js.native
+  def chronology: IsoChronology = js.native
   def isLeapYear(): Boolean = js.native
   def lengthOfMonth(): Int = js.native
   def lengthOfYear(): Int = js.native
