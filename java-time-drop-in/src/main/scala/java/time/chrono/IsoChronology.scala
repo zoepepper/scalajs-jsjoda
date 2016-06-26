@@ -1,8 +1,9 @@
 package java.time.chrono
 
+import java.Wraps
 import java.time.format.ResolverStyle
 import java.time.temporal.{ChronoField, TemporalAccessor, TemporalField, ValueRange}
-import java.time.{Clock, Instant, LocalDate, LocalDateTime, Period, Wraps, ZoneId, ZonedDateTime}
+import java.time.{Clock, Instant, LocalDate, LocalDateTime, Period, ZoneId, ZonedDateTime}
 
 import com.zoepepper.facades.jsjoda.chrono.{IsoChronology => IsoChronologyF}
 

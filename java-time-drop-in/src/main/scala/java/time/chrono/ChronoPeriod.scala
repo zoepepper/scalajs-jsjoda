@@ -1,6 +1,6 @@
 package java.time.chrono
 
-import java.time.Wrapper
+import java.Wrapper
 import java.time.temporal.TemporalAmount
 
 object ChronoPeriod {

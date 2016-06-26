@@ -1,5 +1,6 @@
 package java.time
 
+import java.Wraps
 import java.time.chrono.{ChronoPeriod, IsoChronology}
 import java.time.temporal.TemporalAmount
 

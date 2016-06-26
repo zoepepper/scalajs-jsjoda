@@ -1,4 +1,4 @@
-package java.time
+package java
 
 import scala.language.implicitConversions
 

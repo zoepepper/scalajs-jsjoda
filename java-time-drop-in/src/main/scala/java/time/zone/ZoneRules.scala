@@ -1,6 +1,7 @@
 package java.time.zone
 
-import java.time.{Duration, Instant, LocalDateTime, Wraps, ZoneOffset}
+import java.Wraps
+import java.time.{Duration, Instant, LocalDateTime, ZoneOffset}
 
 import com.zoepepper.facades.jsjoda.zone.{ZoneRules => ZoneRulesF}
 

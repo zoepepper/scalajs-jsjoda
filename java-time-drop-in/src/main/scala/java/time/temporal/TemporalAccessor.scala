@@ -1,6 +1,6 @@
 package java.time.temporal
 
-import java.time.Wrapper
+import java.Wrapper
 
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAccessor => TemporalAccessorF}
 

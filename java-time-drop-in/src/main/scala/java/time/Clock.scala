@@ -1,5 +1,7 @@
 package java.time
 
+import java.Wraps
+
 import com.zoepepper.facades.jsjoda.{Clock => ClockF}
 import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
 

@@ -1,6 +1,6 @@
 package java.time.chrono
 
-import java.time.Wraps
+import java.Wraps
 
 object IsoEra {
   def of(isoEra: Int): IsoEra = ???

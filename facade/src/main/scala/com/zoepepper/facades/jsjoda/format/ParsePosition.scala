@@ -6,6 +6,6 @@ import scalajs.js
 class ParsePosition extends js.Object {
   def getErrorIndex(): Int = js.native
   def getIndex(): Int = js.native
-  def setErrorIndex(errorIndex: Int) = js.native
-  def setIndex(index: Int) = js.native
+  def setErrorIndex(errorIndex: Int): Unit = js.native
+  def setIndex(index: Int): Unit = js.native
 }

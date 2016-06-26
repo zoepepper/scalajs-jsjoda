@@ -1,6 +1,6 @@
 package java.time.temporal
 
-import java.time.Wraps
+import java.Wraps
 
 import com.zoepepper.facades.jsjoda.temporal.{ChronoField => ChronoFieldF}
 

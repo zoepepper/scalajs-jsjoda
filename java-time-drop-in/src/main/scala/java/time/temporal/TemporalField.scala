@@ -1,6 +1,6 @@
 package java.time.temporal
 
-import java.time.Wrapper
+import java.Wrapper
 import java.time.format.ResolverStyle
 import java.util.Locale
 

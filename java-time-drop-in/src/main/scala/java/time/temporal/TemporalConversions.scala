@@ -21,10 +21,8 @@ import com.zoepepper.facades.jsjoda.{LocalTime => LocalTimeF}
 import scala.language.implicitConversions
 
 trait TemporalConversions extends BaseConversions {
-  implicit def chronoField2F(chronoField: ChronoField): ChronoFieldF = chronoField.f
   implicit def f2ChronoField(f: ChronoFieldF): ChronoField = new ChronoField(f)
 
-  implicit def chronoUnit2F(chronoUnit: ChronoUnit): ChronoUnitF = chronoUnit.f
   implicit def f2ChronoUnit(f: ChronoUnitF): ChronoUnit = new ChronoUnit(f)
 
   implicit def temporal2F[R <: Temporal](temporal: R): TemporalF = temporal.temporalF
@@ -33,9 +31,9 @@ trait TemporalConversions extends BaseConversions {
     //    case c if c == classOf[HijrahDate] => f.asInstanceOf[HijrahDateF]
     case c if c == classOf[Instant] => f.asInstanceOf[InstantF]
     //    case c if c == classOf[JapaneseDate] => f.asInstanceOf[JapaneseDateF]
-//    case c if c == classOf[LocalDate] => f.asInstanceOf[LocalDateF]
-//    case c if c == classOf[LocalDateTime] => f.asInstanceOf[LocalDateTimeF]
-//    case c if c == classOf[LocalTime] => f.asInstanceOf[LocalDateTimeF]
+    case c if c == classOf[LocalDate] => f.asInstanceOf[LocalDateF]
+    case c if c == classOf[LocalDateTime] => f.asInstanceOf[LocalDateTimeF]
+    case c if c == classOf[LocalTime] => f.asInstanceOf[LocalDateTimeF]
     //    case c if c == classOf[MinguoDate] => f.asInstanceOf[MinguoDateF]
     //    case c if c == classOf[OffsetDateTime] => f.asInstanceOf[OffsetDateTimeF]
     //    case c if c == classOf[OffsetTime] => f.asInstanceOf[OffsetTimeF]
@@ -57,6 +55,5 @@ trait TemporalConversions extends BaseConversions {
 
   implicit def temporalUnit2F(temporalUnit: TemporalUnit): TemporalUnitF = temporalUnit.temporalUnitF
 
-  implicit def valueRange2F(valueRange: ValueRange): ValueRangeF = valueRange.f
   implicit def f2ValueRange(f: ValueRangeF): ValueRange = new ValueRange(f)
 }

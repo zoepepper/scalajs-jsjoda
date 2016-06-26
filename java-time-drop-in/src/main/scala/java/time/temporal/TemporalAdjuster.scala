@@ -1,5 +1,6 @@
 package java.time.temporal
 
+import java.Wrapper
 import java.time._
 
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAdjuster => TemporalAdjusterF}

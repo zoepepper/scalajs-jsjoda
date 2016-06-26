@@ -1,6 +1,6 @@
 package java.time.temporal
 
-import java.time.Wraps
+import java.Wraps
 
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit => ChronoUnitF}
 
@@ -24,5 +24,5 @@ object ChronoUnit {
 }
 
 class ChronoUnit protected[time](f: ChronoUnitF) extends Wraps(f) with Comparable[ChronoUnit] with TemporalUnit {
-  def compareTo(other: ChronoUnit): Int = f.compareTo(other)
+  def compareTo(other: ChronoUnit): Int = f.compareTo(unwrapF(other)) // Disambuates implicits.
 }

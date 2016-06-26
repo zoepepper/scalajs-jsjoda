@@ -1,6 +1,6 @@
 package java.time.temporal
 
-import java.time.Wrapper
+import java.Wrapper
 
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAmount => TemporalAmountF}
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit => ChronoUnitF}

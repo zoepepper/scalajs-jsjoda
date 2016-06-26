@@ -1,6 +1,6 @@
 package java.time.format
 
-import java.time.Wraps
+import java.Wraps
 import java.time.chrono.Chronology
 import java.time.temporal.TemporalAccessor
 
@@ -45,4 +45,7 @@ class DateTimeFormatter protected[time](f: DateTimeFormatterF) extends Wraps(f) 
   //  def parse[T](text: String, query: TemporalQuery[T]): T = js.native
   //  def parseUnresolved(text: String, position: ParsePosition): TemporalAccessor = js.native
 
+  override def toString(): String = f.toString()
+  override def hashCode(): Int = f.hashCode()
+  override def equals(obj: Any): Boolean = f.equals(obj)
 }

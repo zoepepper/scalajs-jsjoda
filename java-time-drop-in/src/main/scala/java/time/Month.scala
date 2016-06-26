@@ -1,5 +1,6 @@
 package java.time
 
+import java.Wraps
 import java.time.format.TextStyle
 import java.time.temporal.{TemporalAccessor, TemporalAdjuster}
 import java.util.Locale

@@ -4,5 +4,5 @@ import java.time.chrono.ChronoConversions
 import java.time.temporal.TemporalConversions
 import java.time.zone.ZoneConversions
 
-package object time extends Unwrapper with BaseConversions with ChronoConversions
+package object time extends Unwrapper with BaseConversions //with ChronoConversions
   with TemporalConversions with ZoneConversions with TraversableConversions

@@ -1,6 +1,7 @@
 package java.time.chrono
 
-import java.time.{LocalTime, Wrapper}
+import java.Wrapper
+import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.{Temporal, TemporalAccessor, TemporalAdjuster, TemporalUnit}
 import java.util.Comparator

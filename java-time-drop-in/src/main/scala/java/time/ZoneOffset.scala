@@ -1,5 +1,6 @@
 package java.time
 
+import java.Wraps
 import java.time.temporal.{TemporalAccessor, TemporalAdjuster}
 
 import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}

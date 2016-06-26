@@ -1,6 +1,13 @@
 package com.zoepepper.facades.jsjoda.format
 
+import scala.scalajs.js.annotation.JSName
 import scalajs.js
+
+@js.native
+@JSName("JSJoda.DecimalStyle")
+object DecimalStyle extends js.Object {
+  val STANDARD: DecimalStyle = js.native
+}
 
 @js.native
 class DecimalStyle extends js.Object {

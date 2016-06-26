@@ -1,5 +1,6 @@
 package java.time
 
+import java.Wraps
 import java.time.temporal.{Temporal, TemporalAmount, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.{Duration => DurationF}
