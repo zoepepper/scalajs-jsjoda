@@ -14,12 +14,12 @@ object LocalDateTime extends js.Object {
   def now(zone: ZoneId): LocalDateTime = js.native
   def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDateTime = js.native
   def of(year: Int, month: Int, dayOfMonth: Int, hour: Int, minute: Int, second: Int = ???, nanoOfSecond: Int = ???): LocalDateTime = js.native
-  def of(year: Int, month: Month, dayOfMonth: Int): LocalDateTime = js.native
-  def of(year: Int, month: Month, dayOfMonth: Int, second: Int): LocalDateTime = js.native
-  def of(year: Int, month: Month, dayOfMonth: Int, second: Int, nanoOfSecond: Int): LocalDateTime = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int, hour: Int, minute: Int): LocalDateTime = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int, hour: Int, minute: Int, second: Int): LocalDateTime = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int, hour: Int, minute: Int, second: Int, nanoOfSecond: Int): LocalDateTime = js.native
   def of(date: LocalDate, time: LocalTime): LocalDateTime = js.native
   def ofEpochSecond(epochSecond: Double, nanoOfSecond: Int, offset: ZoneOffset): LocalDateTime = js.native
-  def from(temporal: Temporal): LocalDateTime = js.native
+  def from(temporal: TemporalAccessor): LocalDateTime = js.native
   def parse(text: String, formatter: DateTimeFormatter = ???): LocalDateTime = js.native
 
   val MAX: LocalDateTime = js.native
