@@ -1,22 +1,33 @@
 package java.time.chrono
 
+import java.time.{LocalTime, Wrapper}
 import java.time.format.DateTimeFormatter
+import java.time.temporal.{Temporal, TemporalAccessor, TemporalAdjuster, TemporalUnit}
+import java.util.Comparator
 
-import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
+import com.zoepepper.facades.jsjoda.chrono.{ChronoLocalDate => ChronoLocalDateF}
 
-import scala.language.implicitConversions
-import scala.scalajs
-import scala.scalajs.js
+object ChronoLocalDate {
+  def from(temporal: TemporalAccessor): ChronoLocalDate = ???
+}
 
-class ChronoLocalDate protected[time](protected[time] val f: LocalDateF) /*extends Temporal*/ {
-  implicit def cld2ldf(cld: ChronoLocalDate): LocalDateF = cld.f
+trait ChronoLocalDate extends Comparable[ChronoLocalDate] with Temporal with TemporalAdjuster {
+  self: Wrapper =>
+  protected[time] val chronoLocalDateF = self.f.asInstanceOf[ChronoLocalDateF]
 
-  //  def isSupported(field: TemporalField): Boolean = js.native
-  //  def isSupported(unit: TemporalUnit): Boolean = js.native
-//    def adjustInto(temporal: Temporal): Temporal = scalajs.js.native
-  def compareTo(other: ChronoLocalDate): Int = f.compareTo(other)
-  def isAfter(other: ChronoLocalDate): Boolean = f.isAfter(other)
-  def isBefore(other: ChronoLocalDate): Boolean = f.isBefore(other)
-  def isEqual(other: ChronoLocalDate): Boolean = f.isEqual(other)
-  def format(formatter: DateTimeFormatter): String = f.format(formatter)
+  def atTime(localTime: LocalTime): ChronoLocalDateTime[_]
+  def compareTo(other: ChronoLocalDate): Int
+  def format(formatter: DateTimeFormatter): String
+  def getChronology(): Chronology
+  def getEra(): Era
+  def isAfter(other: ChronoLocalDate): Boolean
+  def isBefore(other: ChronoLocalDate): Boolean
+  def isEqual(other: ChronoLocalDate): Boolean
+  def isLeapYear(): Boolean
+    def isSupported(unit: TemporalUnit): Boolean
+  def lengthOfMonth(): Int
+  def lengthOfYear(): Int
+  def timeLineOrder(): Comparator[ChronoLocalDate]
+  def toEpochDay(): Long
+  def until(endDateExclusive: ChronoLocalDate): ChronoPeriod
 }

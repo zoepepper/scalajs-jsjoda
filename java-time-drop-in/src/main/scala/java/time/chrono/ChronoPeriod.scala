@@ -10,7 +10,7 @@ object ChronoPeriod {
 trait ChronoPeriod extends TemporalAmount { self: Wrapper =>
   protected[time] val chronoPeriodF = self.f.asInstanceOf[AnyRef]
 
-  def getChronology(): IsoChronology
+  def getChronology(): Chronology
   def isNegative(): Boolean
   def isZero(): Boolean
   def minus(amountToSubtract: TemporalAmount): ChronoPeriod
