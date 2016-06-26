@@ -1,5 +1,7 @@
 package java.time.temporal
 
+import java.time.Wraps
+
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit => ChronoUnitF}
 
 object ChronoUnit {
@@ -21,4 +23,6 @@ object ChronoUnit {
   val FOREVER: ChronoUnit = ChronoUnitF.FOREVER
 }
 
-class ChronoUnit protected[time](f: ChronoUnitF) extends TemporalUnit(f)
+class ChronoUnit protected[time](f: ChronoUnitF) extends Wraps(f) with Comparable[ChronoUnit] with TemporalUnit {
+  def compareTo(other: ChronoUnit): Int = f.compareTo(other)
+}

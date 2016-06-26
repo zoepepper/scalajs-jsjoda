@@ -55,8 +55,7 @@ trait TemporalConversions extends BaseConversions {
 
   implicit def temporalQuery2F[R](temporalQuery: TemporalQuery[R]): TemporalQueryF[_] = temporalQuery.f
 
-  implicit def temporalUnit2F(temporalUnit: TemporalUnit): TemporalUnitF = temporalUnit.f
-  implicit def f2TemporalUnit(f: TemporalUnitF): TemporalUnit = new TemporalUnit(f.asInstanceOf[ChronoUnitF])
+  implicit def temporalUnit2F(temporalUnit: TemporalUnit): TemporalUnitF = temporalUnit.temporalUnitF
 
   implicit def valueRange2F(valueRange: ValueRange): ValueRangeF = valueRange.f
   implicit def f2ValueRange(f: ValueRangeF): ValueRange = new ValueRange(f)

@@ -37,6 +37,6 @@ object ChronoField {
   val OFFSET_SECONDS: ChronoField = ChronoFieldF.OFFSET_SECONDS
 }
 
-class ChronoField protected[time](f: ChronoFieldF) extends Wraps(f) with Comparable[ChronoField] {
+class ChronoField protected[time](f: ChronoFieldF) extends Wraps(f) with Comparable[ChronoField] with TemporalField {
   def compareTo(other: ChronoField): Int = ???
 }

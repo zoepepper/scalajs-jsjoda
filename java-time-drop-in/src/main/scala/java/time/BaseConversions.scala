@@ -16,7 +16,7 @@ trait BaseConversions {
   implicit def clock2F(clock: Clock): ClockF = clock.f
   implicit def f2Clock(f: ClockF): Clock = new Clock(f)
 
-  implicit def dayOfWeek2F(dayOfWeek: DayOfWeek): DayOfWeekF = dayOfWeek.f
+//  implicit def dayOfWeek2F(dayOfWeek: DayOfWeek): DayOfWeekF = dayOfWeek.f
   implicit def f2DayOfWeek(f: DayOfWeekF): DayOfWeek = new DayOfWeek(f)
 
   implicit def duration2F(duration: Duration): DurationF = duration.f
