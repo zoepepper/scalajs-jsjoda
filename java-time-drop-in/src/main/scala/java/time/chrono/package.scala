@@ -1,3 +1,5 @@
 package java.time
 
-package object chrono extends Unwrapper with ChronoConversions
+import java.time.format.FormatConversions
+
+package object chrono extends Unwrapper with ChronoConversions with BaseConversions
