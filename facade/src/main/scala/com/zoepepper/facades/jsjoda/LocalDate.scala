@@ -1,5 +1,7 @@
 package com.zoepepper.facades.jsjoda
 
+import java.time.Period
+
 import com.zoepepper.facades.jsjoda.chrono.ChronoLocalDate
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
@@ -14,7 +16,7 @@ object LocalDate extends js.Object {
   def now(zone: ZoneId): LocalDate = js.native
   def ofInstant(instant: Instant, zone: ZoneId = ???): LocalDate = js.native
   def of(year: Int, month: Int, dayOfMonth: Int): LocalDate = js.native
-//  def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = js.native
+  def of(year: Int, month: Month, dayOfMonth: Int): LocalDate = js.native
   def ofYearDay(year: Int, dayOfYear: Int): LocalDate = js.native
   def ofEpochDay(epochDay: Double = ???): LocalDate = js.native
   def from(temporal: Temporal): LocalDate = js.native
@@ -27,7 +29,7 @@ object LocalDate extends js.Object {
 @js.native
 class LocalDate protected[jsjoda]() extends ChronoLocalDate {
   def year: Int = js.native
-//  def month: Month = js.native
+  def month: Month = js.native
   def monthValue: Int = js.native
   def dayOfMonth: Int = js.native
   def dayOfYear: Int = js.native
