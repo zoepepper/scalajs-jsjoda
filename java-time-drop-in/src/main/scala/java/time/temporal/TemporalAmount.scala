@@ -5,7 +5,7 @@ import java.time.Wrapper
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAmount => TemporalAmountF}
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit => ChronoUnitF}
 
-import scala.scalajs.js
+import scalajs.js
 
 trait TemporalAmount { self: Wrapper =>
   protected[time] val temporalAmountF = self.f.asInstanceOf[TemporalAmountF]

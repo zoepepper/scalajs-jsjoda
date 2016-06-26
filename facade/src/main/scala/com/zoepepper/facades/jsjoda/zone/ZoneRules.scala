@@ -2,8 +2,8 @@ package com.zoepepper.facades.jsjoda.zone
 
 import com.zoepepper.facades.jsjoda.{Instant, LocalDateTime, LocalTime, ZoneOffset}
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.ZoneRules")

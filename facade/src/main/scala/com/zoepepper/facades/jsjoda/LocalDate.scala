@@ -4,8 +4,8 @@ import com.zoepepper.facades.jsjoda.chrono.{ChronoLocalDate, IsoChronology}
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.LocalDate")

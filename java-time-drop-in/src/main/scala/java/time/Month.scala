@@ -6,7 +6,7 @@ import java.util.Locale
 
 import com.zoepepper.facades.jsjoda.{Month => MonthF}
 
-import scala.scalajs.js
+import scalajs.js
 
 object Month {
   def from(temporal: TemporalAccessor): Month = MonthF.from(temporal)

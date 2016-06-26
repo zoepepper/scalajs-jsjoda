@@ -3,8 +3,8 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.chrono.IsoChronology
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit, TemporalAmount}
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.Period")

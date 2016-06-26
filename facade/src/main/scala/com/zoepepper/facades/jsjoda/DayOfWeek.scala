@@ -4,8 +4,8 @@ import java.time.temporal.TemporalAdjusters
 
 import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAccessor, TemporalField}
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.DayOfWeek")

@@ -5,8 +5,8 @@ import java.time.{ZoneId, ZoneOffset}
 
 import com.zoepepper.facades.jsjoda.{LocalDate, LocalTime}
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.TemporalQueries")

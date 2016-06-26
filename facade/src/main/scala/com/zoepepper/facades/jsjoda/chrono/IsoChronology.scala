@@ -3,8 +3,8 @@ package com.zoepepper.facades.jsjoda.chrono
 import com.zoepepper.facades.jsjoda.format.ResolverStyle
 import com.zoepepper.facades.jsjoda.{Enum, LocalDate}
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.IsoChronology")

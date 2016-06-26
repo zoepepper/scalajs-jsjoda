@@ -1,6 +1,6 @@
 package com.zoepepper.facades.jsjoda.temporal
 
-import scala.scalajs.js
+import scalajs.js
 
 @js.native
 class TemporalAdjuster extends js.Object {

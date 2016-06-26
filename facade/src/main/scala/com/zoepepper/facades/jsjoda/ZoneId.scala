@@ -2,7 +2,7 @@ package com.zoepepper.facades.jsjoda
 
 import com.zoepepper.facades.jsjoda.zone.ZoneRules
 
-import scala.scalajs.js
+import scalajs.js
 
 @js.native
 trait ZoneId extends js.Object {

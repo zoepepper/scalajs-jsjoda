@@ -3,7 +3,7 @@ package com.zoepepper.facades.jsjoda.chrono
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalField, TemporalUnit}
 
-import scala.scalajs.js
+import scalajs.js
 
 @js.native
 trait ChronoLocalDate extends Temporal {

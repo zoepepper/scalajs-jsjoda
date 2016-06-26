@@ -1,7 +1,7 @@
 package com.zoepepper.facades.jsjoda.temporal
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scalajs.js
+import scalajs.js.annotation.JSName
 
 @js.native
 @JSName("JSJoda.ChronoField")
