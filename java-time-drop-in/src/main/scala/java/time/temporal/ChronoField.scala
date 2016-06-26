@@ -1,5 +1,7 @@
 package java.time.temporal
 
+import java.time.Wraps
+
 import com.zoepepper.facades.jsjoda.temporal.{ChronoField => ChronoFieldF}
 
 object ChronoField {
@@ -35,4 +37,6 @@ object ChronoField {
   val OFFSET_SECONDS: ChronoField = ChronoFieldF.OFFSET_SECONDS
 }
 
-class ChronoField protected[time](f: ChronoFieldF) extends TemporalField(f)
+class ChronoField protected[time](f: ChronoFieldF) extends Wraps(f) with Comparable[ChronoField] {
+  def compareTo(other: ChronoField): Int = ???
+}

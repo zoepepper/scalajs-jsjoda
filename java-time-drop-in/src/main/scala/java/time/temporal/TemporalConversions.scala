@@ -49,9 +49,9 @@ trait TemporalConversions extends BaseConversions {
 
   implicit def temporalAdjuster2F(temporalAdjuster: TemporalAdjuster): TemporalAdjusterF = temporalAdjuster.temporalAdjusterF
 
-  implicit def temporalAmount2F(temporalAmount: TemporalAmount): TemporalAmountF = temporalAmount.f.asInstanceOf[TemporalAmountF]
+  implicit def temporalAmount2F(temporalAmount: TemporalAmount): TemporalAmountF = temporalAmount.temporalAmountF
 
-  implicit def temporalField2F(temporalField: TemporalField): TemporalFieldF = temporalField.f
+  implicit def temporalField2F(temporalField: TemporalField): TemporalFieldF = temporalField.temporalFieldF
 
   implicit def temporalQuery2F[R](temporalQuery: TemporalQuery[R]): TemporalQueryF[_] = temporalQuery.f
 

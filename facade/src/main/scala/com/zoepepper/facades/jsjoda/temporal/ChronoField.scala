@@ -50,5 +50,5 @@ class ChronoField protected[jsjoda]() extends TemporalField {
   def isDateBased: Boolean = js.native
   def isTimeBased: Boolean = js.native
   def rangeRefinedBy(temporal: TemporalAccessor): ValueRange = js.native
-  def getFrom(temporal: Temporal): Double = js.native
+  def getFrom(temporal: TemporalAccessor): Double = js.native
 }

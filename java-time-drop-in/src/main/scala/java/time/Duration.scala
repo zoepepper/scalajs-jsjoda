@@ -1,5 +1,7 @@
 package java.time
 
+import java.time.temporal.TemporalAmount
+
 import com.zoepepper.facades.jsjoda.{Duration => DurationF}
 
 object Duration {
@@ -10,15 +12,16 @@ object Duration {
   def ofSeconds(seconds: Long, nanoAdjustment: Long): Duration = DurationF.ofSeconds(seconds, nanoAdjustment)
   def ofMillis(millis: Long): Duration = DurationF.ofMillis(millis)
   def ofNanos(nanos: Long): Duration = DurationF.ofNanos(nanos)
-//  def of(amount: Long, unit: TemporalUnit): Duration = js.native
-//  def from(amount: Double): Duration = js.native
-//  def between(startInclusive: Temporal, endExclusive: Temporal): Duration = js.native
+  //  def of(amount: Long, unit: TemporalUnit): Duration = js.native
+  //  def from(amount: Double): Duration = js.native
+  //  def between(startInclusive: Temporal, endExclusive: Temporal): Duration = js.native
   def parse(text: CharSequence): Duration = DurationF.parse(text.toString)
 
   val ZERO: Duration = DurationF.ZERO
 }
 
-class Duration protected[time](protected[time] val f: DurationF) /*extends TemporalAmount*/ {
+class Duration protected[time](f: DurationF) extends Wraps(f) with Comparable[Duration]
+  with TemporalAmount {
   def getSeconds(): Long = f.getSeconds().toLong
   def getNano(): Int = f.getNano()
   def isZero(): Boolean = f.isZero()
@@ -26,7 +29,7 @@ class Duration protected[time](protected[time] val f: DurationF) /*extends Tempo
   def withSeconds(seconds: Long): Duration = f.withSeconds(seconds)
   def withNanos(nanoOfSecond: Int): Duration = f.withNanos(nanoOfSecond)
   def plus(duration: Duration): Duration = f.plus(duration)
-//  def plus(amountToAdd: Long, unit: ChronoUnit): Duration = js.native
+  //  def plus(amountToAdd: Long, unit: ChronoUnit): Duration = js.native
   def plusDays(daysToAdd: Long): Duration = f.plusDays(daysToAdd)
   def plusHours(hoursToAdd: Long): Duration = f.plusHours(hoursToAdd)
   def plusMinutes(minutesToAdd: Long): Duration = f.plusMinutes(minutesToAdd)
@@ -34,7 +37,7 @@ class Duration protected[time](protected[time] val f: DurationF) /*extends Tempo
   def plusMillis(millisToAdd: Long): Duration = f.plusMillis(millisToAdd)
   def plusNanos(nanosToAdd: Long): Duration = f.plusNanos(nanosToAdd)
   def minus(duration: Duration): Duration = f.minus(duration)
-//  def minus(amountToSubtract: Long, unit: ChronoUnit): Duration = js.native
+  //  def minus(amountToSubtract: Long, unit: ChronoUnit): Duration = js.native
   def minusDays(daysToSubtract: Long): Duration = f.minusDays(daysToSubtract)
   def minusHours(hoursToSubtract: Long): Duration = f.minusHours(hoursToSubtract)
   def minusMinutes(minutesToSubtract: Long): Duration = f.minusMinutes(minutesToSubtract)

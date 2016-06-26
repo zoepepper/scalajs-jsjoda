@@ -1,10 +1,14 @@
 package java.time.temporal
 
+import java.time.Wrapper
+
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAmount => TemporalAmountF}
 
-abstract class TemporalAmount protected[time](protected[time] val f: TemporalAmountF) {
-  def addTo(temporal: Temporal): Temporal
-  def get(unit: TemporalUnit): Long = f.get(unit).toLong
-  def getUnits: java.util.List[TemporalUnit] = f.getUnits
-  def subtractFrom(temporal: Temporal): Temporal
+trait TemporalAmount { self: Wrapper =>
+  protected[time] val temporalAmountF = self.f.asInstanceOf[TemporalAmountF]
+
+  def addTo(temporal: Temporal): Temporal = f2Temporal(temporalAmountF.addTo(temporal), temporal)
+  def get(unit: TemporalUnit): Long = temporalAmountF.get(unit).toLong
+  def getUnits: java.util.List[TemporalUnit] = temporalAmountF.getUnits
+  def subtractFrom(temporal: Temporal): Temporal = f2Temporal(temporalAmountF.subtractFrom(temporal), temporal)
 }
