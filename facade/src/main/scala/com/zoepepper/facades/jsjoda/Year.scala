@@ -1,9 +1,7 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time.{YearMonth}
-
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
-import com.zoepepper.facades.jsjoda.temporal.{TemporalField, _}
+import com.zoepepper.facades.jsjoda.temporal._
 
 import scala.scalajs.js.annotation.JSName
 import scalajs.js
@@ -26,6 +24,7 @@ object Year extends js.Object {
 class Year extends Temporal {
   def value: Int = js.native
   def isLeap: Boolean = js.native
+  def isSupported(field: TemporalUnit): Boolean = js.native
   def minus(amountToSubtract: Double, unit: TemporalUnit): Year = js.native
   def minus(amount: TemporalAmount): Year = js.native
   def minusYears(yearsToSubtract: Double): Year = js.native
