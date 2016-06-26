@@ -10,9 +10,6 @@ import java.util.Locale
 import com.zoepepper.facades.jsjoda.format.{ParsePosition, DateTimeFormatter => DateTimeFormatterF}
 import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
 
-import scala.scalajs
-import scala.scalajs.js
-
 object DateTimeFormatter {
   def ofLocalizedDate(dateStyle: FormatStyle): DateTimeFormatter = ???
   def ofLocalizedDateTime(dateTimeStyle: FormatStyle): DateTimeFormatter = ???
@@ -31,14 +28,16 @@ object DateTimeFormatter {
   val ISO_OFFSET_DATE_TIME: DateTimeFormatter = DateTimeFormatterF.ISO_OFFSET_DATE_TIME
   val ISO_ZONED_DATE_TIME: DateTimeFormatter = DateTimeFormatterF.ISO_ZONED_DATE_TIME
 
-  val BASIC_ISO_DATE: DateTimeFormatter = ???
-  val ISO_DATE: DateTimeFormatter = ???
-  val ISO_DATE_TIME: DateTimeFormatter = ???
-  val ISO_OFFSET_DATE: DateTimeFormatter = ???
-  val ISO_OFFSET_TIME: DateTimeFormatter = ???
-  val ISO_ORDINAL_DATE: DateTimeFormatter = ???
-  val ISO_TIME: DateTimeFormatter = ???
-  val RFC_1123_DATE_TIME: DateTimeFormatter = ???
+  // If we declare these as unimplemented we have trouble. For example, if we call ISO_LOCAL_DATE then
+  // BASIC_ISO_DATE gets called and an exception is thrown.
+//  val BASIC_ISO_DATE: DateTimeFormatter = ???
+//  val ISO_DATE: DateTimeFormatter = ???
+//  val ISO_DATE_TIME: DateTimeFormatter = ???
+//  val ISO_OFFSET_DATE: DateTimeFormatter = ???
+//  val ISO_OFFSET_TIME: DateTimeFormatter = ???
+//  val ISO_ORDINAL_DATE: DateTimeFormatter = ???
+//  val ISO_TIME: DateTimeFormatter = ???
+//  val RFC_1123_DATE_TIME: DateTimeFormatter = ???
 }
 
 class DateTimeFormatter protected[time](f: DateTimeFormatterF) extends Wraps(f) {

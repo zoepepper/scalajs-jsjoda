@@ -39,10 +39,10 @@ class Month extends Temporal {
   def firstMonthOfQuarter: Month = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
 
-  def minus(amountToSubtract: Double, unit: TemporalUnit): Temporal = js.native
-  def minus(amount: TemporalAmount): Temporal = js.native
-  def plus(amountToAdd: Double, unit: TemporalUnit): Temporal = js.native
-  def plus(amount: TemporalAmount): Temporal = js.native
+  def minus(amountToSubtract: Double, unit: TemporalUnit): Month = js.native
+  def minus(amount: TemporalAmount): Month = js.native
+  def plus(amountToAdd: Double, unit: TemporalUnit): Month = js.native
+  def plus(amount: TemporalAmount): Month = js.native
   def until(endExclusive: Temporal, unit: TemporalUnit): Double = js.native
   def `with`(adjuster: TemporalAdjuster): Temporal = js.native
   def `with`(field: TemporalField, newValue: Double): Temporal = js.native
