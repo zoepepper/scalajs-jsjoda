@@ -1,18 +1,24 @@
 package java.time
 
 import com.zoepepper.facades.jsjoda.{Clock => ClockF}
+import com.zoepepper.facades.jsjoda.{ZoneOffset => ZoneOffsetF}
 
 object Clock extends {
+  def fixed(fixedInstant: Instant, zone: ZoneId): Clock = ClockF.fixed(fixedInstant, zone.asInstanceOf[ZoneOffset])
+  def offset(baseClock: Clock, offsetDuration: Duration): Clock = ???
   def systemUTC(): Clock = ClockF.systemUTC()
   def systemDefaultZone(): Clock = ClockF.systemDefaultZone()
-//  def system(zone: ZoneId): Clock = new Clock(ClockF.system(zone.zoneF))
-//  def fixed(fixedInstant: Instant, zoneOffset: ZoneOffset): Clock = new Clock(ClockF.fixed(instant.f, zoneOffset.f))
+  def system(zone: ZoneId): Clock = ClockF.system(zone)
+  def tick(baseClock: Clock, tickDuration: Duration): Clock = ???
+  def tickMinutes(zone: ZoneId): Clock = ???
+  def tickSeconds(zone: ZoneId): Clock = ???
 }
 
-class Clock protected[time](protected[time] val f: ClockF) {
-  def millis(): Long = f.millis().toLong
-  def instant(): Instant = f.instant()
-//  def zone(): ZoneId = clockF.zone
+class Clock protected[time](f: ClockF) extends Wraps(f) {
+  def millis(): Long = f.millis.toLong
+  def instant(): Instant = f.instant
+  def getZone(): ZoneId = f.zone.asInstanceOf[ZoneOffsetF]
+  def withZone(zone: ZoneId): Clock = ???
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
