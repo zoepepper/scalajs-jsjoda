@@ -10,7 +10,7 @@ object Instant {
   def now(clock: Clock): Instant = InstantF.now(clock)
   def ofEpochSecond(epochSecond: Long): Instant = InstantF.ofEpochSecond(epochSecond)
   def ofEpochSecond(epochSecond: Long, nanoAdjustment: Long): Instant = InstantF.ofEpochSecond(epochSecond, nanoAdjustment)
-  def ofEpochMilli(epochMilli: Long): Instant = InstantF.ofEpochSecond(epochMilli)
+  def ofEpochMilli(epochMilli: Long): Instant = InstantF.ofEpochMilli(epochMilli)
   def from(temporal: Temporal): Instant = InstantF.from(temporal)
   def parse(text: CharSequence): Instant = InstantF.parse(text.toString)
 
