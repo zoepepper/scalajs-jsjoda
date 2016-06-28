@@ -26,13 +26,13 @@ object LocalDate extends js.Object {
 
 @js.native
 class LocalDate protected[jsjoda]() extends ChronoLocalDate {
-  def year: Int = js.native
-  def month: Month = js.native
-  def monthValue: Int = js.native
-  def dayOfMonth: Int = js.native
-  def dayOfYear: Int = js.native
-  def dayOfWeek: DayOfWeek = js.native
-  def chronology: IsoChronology = js.native
+  def year(): Int = js.native
+  def month(): Month = js.native
+  def monthValue(): Int = js.native
+  def dayOfMonth(): Int = js.native
+  def dayOfYear(): Int = js.native
+  def dayOfWeek(): DayOfWeek = js.native
+  def chronology(): IsoChronology = js.native
   def isLeapYear(): Boolean = js.native
   def lengthOfMonth(): Int = js.native
   def lengthOfYear(): Int = js.native

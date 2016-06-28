@@ -25,18 +25,18 @@ object ZonedDateTime extends js.Object {
 
 @js.native
 class ZonedDateTime protected[jsjoda]() extends ChronoZonedDateTime[ChronoLocalDate] {
-  def year: Int = js.native
-  def month: Month = js.native
-  def monthValue: Int = js.native
-  def dayOfMonth: Int = js.native
-  def dayOfYear: Int = js.native
-  def dayOfWeek: DayOfWeek = js.native
-  def hour: Int = js.native
-  def minute: Int = js.native
-  def second: Int = js.native
-  def nano: Int = js.native
-  def offset: ZoneOffset = js.native
-  def zone: ZoneId = js.native
+  def year(): Int = js.native
+  def month(): Month = js.native
+  def monthValue(): Int = js.native
+  def dayOfMonth(): Int = js.native
+  def dayOfYear(): Int = js.native
+  def dayOfWeek(): DayOfWeek = js.native
+  def hour(): Int = js.native
+  def minute(): Int = js.native
+  def second(): Int = js.native
+  def nano(): Int = js.native
+  def offset(): ZoneOffset = js.native
+  def zone(): ZoneId = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
   def withZoneSameLocal(zone: ZoneId): ZonedDateTime = js.native
   def withZoneSameInstant(zone: ZoneId): ZonedDateTime = js.native

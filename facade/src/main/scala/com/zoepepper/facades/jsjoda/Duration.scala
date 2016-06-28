@@ -26,8 +26,8 @@ object Duration extends js.Object {
 
 @js.native
 class Duration protected[jsjoda]() extends TemporalAmount {
-  def seconds: Double = js.native
-  def nano: Int = js.native
+  def seconds(): Double = js.native
+  def nano(): Int = js.native
   def isZero(): Boolean = js.native
   def isNegative(): Boolean = js.native
   def withSeconds(seconds: Double): Duration = js.native

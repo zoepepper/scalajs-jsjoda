@@ -6,6 +6,6 @@ import scalajs.js
 
 @js.native
 trait ZoneId extends js.Object {
-  def rules: ZoneRules = js.native
-  def normalized: ZoneId = js.native
+  def rules(): ZoneRules = js.native
+  def normalized(): ZoneId = js.native
 }

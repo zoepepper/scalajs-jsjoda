@@ -13,14 +13,14 @@ object ValueRange extends js.Object {
 
 @js.native
 class ValueRange protected[jsjoda]() extends js.Object {
-  def isFixed: Boolean = js.native
-  def minimum: Double = js.native
-  def largestMinimum: Double = js.native
-  def maximum: Double = js.native
-  def smallestMaximum: Double = js.native
+  def isFixed(): Boolean = js.native
+  def minimum(): Double = js.native
+  def largestMinimum(): Double = js.native
+  def maximum(): Double = js.native
+  def smallestMaximum(): Double = js.native
   def isValidValue(value: Double): Boolean = js.native
   def isValidIntValue(value: Double): Boolean = js.native
   def checkValidValue(value: Double, field: TemporalField): Double = js.native
   def checkValidIntValue(value: Double, field: TemporalField): Int = js.native
-  def isIntValue: Boolean = js.native
+  def isIntValue(): Boolean = js.native
 }

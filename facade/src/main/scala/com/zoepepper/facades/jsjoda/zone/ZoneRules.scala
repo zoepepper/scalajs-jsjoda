@@ -13,7 +13,7 @@ object ZoneRules extends js.Object {
 
 @js.native
 trait ZoneRules extends js.Object {
-  def isFixedOffset: Boolean = js.native
+  def isFixedOffset(): Boolean = js.native
   def offset(instant: Instant): ZoneOffset = js.native
   def offset(localDateTime: LocalDateTime): ZoneOffset = js.native
   def isValidOffset(localDateTime: LocalDateTime, offset: ZoneOffset): Boolean = js.native

@@ -28,10 +28,10 @@ object ChronoUnit extends js.Object {
 
 @js.native
 class ChronoUnit protected[jsjoda]() extends TemporalUnit {
-  def duration: Duration = js.native
-  def isDurationEstimated: Boolean = js.native
-  def isDateBased: Boolean = js.native
-  def isTimeBased: Boolean = js.native
+  def duration(): Duration = js.native
+  def isDurationEstimated(): Boolean = js.native
+  def isDateBased(): Boolean = js.native
+  def isTimeBased(): Boolean = js.native
   def isSupportedBy(temporal: Temporal): Boolean = js.native
   def addTo(temporal: Temporal, amount: Double): Temporal = js.native
   def between(temporal1: Temporal, temporal2: Temporal): Double = js.native

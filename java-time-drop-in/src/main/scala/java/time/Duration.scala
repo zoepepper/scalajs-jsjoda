@@ -26,10 +26,10 @@ class Duration protected[time](f: DurationF) extends Wraps(f) with Comparable[Du
   def abs(): Duration = f.abs()
   def compareTo(otherDuration: Duration): Int = f.compareTo(otherDuration)
   def dividedBy(divisor: Long): Duration = f.dividedBy(divisor)
-  def getNano(): Int = f.getNano()
-  def getSeconds(): Long = f.getSeconds().toLong
-  def isNegative(): Boolean = f.isNegative()
-  def isZero(): Boolean = f.isZero()
+  def getNano(): Int = f.nano
+  def getSeconds(): Long = f.seconds.toLong
+  def isNegative(): Boolean = f.isNegative
+  def isZero(): Boolean = f.isZero
   def minus(duration: Duration): Duration = f.minus(duration)
   def minus(amountToSubtract: Long, unit: TemporalUnit): Duration = f.minus(amountToSubtract, unit)
   def minusDays(daysToSubtract: Long): Duration = f.minusDays(daysToSubtract)

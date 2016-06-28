@@ -21,8 +21,8 @@ object Instant extends js.Object {
 
 @js.native
 class Instant protected[jsjoda]() extends Temporal {
-  def epochSecoond: Double = js.native
-  def nano: Int = js.native
+  def epochSecond(): Double = js.native
+  def nano(): Int = js.native
   def isSupported(unit: TemporalUnit): Boolean = js.native
   def `with`(adjuster: TemporalAdjuster): Instant = js.native
   def `with`(field: TemporalField, newValue: Double): Instant = js.native

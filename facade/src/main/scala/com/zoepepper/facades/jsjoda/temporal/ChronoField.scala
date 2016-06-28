@@ -40,15 +40,15 @@ object ChronoField extends js.Object {
 
 @js.native
 class ChronoField protected[jsjoda]() extends TemporalField {
-  def name: String = js.native
-  def baseUnit: TemporalUnit = js.native
-  def rangeUnit: TemporalUnit = js.native
-  def range: ValueRange = js.native
-  def displayName: String = js.native
+  def name(): String = js.native
+  def baseUnit(): TemporalUnit = js.native
+  def rangeUnit(): TemporalUnit = js.native
+  def range(): ValueRange = js.native
+  def displayName(): String = js.native
   def checkValidValue(value: Double): Double = js.native
   def checkValidIntValue(value: Double): Int = js.native
-  def isDateBased: Boolean = js.native
-  def isTimeBased: Boolean = js.native
+  def isDateBased(): Boolean = js.native
+  def isTimeBased(): Boolean = js.native
   def rangeRefinedBy(temporal: TemporalAccessor): ValueRange = js.native
   def getFrom(temporal: TemporalAccessor): Double = js.native
 }

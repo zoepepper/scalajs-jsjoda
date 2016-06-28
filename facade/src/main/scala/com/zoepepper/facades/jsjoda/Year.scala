@@ -22,8 +22,8 @@ object Year extends js.Object {
 
 @js.native
 class Year extends Temporal {
-  def value: Int = js.native
-  def isLeap: Boolean = js.native
+  def value(): Int = js.native
+  def isLeap(): Boolean = js.native
   def isSupported(field: TemporalUnit): Boolean = js.native
   def minus(amountToSubtract: Double, unit: TemporalUnit): Year = js.native
   def minus(amount: TemporalAmount): Year = js.native
@@ -33,7 +33,7 @@ class Year extends Temporal {
   def plusYears(yearsToAdd: Double): Year = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
   def isValidMonthDay(monthDay: MonthDay): Boolean = js.native
-  def length: Int = js.native
+  def length(): Int = js.native
   def atDay(dayOfYear: Int): LocalDate = js.native
   def atMonth(month: Int): YearMonth = js.native
   def atMonth(month: Month): YearMonth = js.native

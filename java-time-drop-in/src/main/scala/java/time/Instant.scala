@@ -21,8 +21,8 @@ object Instant {
 
 class Instant protected[time](f: InstantF) extends Wraps(f) with Comparable[Instant]
   with Temporal with TemporalAdjuster {
-  def getEpochSecond(): Long = f.getEpochSecond().toLong
-  def getNano(): Int = f.getNano()
+  def getEpochSecond(): Long = f.epochSecond.toLong
+  def getNano(): Int = f.nano
   def isSupported(unit: TemporalUnit): Boolean = f.isSupported(unit)
   def `with`(adjuster: TemporalAdjuster): Instant = f.`with`(adjuster)
   def `with`(field: TemporalField, newValue: Long): Instant = f.`with`(field, newValue)

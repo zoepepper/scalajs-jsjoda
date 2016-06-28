@@ -8,7 +8,7 @@ import java.util.Locale
 import com.zoepepper.facades.jsjoda.{DayOfWeek => DayOfWeekF}
 
 object DayOfWeek {
-  def values: Array[DayOfWeek] = DayOfWeekF.values
+  def values(): Array[DayOfWeek] = DayOfWeekF.values
   def valueOf(name: String): DayOfWeek = DayOfWeekF.valueOf(name)
   def of(dayOfWeek: Int): DayOfWeek = DayOfWeekF.of(dayOfWeek)
   def from(temporal: TemporalAccessor): DayOfWeek = DayOfWeekF.from(temporal)

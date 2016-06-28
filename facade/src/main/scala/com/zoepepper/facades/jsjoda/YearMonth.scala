@@ -19,13 +19,13 @@ object YearMonth extends js.Object {
 
 @js.native
 class YearMonth extends Temporal {
-  def year: Int = js.native
-  def monthValue: Int = js.native
-  def month: Month = js.native
-  def isLeapYear: Boolean = js.native
+  def year(): Int = js.native
+  def monthValue(): Int = js.native
+  def month(): Month = js.native
+  def isLeapYear(): Boolean = js.native
   def isValidDay(dayOfMonth: Int): Boolean = js.native
-  def lengthOfMonth: Int = js.native
-  def lengthOfYear: Int = js.native
+  def lengthOfMonth(): Int = js.native
+  def lengthOfYear(): Int = js.native
   def isSupported(field: TemporalUnit): Boolean = js.native
   def withYear(year: Int): YearMonth = js.native
   def withMonth(month: Int): YearMonth = js.native

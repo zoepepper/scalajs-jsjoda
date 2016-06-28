@@ -10,7 +10,7 @@ import scalajs.js.annotation.JSName
 @js.native
 @JSName("JSJoda.DayOfWeek")
 object DayOfWeek extends js.Object {
-  def values: js.Array[DayOfWeek] = js.native
+  def values(): js.Array[DayOfWeek] = js.native
   def valueOf(name: String): DayOfWeek = js.native
   def of(dayOfWeek: Int): DayOfWeek = js.native
   def from(temporal: TemporalAccessor): DayOfWeek = js.native
@@ -26,7 +26,7 @@ object DayOfWeek extends js.Object {
 
 @js.native
 class DayOfWeek protected[jsjoda]() extends TemporalAccessor {
-  def value: Int = js.native
+  def value(): Int = js.native
   def plus(days: Double): DayOfWeek = js.native
   def minus(days: Double): DayOfWeek = js.native
   def adjustInto(temporal: TemporalAdjusters): Temporal = js.native

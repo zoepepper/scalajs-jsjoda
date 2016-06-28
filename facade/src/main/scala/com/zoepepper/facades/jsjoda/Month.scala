@@ -8,7 +8,7 @@ import scalajs.js.annotation.JSName
 @js.native
 @JSName("JSJoda.Month")
 object Month extends js.Object {
-  def values: js.Array[Month] = js.native
+  def values(): js.Array[Month] = js.native
   def of(month: Int): Month = js.native
   def from(temporal: TemporalAccessor): Month = js.native
 
@@ -28,14 +28,14 @@ object Month extends js.Object {
 
 @js.native
 class Month extends Temporal {
-  def value: Int = js.native
+  def value(): Int = js.native
   def plus(months: Double): Month = js.native
   def minus(months: Double): Month = js.native
   def length(leapYear: Boolean): Int = js.native
-  def minLength: Int = js.native
-  def maxLength: Int = js.native
+  def minLength(): Int = js.native
+  def maxLength(): Int = js.native
   def firstDayOfYear(leapYear: Boolean): Int = js.native
-  def firstMonthOfQuarter: Month = js.native
+  def firstMonthOfQuarter(): Month = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
 
   def minus(amountToSubtract: Double, unit: TemporalUnit): Month = js.native

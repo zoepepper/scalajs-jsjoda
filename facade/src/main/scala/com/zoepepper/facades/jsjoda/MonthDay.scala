@@ -19,9 +19,9 @@ object MonthDay extends js.Object {
 
 @js.native
 class MonthDay extends Temporal {
-  def monthValue: Int = js.native
-  def month: Month = js.native
-  def dayOfMonth: Int = js.native
+  def monthValue(): Int = js.native
+  def month(): Month = js.native
+  def dayOfMonth(): Int = js.native
   def isValidYear(year: Int): Boolean = js.native
   def `with`(month: Month): MonthDay = js.native
   def withMonth(month: Int): MonthDay = js.native

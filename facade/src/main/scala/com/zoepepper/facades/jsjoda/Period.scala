@@ -23,13 +23,13 @@ object Period extends js.Object {
 
 @js.native
 class Period extends TemporalAmount {
-  def units: Array[ChronoUnit] = js.native
-  def chronology: IsoChronology = js.native
-  def isZero: Boolean = js.native
-  def isNegative: Boolean = js.native
-  def years: Int = js.native
-  def months: Int = js.native
-  def days: Int = js.native
+  def units(): Array[ChronoUnit] = js.native
+  def chronology(): IsoChronology = js.native
+  def isZero(): Boolean = js.native
+  def isNegative(): Boolean = js.native
+  def years(): Int = js.native
+  def months(): Int = js.native
+  def days(): Int = js.native
   def withYears(years: Int): Period = js.native
   def withMonths(months: Int): Period = js.native
   def withDays(days: Int): Period = js.native

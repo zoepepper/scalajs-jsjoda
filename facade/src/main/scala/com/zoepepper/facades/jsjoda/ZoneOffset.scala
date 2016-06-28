@@ -23,8 +23,8 @@ object ZoneOffset extends js.Object {
 
 @js.native
 trait ZoneOffset extends ZoneId {
-  def totalSeconds: Int = js.native
-  def id: String = js.native
+  def totalSeconds(): Int = js.native
+  def id(): String = js.native
   def get(field: TemporalField): Int = js.native
   def query[T](query: TemporalQuery[T]): T = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
