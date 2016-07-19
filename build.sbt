@@ -4,7 +4,7 @@ def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
-      version := "1.0.2",
+      version := "1.0.4",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
       homepage := Some(url("https://github.com/zoepepper/scalajs-jsjoda")),
