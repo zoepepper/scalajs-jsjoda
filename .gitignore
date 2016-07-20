@@ -4,5 +4,3 @@ target/
 .project
 .settings/
 .idea/
-
-project/deploy.sbt
