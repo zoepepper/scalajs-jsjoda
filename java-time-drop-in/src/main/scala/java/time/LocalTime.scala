@@ -19,10 +19,10 @@ object LocalTime {
   def parse(text: CharSequence): LocalTime = LocalTimeF.parse(text.toString)
   def parse(text: CharSequence, formatter: DateTimeFormatter): LocalTime = LocalTimeF.parse(text.toString, formatter)
 
-  val MAX: LocalDate = LocalTimeF.MAX
-  val MIN: LocalDate = LocalTimeF.MIN
-  val MIDNIGHT: LocalDate = LocalTimeF.MIDNIGHT
-  val NOON: LocalDate = LocalTimeF.NOON
+  val MAX: LocalTime = LocalTimeF.MAX
+  val MIN: LocalTime = LocalTimeF.MIN
+  val MIDNIGHT: LocalTime = LocalTimeF.MIDNIGHT
+  val NOON: LocalTime = LocalTimeF.NOON
 }
 
 class LocalTime protected[time](f: LocalTimeF) extends Wraps(f) with Comparable[LocalTime]

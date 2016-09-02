@@ -18,10 +18,10 @@ object LocalTime extends js.Object {
   def from(temporal: TemporalAccessor): LocalTime = js.native
   def parse(text: String, formatter: DateTimeFormatter = ???): LocalTime = js.native
 
-  val MAX: LocalDate = js.native
-  val MIN: LocalDate = js.native
-  val MIDNIGHT: LocalDate = js.native
-  val NOON: LocalDate = js.native
+  val MAX: LocalTime = js.native
+  val MIN: LocalTime = js.native
+  val MIDNIGHT: LocalTime = js.native
+  val NOON: LocalTime = js.native
 }
 
 @js.native
