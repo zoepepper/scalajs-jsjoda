@@ -1,10 +1,9 @@
 package java.time
 
 import java.Wraps
-import java.time.chrono.{ChronoLocalDate, ChronoPeriod, Era, IsoChronology}
+import java.time.chrono.{ChronoLocalDate, Era, IsoChronology}
 import java.time.format.DateTimeFormatter
-import java.time.temporal.{Temporal, TemporalAccessor, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
-import java.util.Comparator
+import java.time.temporal.{TemporalAccessor, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.{LocalDate => LocalDateF}
 
@@ -72,5 +71,8 @@ class LocalDate protected[time](f: LocalDateF) extends Wraps(f) with ChronoLocal
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: LocalDate => f.equals(other.f)
+    case _ => false
+  }
 }

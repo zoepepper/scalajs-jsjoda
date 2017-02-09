@@ -31,6 +31,8 @@ class DayOfWeek protected[time](f: DayOfWeekF) extends Wraps(f) with Comparable[
   def compareTo(other: DayOfWeek): Int = ???
 
   override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: DayOfWeek => f.equals(other.f)
+    case _ => false
+  }
 }

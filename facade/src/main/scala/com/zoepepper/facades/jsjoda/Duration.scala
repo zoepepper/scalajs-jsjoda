@@ -1,8 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time.temporal.{ChronoUnit, TemporalUnit}
-
-import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount}
+import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit, Temporal, TemporalAmount, TemporalUnit}
 
 import scalajs.js
 import scalajs.js.annotation.JSName
@@ -58,4 +56,7 @@ class Duration protected[jsjoda]() extends TemporalAmount {
   def toMillis(): Double = js.native
   def toNanos(): Double = js.native
   def compareTo(otherDuration: Duration): Int = js.native
+
+  override def toString(): String = js.native
+  override def equals(obj: Any): Boolean = js.native
 }

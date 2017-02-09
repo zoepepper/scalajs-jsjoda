@@ -21,8 +21,4 @@ class Clock protected[time](f: ClockF) extends Wraps(f) {
   def instant(): Instant = f.instant
   def getZone(): ZoneId = f.zone.asInstanceOf[ZoneOffsetF]
   def withZone(zone: ZoneId): Clock = ???
-
-  override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
 }

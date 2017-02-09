@@ -29,7 +29,8 @@ trait TemporalConversions {
 
   implicit def f2ChronoUnit(f: ChronoUnitF): ChronoUnit = new ChronoUnit(f)
 
-  implicit def temporal2F[R <: Temporal](temporal: R): TemporalF = temporal.temporalF
+  implicit def f2TemporalAdjuster(f: TemporalAdjusterF): TemporalAdjuster = new TemporalAdjusterInstance(f)
+
   def f2Temporal[R <: Temporal](f: TemporalF, target: R): Temporal = target.getClass match {
     // All known Temporal implementing classes.
     //    case c if c == classOf[HijrahDate] => f.asInstanceOf[HijrahDateF]
@@ -46,6 +47,8 @@ trait TemporalConversions {
     case c if c == classOf[YearMonth] => f.asInstanceOf[YearMonthF]
     case c if c == classOf[ZonedDateTime] => f.asInstanceOf[ZonedDateTimeF]
   }
+
+  implicit def temporal2F[R <: Temporal](temporal: R): TemporalF = temporal.temporalF
 
   implicit def temporalAccessor2F(temporalAccessor: TemporalAccessor): TemporalAccessorF = temporalAccessor.temporalAccessorF
 

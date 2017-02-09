@@ -90,5 +90,8 @@ class LocalDateTime protected[time](f: LocalDateTimeF) extends Wraps(f) with Chr
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: LocalDateTime => f.equals(other.f)
+    case _ => false
+  }
 }

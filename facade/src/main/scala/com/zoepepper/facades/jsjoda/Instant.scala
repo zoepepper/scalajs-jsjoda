@@ -42,4 +42,8 @@ class Instant protected[jsjoda]() extends Temporal {
   def compareTo(otherInstant: Instant): Int = js.native
   def isAfter(otherInstant: Instant): Boolean = js.native
   def isBefore(otherInstant: Instant): Boolean = js.native
+
+  override def toString(): String = js.native
+  override def hashCode(): Int = js.native
+  override def equals(obj: Any): Boolean = js.native
 }

@@ -44,5 +44,8 @@ class Instant protected[time](f: InstantF) extends Wraps(f) with Comparable[Inst
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: Instant => f.equals(other.f)
+    case _ => false
+  }
 }

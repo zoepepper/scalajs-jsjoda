@@ -4,7 +4,7 @@ def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
-      version := "1.0.5",
+      version := "1.0.6",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
       homepage := Some(url("https://github.com/zoepepper/scalajs-jsjoda")),
@@ -34,7 +34,11 @@ def BaseProject(name: String): Project =
             <url>https://github.com/rpiaggio/</url>
           </developer>
         </developers>,
-      pomIncludeRepository := { _ => false }
+      pomIncludeRepository := { _ => false },
+      libraryDependencies += "com.lihaoyi" %%% "utest" % "0.4.5" % "test",
+      jsDependencies += ("org.webjars.npm" % "js-joda" % "1.3.0" / "dist/js-joda.js" minified "dist/js-joda.min.js") % "test",
+      jsDependencies += (ProvidedJS / "test.js" dependsOn "dist/js-joda.js") % "test",
+      testFrameworks += new TestFramework("utest.runner.Framework")
     )
     .enablePlugins(ScalaJSPlugin)
 

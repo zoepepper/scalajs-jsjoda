@@ -1,7 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
 import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalField, TemporalQuery}
-import com.zoepepper.facades.jsjoda.zone.ZoneRules
 
 import scalajs.js
 import scalajs.js.annotation.JSName

@@ -34,5 +34,8 @@ class MonthDay protected[time](f: MonthDayF) extends Wraps(f) with Comparable[Mo
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: MonthDay => f.equals(other.f)
+    case _ => false
+  }
 }

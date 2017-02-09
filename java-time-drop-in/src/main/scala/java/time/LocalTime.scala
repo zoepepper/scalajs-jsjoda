@@ -62,5 +62,8 @@ class LocalTime protected[time](f: LocalTimeF) extends Wraps(f) with Comparable[
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: LocalTime => f.equals(other.f)
+    case _ => false
+  }
 }

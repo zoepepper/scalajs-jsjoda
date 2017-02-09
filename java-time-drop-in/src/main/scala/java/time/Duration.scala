@@ -57,6 +57,8 @@ class Duration protected[time](f: DurationF) extends Wraps(f) with Comparable[Du
   def withNanos(nanoOfSecond: Int): Duration = f.withNanos(nanoOfSecond)
 
   override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: Duration => f.equals(other.f)
+    case _ => false
+  }
 }

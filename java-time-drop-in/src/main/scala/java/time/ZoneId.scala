@@ -28,7 +28,10 @@ trait ZoneId { self: Wrapper =>
   def getRules(): ZoneRules = zoneIdF.rules
   def normalized(): ZoneId = zoneIdF.normalized.asInstanceOf[ZoneOffsetF] // Review once there are actual ZoneIds.
 
-  override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def toString(): String = zoneIdF.toString()
+  override def hashCode(): Int = zoneIdF.hashCode()
+  override def equals(obj: Any): Boolean = obj match {
+    case other: ZoneId => zoneIdF.equals(other.zoneIdF)
+    case _ => false
+  }
 }

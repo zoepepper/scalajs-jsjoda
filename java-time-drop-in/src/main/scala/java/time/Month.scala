@@ -41,6 +41,8 @@ class Month protected[time](f: MonthF) extends Wraps(f) with Comparable[Month]
   def compareTo(other: Month): Int = ???
 
   override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: Month => f == other.f
+    case _ => false
+  }
 }

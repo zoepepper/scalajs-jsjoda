@@ -45,6 +45,8 @@ class Year protected[time](f: YearF) extends Wraps(f) with Comparable[Year]
   def `with`(field: TemporalField, newValue: Long): Year = f.`with`(field, newValue)
 
   override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: Year => f.equals(other.f)
+    case _ => false
+  }
 }

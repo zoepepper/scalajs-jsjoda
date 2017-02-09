@@ -23,8 +23,4 @@ class ZoneOffset protected[time](f: ZoneOffsetF) extends Wraps(f) with Comparabl
   def compareTo(other: ZoneOffset): Int = f.compareTo(other)
   def getId(): String = f.id
   def getTotalSeconds(): Int = f.totalSeconds
-
-  override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
 }

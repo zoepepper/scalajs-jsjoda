@@ -47,6 +47,8 @@ class YearMonth protected[time](f: YearMonthF) extends Wraps(f) with Comparable[
   def withYear(year: Int): YearMonth = f.withYear(year)
 
   override def toString(): String = f.toString()
-  override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: YearMonth => f.equals(other.f)
+    case _ => false
+  }
 }

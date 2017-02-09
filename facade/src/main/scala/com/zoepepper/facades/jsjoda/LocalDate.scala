@@ -66,4 +66,8 @@ class LocalDate protected[jsjoda]() extends ChronoLocalDate {
   def isSupported(unit: TemporalUnit): Boolean = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
   def format(formatter: DateTimeFormatter): String = js.native
+
+  override def toString(): String = js.native
+  override def hashCode(): Int = js.native
+  override def equals(obj: Any): Boolean = js.native
 }

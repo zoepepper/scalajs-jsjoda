@@ -1,8 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
-import java.time.temporal.TemporalAdjusters
-
-import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAccessor, TemporalField}
+import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAccessor}
 
 import scalajs.js
 import scalajs.js.annotation.JSName
@@ -29,5 +27,8 @@ class DayOfWeek protected[jsjoda]() extends TemporalAccessor {
   def value(): Int = js.native
   def plus(days: Double): DayOfWeek = js.native
   def minus(days: Double): DayOfWeek = js.native
-  def adjustInto(temporal: TemporalAdjusters): Temporal = js.native
+  def adjustInto(temporal: Temporal): Temporal = js.native
+
+  override def toString(): String = js.native
+  override def equals(obj: Any): Boolean = js.native
 }

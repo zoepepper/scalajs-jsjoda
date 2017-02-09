@@ -43,5 +43,8 @@ class Period protected[time](f: PeriodF) extends Wraps(f) with ChronoPeriod {
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
-  override def equals(obj: Any): Boolean = f.equals(obj)
+  override def equals(obj: Any): Boolean = obj match {
+    case other: Period => f.equals(other.f)
+    case _ => false
+  }
 }

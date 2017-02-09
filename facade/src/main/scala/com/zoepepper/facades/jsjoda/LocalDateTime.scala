@@ -78,4 +78,8 @@ class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalD
   def isBefore(other: LocalDateTime): Boolean = js.native
   def isEqual(other: LocalDateTime): Boolean = js.native
   def format(formatter: DateTimeFormatter): String = js.native
+
+  override def toString(): String = js.native
+  override def hashCode(): Int = js.native
+  override def equals(obj: Any): Boolean = js.native
 }

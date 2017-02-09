@@ -45,5 +45,8 @@ class Period extends TemporalAmount {
   def negated(): Period = js.native
   def normalized(): Period = js.native
   def toTotalMonths(): Double = js.native
-  
+
+  override def toString(): String = js.native
+  override def hashCode(): Int = js.native
+  override def equals(obj: Any): Boolean = js.native
 }
