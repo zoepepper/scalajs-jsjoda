@@ -58,3 +58,5 @@ lazy val javaTime =
       exportJars := true
     )
     .dependsOn(facade)
+
+packagedArtifacts in file(".") := Map.empty
