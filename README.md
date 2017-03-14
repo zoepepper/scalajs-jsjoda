@@ -3,8 +3,8 @@
 `scalajs-jsjoda` consists of 2 subprojects:
 * `facade`: A Scala.js facade for the `js-joda` JavaScript library (https://github.com/js-joda/js-joda).
 * `java-time-drop-in`: A proxy to the `facade` that sits in the `java.time` package,
-implementing as much as possible of Java 8's `java.time` API by delegating to the `js-joda` `facade`,
-and thus effectively enabling most of this API in Scala.js projects.
+implementing as much as possible of Java 8's `java.time` API by delegating to the `js-joda` `facade`.
+This effectively enables most of the `java.time` API in Scala.js projects.
 
 ## Usage
 
@@ -42,6 +42,8 @@ can be achieved by adding to sbt:
 jsDependencies += "org.webjars.npm" % "js-joda" % "1.1.8" / "dist/js-joda.js" minified "dist/js-joda.min.js"
 ```
 
+We recommend using the [latest version](https://github.com/js-joda/js-joda/releases) of `js-joda` nonetheless.
+
 # Caveats
 
 Usage is limited to functionality provided by `js-joda`. At the moment, this means:
@@ -49,5 +51,5 @@ Usage is limited to functionality provided by `js-joda`. At the moment, this mea
 * Limited to `IsoChronology` (no support for Hijrah, Japanese, Minguo or ThaiBuddhist chronologies).
 * No `OffsetTime`/`OffsetDateTime` support.
 * No `Locale` support.
-* No IANA timezone support. (Though it seems to be in `js-joda`'s pipeline: https://github.com/js-joda/js-joda/issues/32).
+* No IANA timezone support. `js-joda` supports this since version `1.3` (https://github.com/js-joda/js-joda/issues/32) through the [js-joda-timezone](https://github.com/js-joda/js-joda-timezone) project. We will add support for this as soon as time permits.
 
