@@ -62,4 +62,6 @@ lazy val javaTime =
     )
     .dependsOn(facade)
 
+sonatypeProfileName := "com.zoepepper"
+
 packagedArtifacts in file(".") := Map.empty
