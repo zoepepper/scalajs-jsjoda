@@ -11,13 +11,13 @@ This effectively enables most of the `java.time` API in Scala.js projects.
 To just use the `js-joda` facade, simply add the following line to your sbt settings:
 
 ```scala
-libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda" % "1.0.7"
+libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda" % "1.1.0"
 ```
 
 To use the facade as a `java.time` API implementation, add also:
 
 ```scala
-libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.0.7"
+libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.1.0"
 ```
 
 If you have a `crossProject`, the settings must be used only in the JS part:
@@ -27,8 +27,8 @@ lazy val myCross = crossProject.
   ...
   jsSettings.(
     libraryDependencies ++= Seq(
-      "com.zoepepper" %%% "scalajs-jsjoda" % "1.0.7",
-      "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.0.7"
+      "com.zoepepper" %%% "scalajs-jsjoda" % "1.1.0",
+      "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.1.0"
     )
   )
 ```
@@ -42,7 +42,26 @@ can be achieved by adding to sbt:
 jsDependencies += "org.webjars.npm" % "js-joda" % "1.1.8" / "dist/js-joda.js" minified "dist/js-joda.min.js"
 ```
 
-We recommend using the [latest version](https://github.com/js-joda/js-joda/releases) of `js-joda` nonetheless.
+We recommend using the [latest version](https://github.com/js-joda/js-joda/releases) of `js-joda` and `js-joda-time` nonetheless.
+
+## Timezone support
+
+If you need timezone support, at least version 1.3.0 of `js-joda` is required, as well as its 'js-joda-timezone' addon:
+
+```scala
+jsDependencies ++= Seq(
+  "org.webjars.npm" % "js-joda" % "1.3.0" / "dist/js-joda.js" minified "dist/js-joda.min.js",
+  "org.webjars.npm" % "js-joda-timezone" % "1.0.0" / "dist/js-joda-timezone.js" minified "dist/js-joda-timezone.min.js"
+)
+```
+
+If you use the `java-time-drop-in`, then the `js-joda-timezone` will be automatically bootstrapped for you. However, if you want to just use the `facade` without the `java-time-drop-in`, you need to bootstrap manually by calling:
+
+```scala
+import com.zoepepper.facades.jsjoda._
+
+JSJoda.use(JSJodaTimezone)
+```
 
 # Caveats
 
@@ -51,5 +70,3 @@ Usage is limited to functionality provided by `js-joda`. At the moment, this mea
 * Limited to `IsoChronology` (no support for Hijrah, Japanese, Minguo or ThaiBuddhist chronologies).
 * No `OffsetTime`/`OffsetDateTime` support.
 * No `Locale` support.
-* No IANA timezone support. `js-joda` supports this since version `1.3` (https://github.com/js-joda/js-joda/issues/32) through the [js-joda-timezone](https://github.com/js-joda/js-joda-timezone) project. We will add support for this as soon as time permits.
-

@@ -21,6 +21,5 @@ object ZoneOffset {
 class ZoneOffset protected[time](f: ZoneOffsetF) extends Wraps(f) with Comparable[ZoneOffset]
   with ZoneId with TemporalAccessor with TemporalAdjuster {
   def compareTo(other: ZoneOffset): Int = f.compareTo(other)
-  def getId(): String = f.id
   def getTotalSeconds(): Int = f.totalSeconds
 }

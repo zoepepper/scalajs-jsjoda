@@ -37,7 +37,7 @@ object LocalDateTime {
 
 class LocalDateTime protected[time](f: LocalDateTimeF) extends Wraps(f) with ChronoLocalDateTime[LocalDate] {
   def atOffset(offset: ZoneOffset): OffsetDateTime = ???
-  def atZone(zone: ZoneId): ZonedDateTime = ???
+  def atZone(zone: ZoneId): ZonedDateTime = f.atZone(zone)
   def compareTo(other: ChronoLocalDateTime[_]): Int = f.compareTo(other.asInstanceOf[LocalDateTime])
   def format(formatter: DateTimeFormatter): String = f.format(formatter)
   def getDayOfMonth(): Int = f.dayOfMonth
