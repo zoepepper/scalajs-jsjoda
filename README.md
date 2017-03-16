@@ -11,13 +11,13 @@ This effectively enables most of the `java.time` API in Scala.js projects.
 To just use the `js-joda` facade, simply add the following line to your sbt settings:
 
 ```scala
-libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda" % "1.1.0"
+libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda" % "1.1.1"
 ```
 
 To use the facade as a `java.time` API implementation, add also:
 
 ```scala
-libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.1.0"
+libraryDependencies += "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.1.1"
 ```
 
 If you have a `crossProject`, the settings must be used only in the JS part:
@@ -27,8 +27,8 @@ lazy val myCross = crossProject.
   ...
   jsSettings.(
     libraryDependencies ++= Seq(
-      "com.zoepepper" %%% "scalajs-jsjoda" % "1.1.0",
-      "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.1.0"
+      "com.zoepepper" %%% "scalajs-jsjoda" % "1.1.1",
+      "com.zoepepper" %%% "scalajs-jsjoda-as-java-time" % "1.1.1"
     )
   )
 ```

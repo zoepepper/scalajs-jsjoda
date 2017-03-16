@@ -8,7 +8,7 @@ def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
-      version := "1.1.0",
+      version := "1.1.1",
       scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
       homepage := Some(url("https://github.com/zoepepper/scalajs-jsjoda")),
       licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
