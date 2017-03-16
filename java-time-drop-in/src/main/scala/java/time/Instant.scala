@@ -41,6 +41,7 @@ class Instant protected[time](f: InstantF) extends Wraps(f) with Comparable[Inst
   def compareTo(otherInstant: Instant): Int = f.compareTo(otherInstant)
   def isAfter(otherInstant: Instant): Boolean = f.isAfter(otherInstant)
   def isBefore(otherInstant: Instant): Boolean = f.isBefore(otherInstant)
+  def atZone(zoneId: ZoneId): ZonedDateTime = ZonedDateTime.ofInstant(this, zoneId)
 
   override def toString(): String = f.toString()
   override def hashCode(): Int = f.hashCode()
