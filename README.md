@@ -65,8 +65,21 @@ JSJoda.use(JSJodaTimezone)
 
 # Caveats
 
+## Limited functionality
 Usage is limited to functionality provided by `js-joda`. At the moment, this means:
 
 * Limited to `IsoChronology` (no support for Hijrah, Japanese, Minguo or ThaiBuddhist chronologies).
 * No `OffsetTime`/`OffsetDateTime` support.
 * No `Locale` support.
+
+## Conflicts with other `java.time._` drop-ins
+
+When using `java-time-drop-in` make sure you don't have conflicting implementations in your dependencies (including transitive ones).
+Otherwise you can experience linking errors.
+
+For example, presence of [`scala-js-java-time`](https://github.com/scala-js/scala-js-java-time) can lead to linking errors like the following:
+
+```
+[error] Referring to non-existent method java.time.temporal.Temporal.until(java.time.temporal.Temporal,java.time.temporal.TemporalUnit)scala.Long
+[error]   called from java.time.ZonedDateTime.until(java.time.temporal.Temporal,java.time.temporal.TemporalUnit)scala.Long
+```
