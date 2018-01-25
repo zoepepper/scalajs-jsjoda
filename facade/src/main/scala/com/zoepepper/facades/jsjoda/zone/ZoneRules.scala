@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda.zone
 import com.zoepepper.facades.jsjoda._
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.ZoneRules")
+@JSGlobal("JSJoda.ZoneRules")
 object ZoneRules extends js.Object {
   def of(offset: ZoneOffset): ZoneRules = js.native
 }

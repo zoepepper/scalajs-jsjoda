@@ -3,11 +3,11 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
 
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.JSGlobal
 import scalajs.js
 
 @js.native
-@JSName("JSJoda.Year")
+@JSGlobal("JSJoda.Year")
 object Year extends js.Object {
   def now(clock: Clock = ???): Year = js.native
   def now(zone: ZoneId): Year = js.native

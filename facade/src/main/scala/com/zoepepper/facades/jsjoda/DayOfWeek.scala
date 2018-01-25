@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAccessor}
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.DayOfWeek")
+@JSGlobal("JSJoda.DayOfWeek")
 object DayOfWeek extends js.Object {
   def values(): js.Array[DayOfWeek] = js.native
   def valueOf(name: String): DayOfWeek = js.native

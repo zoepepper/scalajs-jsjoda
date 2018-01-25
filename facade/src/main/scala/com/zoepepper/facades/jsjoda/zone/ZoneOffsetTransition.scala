@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda.zone
 import com.zoepepper.facades.jsjoda.{Duration, Instant, LocalDateTime, ZoneOffset}
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.ZoneOffsetTransition")
+@JSGlobal("JSJoda.ZoneOffsetTransition")
 object ZoneOffsetTransition extends js.Object {
   def of(transition: LocalDateTime, offsetBefore: ZoneOffset, offsetAfter: ZoneOffset): ZoneOffsetTransition = js.native
 }

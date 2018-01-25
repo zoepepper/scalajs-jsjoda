@@ -5,10 +5,10 @@ import java.time.chrono.Chronology
 import com.zoepepper.facades.jsjoda.{LocalDate, LocalTime, ZoneId, ZoneOffset}
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.TemporalQueries")
+@JSGlobal("JSJoda.TemporalQueries")
 object TemporalQueries extends js.Object {
   def zoneId(): TemporalQuery[ZoneId] = js.native
   def chronology(): TemporalQuery[Chronology] = js.native

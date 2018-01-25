@@ -2,11 +2,11 @@ package com.zoepepper.facades.jsjoda.temporal
 
 import com.zoepepper.facades.jsjoda.Duration
 
+import scala.scalajs.js.annotation.JSGlobal
 import scalajs.js
-import scalajs.js.annotation.JSName
 
 @js.native
-@JSName("JSJoda.ChronoUnit")
+@JSGlobal("JSJoda.ChronoUnit")
 object ChronoUnit extends js.Object {
   val NANOS: ChronoUnit = js.native
   val MICROS: ChronoUnit = js.native

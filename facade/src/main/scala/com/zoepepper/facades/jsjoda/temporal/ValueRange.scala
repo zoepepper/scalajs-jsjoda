@@ -1,10 +1,10 @@
 package com.zoepepper.facades.jsjoda.temporal
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.ValueRange")
+@JSGlobal("JSJoda.ValueRange")
 object ValueRange extends js.Object {
   def of(min: Double, max: Double): ValueRange = js.native
   def of(min: Double, maxSmallest: Double, maxLargest: Double): ValueRange = js.native

@@ -1,10 +1,10 @@
 package com.zoepepper.facades.jsjoda.format
 
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.JSGlobal
 import scalajs.js
 
 @js.native
-@JSName("JSJoda.DecimalStyle")
+@JSGlobal("JSJoda.DecimalStyle")
 object DecimalStyle extends js.Object {
   val STANDARD: DecimalStyle = js.native
 }

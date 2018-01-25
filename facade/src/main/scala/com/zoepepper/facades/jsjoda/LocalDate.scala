@@ -5,10 +5,10 @@ import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.LocalDate")
+@JSGlobal("JSJoda.LocalDate")
 object LocalDate extends js.Object {
   def now(clock: Clock = ???): LocalDate = js.native
   def now(zone: ZoneId): LocalDate = js.native

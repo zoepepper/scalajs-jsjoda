@@ -1,10 +1,10 @@
 package com.zoepepper.facades.jsjoda.temporal
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.ChronoField")
+@JSGlobal("JSJoda.ChronoField")
 object ChronoField extends js.Object {
   val NANO_OF_SECOND: ChronoField = js.native
   val NANO_OF_DAY: ChronoField = js.native

@@ -4,10 +4,10 @@ import com.zoepepper.facades.jsjoda.chrono.IsoChronology
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit, TemporalAmount}
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.Period")
+@JSGlobal("JSJoda.Period")
 object Period extends js.Object {
   def ofYears(years: Int): Period = js.native
   def ofMonths(months: Int): Period = js.native

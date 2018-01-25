@@ -1,8 +1,8 @@
 package com.zoepepper.facades.jsjoda
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.Enum")
+@JSGlobal("JSJoda.Enum")
 class Enum protected[jsjoda]() extends js.Object

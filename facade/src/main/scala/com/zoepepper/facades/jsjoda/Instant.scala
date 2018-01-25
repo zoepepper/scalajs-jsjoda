@@ -3,15 +3,15 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.temporal._
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.Instant")
+@JSGlobal("JSJoda.Instant")
 object Instant extends js.Object {
   def now(clock: Clock = ???): Instant = js.native
   def ofEpochSecond(epochSecond: Double, nanoAdjustment: Double = ???): Instant = js.native
   def ofEpochMilli(epochMilli: Double): Instant = js.native
-  def from(temporal: Temporal): Instant = js.native
+  def from(temporal: TemporalAccessor): Instant = js.native
   def parse(text: String): Instant = js.native
 
   val EPOCH: Instant = js.native

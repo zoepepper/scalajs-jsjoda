@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda.temporal
 import com.zoepepper.facades.jsjoda.DayOfWeek
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.TemporalAdjusters")
+@JSGlobal("JSJoda.TemporalAdjusters")
 object TemporalAdjusters extends js.Object {
   def firstDayOfMonth(): TemporalAdjuster = js.native
   def lastDayOfMonth(): TemporalAdjuster = js.native

@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.temporal._
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.Month")
+@JSGlobal("JSJoda.Month")
 object Month extends js.Object {
   def values(): js.Array[Month] = js.native
   def of(month: Int): Month = js.native

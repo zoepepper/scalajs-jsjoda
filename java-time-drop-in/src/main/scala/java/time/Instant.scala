@@ -1,7 +1,7 @@
 package java.time
 
 import java.Wraps
-import java.time.temporal.{Temporal, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
+import java.time.temporal.{Temporal, TemporalAccessor, TemporalAdjuster, TemporalAmount, TemporalField, TemporalUnit}
 
 import com.zoepepper.facades.jsjoda.{Instant => InstantF}
 
@@ -11,7 +11,7 @@ object Instant {
   def ofEpochSecond(epochSecond: Long): Instant = InstantF.ofEpochSecond(epochSecond)
   def ofEpochSecond(epochSecond: Long, nanoAdjustment: Long): Instant = InstantF.ofEpochSecond(epochSecond, nanoAdjustment)
   def ofEpochMilli(epochMilli: Long): Instant = InstantF.ofEpochMilli(epochMilli)
-  def from(temporal: Temporal): Instant = InstantF.from(temporal)
+  def from(temporal: TemporalAccessor): Instant = InstantF.from(temporal)
   def parse(text: CharSequence): Instant = InstantF.parse(text.toString)
 
   val EPOCH: Instant = InstantF.EPOCH

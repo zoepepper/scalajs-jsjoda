@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit, Temporal, TemporalAmount, TemporalUnit}
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.Duration")
+@JSGlobal("JSJoda.Duration")
 object Duration extends js.Object {
   def ofDays(days: Double): Duration = js.native
   def ofHours(hours: Double): Duration = js.native

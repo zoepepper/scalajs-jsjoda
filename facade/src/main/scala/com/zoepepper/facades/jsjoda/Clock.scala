@@ -1,10 +1,10 @@
 package com.zoepepper.facades.jsjoda
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.Clock")
+@JSGlobal("JSJoda.Clock")
 object Clock extends js.Object {
   def systemUTC(): Clock = js.native
   def systemDefaultZone(): Clock = js.native

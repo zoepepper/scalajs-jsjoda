@@ -5,10 +5,10 @@ import com.zoepepper.facades.jsjoda.chrono.IsoChronology
 import com.zoepepper.facades.jsjoda.temporal.{TemporalAccessor, TemporalField, TemporalQuery}
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.DateTimeFormatter")
+@JSGlobal("JSJoda.DateTimeFormatter")
 object DateTimeFormatter extends js.Object {
   def parsedExcessDays(): TemporalQuery[Period] = js.native
   def parsedLeapSecond(): TemporalQuery[Boolean] = js.native

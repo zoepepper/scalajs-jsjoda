@@ -4,10 +4,10 @@ import com.zoepepper.facades.jsjoda.format.ResolverStyle
 import com.zoepepper.facades.jsjoda.{Enum, LocalDate}
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.IsoChronology")
+@JSGlobal("JSJoda.IsoChronology")
 object IsoChronology extends js.Object {
   def isLeapYear(prolepticYear: Double): Boolean = js.native
 

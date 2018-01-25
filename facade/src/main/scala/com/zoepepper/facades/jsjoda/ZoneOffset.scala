@@ -3,10 +3,10 @@ package com.zoepepper.facades.jsjoda
 import com.zoepepper.facades.jsjoda.temporal._
 
 import scalajs.js
-import scalajs.js.annotation.JSName
+import scalajs.js.annotation.JSGlobal
 
 @js.native
-@JSName("JSJoda.ZoneOffset")
+@JSGlobal("JSJoda.ZoneOffset")
 object ZoneOffset extends js.Object {
   def of(offsetId: String): ZoneOffset = js.native
   def ofHours(hours: Int): ZoneOffset = js.native
