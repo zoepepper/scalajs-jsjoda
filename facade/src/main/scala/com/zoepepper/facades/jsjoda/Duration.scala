@@ -1,6 +1,6 @@
 package com.zoepepper.facades.jsjoda
 
-import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit, Temporal, TemporalAmount, TemporalUnit}
+import com.zoepepper.facades.jsjoda.temporal.{Temporal, TemporalAmount, TemporalUnit}
 
 import scalajs.js
 import scalajs.js.annotation.JSGlobal
@@ -31,7 +31,7 @@ class Duration protected[jsjoda]() extends TemporalAmount {
   def withSeconds(seconds: Double): Duration = js.native
   def withNanos(nanoOfSecond: Int): Duration = js.native
   def plus(duration: Duration): Duration = js.native
-  def plus(amountToAdd: Double, unit: ChronoUnit): Duration = js.native
+  def plus(amountToAdd: Double, unit: TemporalUnit): Duration = js.native
   def plusDays(daysToAdd: Double): Duration = js.native
   def plusHours(hoursToAdd: Double): Duration = js.native
   def plusMinutes(minutesToAdd: Double): Duration = js.native
@@ -39,7 +39,7 @@ class Duration protected[jsjoda]() extends TemporalAmount {
   def plusMillis(millisToAdd: Double): Duration = js.native
   def plusNanos(nanosToAdd: Double): Duration = js.native
   def minus(duration: Duration): Duration = js.native
-  def minus(amountToSubtract: Double, unit: ChronoUnit): Duration = js.native
+  def minus(amountToSubtract: Double, unit: TemporalUnit): Duration = js.native
   def minusDays(daysToSubtract: Double): Duration = js.native
   def minusHours(hoursToSubtract: Double): Duration = js.native
   def minusMinutes(minutesToSubtract: Double): Duration = js.native
