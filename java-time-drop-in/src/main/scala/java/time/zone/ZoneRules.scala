@@ -2,7 +2,7 @@ package java.time.zone
 
 import java.Wraps
 import java.time.{Duration, Instant, LocalDateTime, ZoneOffset}
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 import com.zoepepper.facades.jsjoda.zone.{ZoneRules => ZoneRulesF}
 

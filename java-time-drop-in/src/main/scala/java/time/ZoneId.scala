@@ -6,7 +6,7 @@ import java.time.temporal.TemporalAccessor
 import java.time.zone.ZoneRules
 import java.util.Locale
 
-import collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import com.zoepepper.facades.jsjoda.{JSJoda, JSJodaTimezone, ZoneId => ZoneIdF, ZoneOffset => ZoneOffsetF}
 
 object ZoneId {

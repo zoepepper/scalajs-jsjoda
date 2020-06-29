@@ -35,6 +35,7 @@ def BaseProject(name: String): Project =
           </developer>
         </developers>,
       pomIncludeRepository := { _ => false },
+      libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.6",
       libraryDependencies += {
         CrossVersion.partialVersion(scalaVersion.value) match {
           case Some((2, n)) if n >= 12 => "com.lihaoyi" %%% "utest" % "0.7.4" % "test"

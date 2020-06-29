@@ -8,7 +8,7 @@ import java.time.{Clock, Instant, LocalDate, LocalDateTime, Period, ZoneId, Zone
 import com.zoepepper.facades.jsjoda.chrono.{IsoChronology => IsoChronologyF}
 
 import scalajs.js.JSConverters._
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 object IsoChronology {
   val INSTANCE: IsoChronology = IsoChronologyF.INSTANCE
