@@ -27,9 +27,9 @@ trait ZoneId { self: Wrapper =>
   protected[time] val zoneIdF = self.f.asInstanceOf[ZoneIdF]
 
   def getDisplayName(style: TextStyle, locale: Locale): String = ???
-  def getId(): String = zoneIdF.id
-  def getRules(): ZoneRules = zoneIdF.rules
-  def normalized(): ZoneId = zoneIdF.normalized.asInstanceOf[ZoneOffsetF]
+  def getId(): String = zoneIdF.id()
+  def getRules(): ZoneRules = zoneIdF.rules()
+  def normalized(): ZoneId = zoneIdF.normalized().asInstanceOf[ZoneOffsetF]
 
   override def toString(): String = zoneIdF.toString()
   override def hashCode(): Int = zoneIdF.hashCode()

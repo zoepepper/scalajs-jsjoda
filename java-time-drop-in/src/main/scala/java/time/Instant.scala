@@ -8,9 +8,9 @@ import com.zoepepper.facades.jsjoda.{Instant => InstantF}
 object Instant {
   def now(): Instant = InstantF.now()
   def now(clock: Clock): Instant = InstantF.now(clock)
-  def ofEpochSecond(epochSecond: Long): Instant = InstantF.ofEpochSecond(epochSecond)
-  def ofEpochSecond(epochSecond: Long, nanoAdjustment: Long): Instant = InstantF.ofEpochSecond(epochSecond, nanoAdjustment)
-  def ofEpochMilli(epochMilli: Long): Instant = InstantF.ofEpochMilli(epochMilli)
+  def ofEpochSecond(epochSecond: Long): Instant = InstantF.ofEpochSecond(epochSecond.toDouble)
+  def ofEpochSecond(epochSecond: Long, nanoAdjustment: Long): Instant = InstantF.ofEpochSecond(epochSecond.toDouble, nanoAdjustment.toDouble)
+  def ofEpochMilli(epochMilli: Long): Instant = InstantF.ofEpochMilli(epochMilli.toDouble)
   def from(temporal: TemporalAccessor): Instant = InstantF.from(temporal)
   def parse(text: CharSequence): Instant = InstantF.parse(text.toString)
 
@@ -21,22 +21,22 @@ object Instant {
 
 class Instant protected[time](f: InstantF) extends Wraps(f) with Comparable[Instant]
   with Temporal with TemporalAdjuster {
-  def getEpochSecond(): Long = f.epochSecond.toLong
-  def getNano(): Int = f.nano
+  def getEpochSecond(): Long = f.epochSecond().toLong
+  def getNano(): Int = f.nano()
   def isSupported(unit: TemporalUnit): Boolean = f.isSupported(unit)
   def `with`(adjuster: TemporalAdjuster): Instant = f.`with`(adjuster)
-  def `with`(field: TemporalField, newValue: Long): Instant = f.`with`(field, newValue)
+  def `with`(field: TemporalField, newValue: Long): Instant = f.`with`(field, newValue.toDouble)
   def truncatedTo(unit: TemporalUnit): Instant = f.truncatedTo(unit)
   def plus(amount: TemporalAmount): Instant = f.plus(amount)
-  def plus(amountToAdd: Long, unit: TemporalUnit): Instant = f.plus(amountToAdd, unit)
-  def plusSeconds(secondsToAdd: Long): Instant = f.plusSeconds(secondsToAdd)
-  def plusMillis(millisToAdd: Long): Instant = f.plusMillis(millisToAdd)
-  def plusNanos(nanosToAdd: Long): Instant = f.plusNanos(nanosToAdd)
+  def plus(amountToAdd: Long, unit: TemporalUnit): Instant = f.plus(amountToAdd.toDouble, unit)
+  def plusSeconds(secondsToAdd: Long): Instant = f.plusSeconds(secondsToAdd.toDouble)
+  def plusMillis(millisToAdd: Long): Instant = f.plusMillis(millisToAdd.toDouble)
+  def plusNanos(nanosToAdd: Long): Instant = f.plusNanos(nanosToAdd.toDouble)
   def minus(amount: TemporalAmount): Instant = f.minus(amount)
-  def minus(amountToSubtract: Long, unit: TemporalUnit): Instant = f.minus(amountToSubtract, unit)
-  def minusSeconds(secondsToSubtract: Long): Instant = f.minusSeconds(secondsToSubtract)
-  def minusMillis(millisToSubtract: Long): Instant = f.minusMillis(millisToSubtract)
-  def minusNanos(nanosToSubtract: Long): Instant = f.minusNanos(nanosToSubtract)
+  def minus(amountToSubtract: Long, unit: TemporalUnit): Instant = f.minus(amountToSubtract.toDouble, unit)
+  def minusSeconds(secondsToSubtract: Long): Instant = f.minusSeconds(secondsToSubtract.toDouble)
+  def minusMillis(millisToSubtract: Long): Instant = f.minusMillis(millisToSubtract.toDouble)
+  def minusNanos(nanosToSubtract: Long): Instant = f.minusNanos(nanosToSubtract.toDouble)
   def toEpochMilli(): Long = f.toEpochMilli().toLong
   def compareTo(otherInstant: Instant): Int = f.compareTo(otherInstant)
   def isAfter(otherInstant: Instant): Boolean = f.isAfter(otherInstant)

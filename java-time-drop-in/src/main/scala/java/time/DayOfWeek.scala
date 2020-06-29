@@ -8,7 +8,7 @@ import java.util.Locale
 import com.zoepepper.facades.jsjoda.{DayOfWeek => DayOfWeekF}
 
 object DayOfWeek {
-  def values(): Array[DayOfWeek] = DayOfWeekF.values
+  def values(): Array[DayOfWeek] = DayOfWeekF.values()
   def valueOf(name: String): DayOfWeek = DayOfWeekF.valueOf(name)
   def of(dayOfWeek: Int): DayOfWeek = DayOfWeekF.of(dayOfWeek)
   def from(temporal: TemporalAccessor): DayOfWeek = DayOfWeekF.from(temporal)
@@ -26,8 +26,8 @@ class DayOfWeek protected[time](f: DayOfWeekF) extends Wraps(f) with Comparable[
   with TemporalAccessor with TemporalAdjuster {
   def getDisplayName(style: TextStyle, locale: Locale): String = ???
   def getValue(): Int = f.getValue()
-  def plus(days: Long): DayOfWeek = f.plus(days)
-  def minus(days: Long): DayOfWeek = f.minus(days)
+  def plus(days: Long): DayOfWeek = f.plus(days.toDouble)
+  def minus(days: Long): DayOfWeek = f.minus(days.toDouble)
   def compareTo(other: DayOfWeek): Int = ???
 
   override def toString(): String = f.toString()

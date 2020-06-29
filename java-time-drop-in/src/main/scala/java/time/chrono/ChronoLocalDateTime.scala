@@ -20,7 +20,7 @@ trait ChronoLocalDateTime[D <: ChronoLocalDate] extends Comparable[ChronoLocalDa
   def atZone(zone: ZoneId): ZonedDateTime
   def compareTo(other: ChronoLocalDateTime[_]): Int
   def format(formatter: DateTimeFormatter): String
-  def getChronology(): Chronology = chronoLocalDateTimeF.chronology
+  def getChronology(): Chronology = chronoLocalDateTimeF.chronology()
   def isAfter(other: ChronoLocalDateTime[_]): Boolean
   def isBefore(other: ChronoLocalDateTime[_]): Boolean
   def isEqual(other: ChronoLocalDateTime[_]): Boolean

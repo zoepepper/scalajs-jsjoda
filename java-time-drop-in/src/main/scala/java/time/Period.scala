@@ -20,23 +20,23 @@ object Period {
 }
 
 class Period protected[time](f: PeriodF) extends Wraps(f) with ChronoPeriod {
-  def getChronology(): IsoChronology = f.chronology
-  def getDays(): Int = f.days
-  def getMonths(): Int = f.months
-  def getYears(): Int = f.years
-  def isNegative(): Boolean = f.isNegative
-  def isZero(): Boolean = f.isZero
+  def getChronology(): IsoChronology = f.chronology()
+  def getDays(): Int = f.days()
+  def getMonths(): Int = f.months()
+  def getYears(): Int = f.years()
+  def isNegative(): Boolean = f.isNegative()
+  def isZero(): Boolean = f.isZero()
   def minus(amountToSubtract: TemporalAmount): Period = f.minus(amountToSubtract)
-  def minusDays(daysToSubtract: Long): Period = f.minusDays(daysToSubtract)
-  def minusMonths(monthsToSubtract: Long): Period = f.minusMonths(monthsToSubtract)
-  def minusYears(yearsToSubtract: Long): Period = f.minusYears(yearsToSubtract)
+  def minusDays(daysToSubtract: Long): Period = f.minusDays(daysToSubtract.toDouble)
+  def minusMonths(monthsToSubtract: Long): Period = f.minusMonths(monthsToSubtract.toDouble)
+  def minusYears(yearsToSubtract: Long): Period = f.minusYears(yearsToSubtract.toDouble)
   def multipliedBy(scalar: Int): Period = f.multipliedBy(scalar)
   def negated(): Period = f.negated()
   def normalized(): Period = f.normalized()
   def plus(amountToAdd: TemporalAmount): Period = f.plus(amountToAdd)
-  def plusDays(daysToAdd: Long): Period = f.plusDays(daysToAdd)
-  def plusMonths(monthsToAdd: Long): Period = f.plusMonths(monthsToAdd)
-  def plusYears(yearsToAdd: Long): Period = f.plusYears(yearsToAdd)
+  def plusDays(daysToAdd: Long): Period = f.plusDays(daysToAdd.toDouble)
+  def plusMonths(monthsToAdd: Long): Period = f.plusMonths(monthsToAdd.toDouble)
+  def plusYears(yearsToAdd: Long): Period = f.plusYears(yearsToAdd.toDouble)
   def withDays(days: Int): Period = f.withDays(days)
   def withMonths(months: Int): Period = f.withMonths(months)
   def withYears(years: Int): Period = f.withYears(years)

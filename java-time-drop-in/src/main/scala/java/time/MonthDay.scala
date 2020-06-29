@@ -22,9 +22,9 @@ class MonthDay protected[time](f: MonthDayF) extends Wraps(f) with Comparable[Mo
   def atYear(year: Int): LocalDate = f.atYear(year)
   def compareTo(other: MonthDay): Int = f.compareTo(other)
   def format(formatter: DateTimeFormatter): String = f.format(formatter)
-  def getDayOfMonth(): Int = f.dayOfMonth
-  def getMonth(): Month = f.month
-  def getMonthValue(): Int = f.monthValue
+  def getDayOfMonth(): Int = f.dayOfMonth()
+  def getMonth(): Month = f.month()
+  def getMonthValue(): Int = f.monthValue()
   def isAfter(other: MonthDay): Boolean = f.isAfter(other)
   def isBefore(other: MonthDay): Boolean = f.isBefore(other)
   def isValidYear(year: Int): Boolean = f.isValidYear(year)

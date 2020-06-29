@@ -14,10 +14,10 @@ object DecimalStyle {
 }
 
 class DecimalStyle protected[time](f: DecimalStyleF) extends Wraps(f) {
-  def getDecimalSeparator(): Char = f.decimalSeparator
-  def getNegativeSign(): Char = f.negativeSign
-  def getPositiveSign(): Char = f.positiveSign
-  def getZeroDigit(): Char = f.zeroDigit
+  def getDecimalSeparator(): Char = f.decimalSeparator()
+  def getNegativeSign(): Char = f.negativeSign()
+  def getPositiveSign(): Char = f.positiveSign()
+  def getZeroDigit(): Char = f.zeroDigit()
   def withDecimalSeparator(decimalSeparator: Char): DecimalStyle = f.withDecimalSeparator(decimalSeparator)
   def withNegativeSign(negativeSign: Char): DecimalStyle = f.withNegativeSign(negativeSign)
   def withPositiveSign(positiveSign: Char): DecimalStyle = f.withPositiveSign(positiveSign)

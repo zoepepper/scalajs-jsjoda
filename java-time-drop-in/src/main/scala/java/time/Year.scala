@@ -8,7 +8,7 @@ import com.zoepepper.facades.jsjoda.{Year => YearF}
 
 object Year {
   def from(temporal: TemporalAccessor): Year = YearF.from(temporal)
-  def isLeap(year: Long): Boolean = YearF.isLeap(year)
+  def isLeap(year: Long): Boolean = YearF.isLeap(year.toDouble)
   def now(): Year = YearF.now()
   def now(clock: Clock): Year = YearF.now(clock)
   def now(zone: ZoneId): Year = YearF.now(zone)
@@ -28,21 +28,21 @@ class Year protected[time](f: YearF) extends Wraps(f) with Comparable[Year]
   def atMonthDay(monthDay: MonthDay): LocalDate = f.atMonthDay(monthDay)
   def compareTo(other: Year): Int = f.compareTo(other)
   def format(formatter: DateTimeFormatter): String = f.format(formatter)
-  def getValue(): Int = f.value
+  def getValue(): Int = f.value()
   def isAfter(other: Year): Boolean = f.isAfter(other)
   def isBefore(other: Year): Boolean = f.isBefore(other)
-  def isLeap(): Boolean = f.isLeap
+  def isLeap(): Boolean = f.isLeap()
   def isSupported(unit: TemporalUnit): Boolean = f.isSupported(unit)
   def isValidMonthDay(monthDay: MonthDay): Boolean = f.isValidMonthDay(monthDay)
-  def length(): Int = f.length
-  def minus(amountToSubtract: Long, unit: TemporalUnit): Year = f.minus(amountToSubtract, unit)
+  def length(): Int = f.length()
+  def minus(amountToSubtract: Long, unit: TemporalUnit): Year = f.minus(amountToSubtract.toDouble, unit)
   def minus(amountToSubtract: TemporalAmount): Year = f.minus(amountToSubtract)
-  def minusYears(yearsToSubtract: Long): Year = f.minusYears(yearsToSubtract)
-  def plus(amountToAdd: Long, unit: TemporalUnit): Year = f.plus(amountToAdd, unit)
+  def minusYears(yearsToSubtract: Long): Year = f.minusYears(yearsToSubtract.toDouble)
+  def plus(amountToAdd: Long, unit: TemporalUnit): Year = f.plus(amountToAdd.toDouble, unit)
   def plus(amountToAdd: TemporalAmount): Year = f.plus(amountToAdd)
-  def plusYears(yearsToAdd: Long): Year = f.plusYears(yearsToAdd)
+  def plusYears(yearsToAdd: Long): Year = f.plusYears(yearsToAdd.toDouble)
   def `with`(adjuster: TemporalAdjuster): Year = f.`with`(adjuster)
-  def `with`(field: TemporalField, newValue: Long): Year = f.`with`(field, newValue)
+  def `with`(field: TemporalField, newValue: Long): Year = f.`with`(field, newValue.toDouble)
 
   override def toString(): String = f.toString()
   override def equals(obj: Any): Boolean = obj match {

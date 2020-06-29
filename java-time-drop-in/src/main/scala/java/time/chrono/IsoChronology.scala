@@ -29,7 +29,7 @@ class IsoChronology protected[time](f: IsoChronologyF) extends Wraps(f) with Chr
   def eras(): java.util.List[Era] = ???
   def getCalendarType(): String = ???
   def getId(): String = ???
-  def isLeapYear(prolepticYear: Long): Boolean = IsoChronologyF.isLeapYear(prolepticYear)
+  def isLeapYear(prolepticYear: Long): Boolean = IsoChronologyF.isLeapYear(prolepticYear.toDouble)
   def localDateTime(temporal: TemporalAccessor): LocalDateTime = ???
   def period(years: Int, months: Int, days: Int): Period = ???
   def prolepticYear(era: Era, yearOfEra: Int): Int = ???
