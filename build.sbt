@@ -1,14 +1,11 @@
 import sbt.Keys._
 
-scalaVersion := "2.12.4"
-
-crossScalaVersions := Seq("2.11.12", "2.12.4")
-
 def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
       version := "1.1.2",
+      crossScalaVersions := Seq("2.11.12", "2.12.11", "2.13.3"),
       scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings", "-P:scalajs:suppressMissingJSGlobalDeprecations"),
       homepage := Some(url("https://github.com/zoepepper/scalajs-jsjoda")),
       licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
@@ -38,14 +35,22 @@ def BaseProject(name: String): Project =
           </developer>
         </developers>,
       pomIncludeRepository := { _ => false },
-      libraryDependencies += "com.lihaoyi" %%% "utest" % "0.6.3" % "test",
+      libraryDependencies += {
+        CrossVersion.partialVersion(scalaVersion.value) match {
+          case Some((2, n)) if n >= 12 => "com.lihaoyi" %%% "utest" % "0.7.4" % "test"
+          case _ => "com.lihaoyi" %%% "utest" % "0.6.8" % "test"
+        }
+      },
       jsDependencies += ("org.webjars.npm" % "js-joda" % "1.6.2" / "dist/js-joda.js" minified "dist/js-joda.min.js") % "test",
       jsDependencies += (ProvidedJS / "test.js" dependsOn "dist/js-joda.js") % "test",
       testFrameworks += new TestFramework("utest.runner.Framework")
     )
     .enablePlugins(ScalaJSPlugin)
 
-lazy val root = project in file(".")
+lazy val root = (project in file("."))
+  .settings(
+    crossScalaVersions := Nil
+  ).aggregate(facade, javaTime)
 
 lazy val facade =
   BaseProject("facade")
