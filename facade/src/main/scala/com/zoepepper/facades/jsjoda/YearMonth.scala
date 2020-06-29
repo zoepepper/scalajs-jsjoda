@@ -46,7 +46,4 @@ class YearMonth extends Temporal {
   def plus(amount: TemporalAmount): YearMonth = js.native
   def `with`(adjuster: TemporalAdjuster): YearMonth = js.native
   def `with`(field: TemporalField, newValue: Double): YearMonth = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

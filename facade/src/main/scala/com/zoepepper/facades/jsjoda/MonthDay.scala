@@ -39,7 +39,4 @@ class MonthDay extends Temporal {
   def plus(amount: TemporalAmount): MonthDay = js.native
   def `with`(adjuster: TemporalAdjuster): MonthDay = js.native
   def `with`(field: TemporalField, newValue: Double): MonthDay = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

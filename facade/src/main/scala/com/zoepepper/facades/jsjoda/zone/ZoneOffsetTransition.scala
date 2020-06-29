@@ -3,7 +3,7 @@ package com.zoepepper.facades.jsjoda.zone
 import com.zoepepper.facades.jsjoda.{Duration, Instant, LocalDateTime, ZoneOffset}
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.annotation.{JSGlobal, JSName}
 
 @js.native
 @JSGlobal("JSJoda.ZoneOffsetTransition")
@@ -25,8 +25,4 @@ class ZoneOffsetTransition(transition: LocalDateTime, before: ZoneOffset, after:
   def isValidOffset(offset: ZoneOffset): Boolean = js.native
   def validOffsets(): js.Array[ZoneOffset] = js.native
   def compareTo(other: ZoneOffsetTransition): Int = js.native
-
-  override def toString(): String = js.native
-  override def hashCode(): Int = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

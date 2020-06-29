@@ -28,7 +28,4 @@ class DayOfWeek protected[jsjoda]() extends TemporalAccessor {
   def plus(days: Double): DayOfWeek = js.native
   def minus(days: Double): DayOfWeek = js.native
   def adjustInto(temporal: Temporal): Temporal = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

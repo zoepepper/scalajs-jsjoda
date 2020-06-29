@@ -56,7 +56,4 @@ class Duration protected[jsjoda]() extends TemporalAmount {
   def toMillis(): Double = js.native
   def toNanos(): Double = js.native
   def compareTo(otherDuration: Duration): Int = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

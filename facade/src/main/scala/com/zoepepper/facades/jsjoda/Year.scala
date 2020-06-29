@@ -44,7 +44,4 @@ class Year extends Temporal {
   def format(formatter: DateTimeFormatter): String = js.native
   def `with`(adjuster: TemporalAdjuster): Year = js.native
   def `with`(field: TemporalField, newValue: Double): Year = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

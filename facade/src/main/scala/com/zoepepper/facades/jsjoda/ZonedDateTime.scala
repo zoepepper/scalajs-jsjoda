@@ -5,7 +5,7 @@ import com.zoepepper.facades.jsjoda.format.DateTimeFormatter
 import com.zoepepper.facades.jsjoda.temporal._
 
 import scalajs.js
-import scalajs.js.annotation.JSGlobal
+import scalajs.js.annotation.{JSGlobal, JSName}
 
 @js.native
 @JSGlobal("JSJoda.ZonedDateTime")
@@ -76,8 +76,4 @@ class ZonedDateTime protected[jsjoda]() extends ChronoZonedDateTime[ChronoLocalD
   def toLocalDate(): LocalDate = js.native
   def toLocalTime(): LocalTime = js.native
 //  def toOffsetDateTime(): OffsetDateTime = js.native
-
-  override def toString(): String = js.native
-  override def hashCode(): Int = js.native
-  override def equals(obj: Any): Boolean = js.native
 }
