@@ -9,10 +9,12 @@ trait JSJoda extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda")
 object JSJoda extends JSJoda
 
 @js.native
 trait JSJodaPlugin extends js.Object
 
 @js.native
+@JSGlobal("JSJodaTimezone")
 object JSJodaTimezone extends JSJodaPlugin

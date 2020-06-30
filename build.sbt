@@ -1,12 +1,14 @@
 import sbt.Keys._
 
+val isScalaJS06 = Option(System.getenv("SCALAJS_VERSION")).filter(_.nonEmpty).exists(_.startsWith("0.6."))
+
 def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
       version := "1.1.2",
-      crossScalaVersions := Seq("2.11.12", "2.12.11", "2.13.3"),
-      scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings", "-P:scalajs:suppressMissingJSGlobalDeprecations"),
+      crossScalaVersions := Seq("2.12.11", "2.13.3") ++ Seq("2.11.12").filter(_ => isScalaJS06),
+      scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings") ++ Seq("-P:scalajs:suppressMissingJSGlobalDeprecations").filter(_ => isScalaJS06),
       homepage := Some(url("https://github.com/zoepepper/scalajs-jsjoda")),
       licenses +=("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause")),
       scmInfo := Some(ScmInfo(
@@ -47,6 +49,7 @@ def BaseProject(name: String): Project =
       testFrameworks += new TestFramework("utest.runner.Framework")
     )
     .enablePlugins(ScalaJSPlugin)
+    .enablePlugins(JSDependenciesPlugin)
 
 lazy val root = (project in file("."))
   .settings(

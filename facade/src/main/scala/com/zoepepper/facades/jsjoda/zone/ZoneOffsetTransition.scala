@@ -12,6 +12,7 @@ object ZoneOffsetTransition extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ZoneOffsetTransition")
 class ZoneOffsetTransition(transition: LocalDateTime, before: ZoneOffset, after: ZoneOffset) extends js.Object {
   def instant(): Instant = js.native
   def toEpochSecond(): Double = js.native

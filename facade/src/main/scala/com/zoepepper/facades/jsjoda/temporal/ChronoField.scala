@@ -39,6 +39,7 @@ object ChronoField extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ChronoField")
 class ChronoField protected[jsjoda]() extends TemporalField {
   def name(): String = js.native
   def baseUnit(): TemporalUnit = js.native

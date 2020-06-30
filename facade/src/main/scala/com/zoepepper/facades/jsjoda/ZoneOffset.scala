@@ -21,6 +21,7 @@ object ZoneOffset extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ZoneOffset")
 class ZoneOffset(seconds: Int) extends ZoneId with TemporalAccessor with TemporalAdjuster {
   def totalSeconds(): Int = js.native
   def compareTo(other: ZoneOffset): Int = js.native

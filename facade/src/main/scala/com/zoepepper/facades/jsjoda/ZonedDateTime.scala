@@ -24,6 +24,7 @@ object ZonedDateTime extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ZonedDateTime")
 class ZonedDateTime protected[jsjoda]() extends ChronoZonedDateTime[ChronoLocalDate] {
   def year(): Int = js.native
   def month(): Month = js.native

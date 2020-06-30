@@ -25,6 +25,7 @@ object LocalTime extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.LocalTime")
 class LocalTime protected[jsjoda]() extends temporal.Temporal {
   def hour(): Int = js.native
   def minute(): Int = js.native

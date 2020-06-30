@@ -13,6 +13,7 @@ object Clock extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.Clock")
 class Clock protected[jsjoda]() extends js.Object {
   def millis(): Double = js.native
   def instant(): Instant = js.native

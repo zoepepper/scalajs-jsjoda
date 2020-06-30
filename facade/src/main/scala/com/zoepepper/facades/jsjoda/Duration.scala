@@ -23,6 +23,7 @@ object Duration extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.Duration")
 class Duration protected[jsjoda]() extends TemporalAmount {
   def seconds(): Double = js.native
   def nano(): Int = js.native

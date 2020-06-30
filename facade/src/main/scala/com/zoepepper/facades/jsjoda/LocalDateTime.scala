@@ -27,6 +27,7 @@ object LocalDateTime extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.LocalDateTime")
 class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalDate] {
   def year(): Int = js.native
   def month(): Month = js.native

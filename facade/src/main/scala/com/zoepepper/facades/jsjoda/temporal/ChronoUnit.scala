@@ -27,6 +27,7 @@ object ChronoUnit extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ChronoUnit")
 class ChronoUnit protected[jsjoda]() extends TemporalUnit {
   def duration(): Duration = js.native
   def isDurationEstimated(): Boolean = js.native

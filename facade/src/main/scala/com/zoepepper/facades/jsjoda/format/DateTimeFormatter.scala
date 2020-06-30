@@ -25,6 +25,7 @@ object DateTimeFormatter extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.DateTimeFormatter")
 class DateTimeFormatter protected[jsjoda]() extends js.Object {
   def decimalStyle(): DecimalStyle = js.native
   def chronology(): IsoChronology = js.native

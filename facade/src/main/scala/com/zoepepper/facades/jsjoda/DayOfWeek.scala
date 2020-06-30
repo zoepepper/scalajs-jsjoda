@@ -23,6 +23,7 @@ object DayOfWeek extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.DayOfWeek")
 class DayOfWeek protected[jsjoda]() extends TemporalAccessor {
   def value(): Int = js.native
   def plus(days: Double): DayOfWeek = js.native

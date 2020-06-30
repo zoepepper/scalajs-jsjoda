@@ -20,6 +20,7 @@ object Instant extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.Instant")
 class Instant protected[jsjoda]() extends Temporal {
   def epochSecond(): Double = js.native
   def nano(): Int = js.native
