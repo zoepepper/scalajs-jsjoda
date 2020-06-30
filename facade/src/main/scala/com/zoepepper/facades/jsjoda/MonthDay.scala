@@ -18,6 +18,7 @@ object MonthDay extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.MonthDay")
 class MonthDay extends Temporal {
   def monthValue(): Int = js.native
   def month(): Month = js.native
@@ -39,7 +40,4 @@ class MonthDay extends Temporal {
   def plus(amount: TemporalAmount): MonthDay = js.native
   def `with`(adjuster: TemporalAdjuster): MonthDay = js.native
   def `with`(field: TemporalField, newValue: Double): MonthDay = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

@@ -27,6 +27,7 @@ object LocalDateTime extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.LocalDateTime")
 class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalDate] {
   def year(): Int = js.native
   def month(): Month = js.native
@@ -78,8 +79,4 @@ class LocalDateTime protected[jsjoda]() extends ChronoLocalDateTime[ChronoLocalD
   def isBefore(other: LocalDateTime): Boolean = js.native
   def isEqual(other: LocalDateTime): Boolean = js.native
   def format(formatter: DateTimeFormatter): String = js.native
-
-  override def toString(): String = js.native
-  override def hashCode(): Int = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

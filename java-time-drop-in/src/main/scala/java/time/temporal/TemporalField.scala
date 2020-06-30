@@ -10,14 +10,14 @@ import com.zoepepper.facades.jsjoda.temporal.{ChronoUnit => ChronoUnitF}
 trait TemporalField { self: Wrapper =>
   protected[time] val temporalFieldF = self.f.asInstanceOf[ChronoFieldF]
 
-  def range(): ValueRange = temporalFieldF.range
+  def range(): ValueRange = temporalFieldF.range()
   def rangeRefinedBy(temporal: TemporalAccessor): ValueRange = temporalFieldF.rangeRefinedBy(temporal)
   def getFrom(temporal: TemporalAccessor): Long = temporalFieldF.getFrom(temporal).toLong
   def isSupportedBy(temporal: TemporalAccessor): Boolean = ???
-  def isDateBased(): Boolean = temporalFieldF.isDateBased
-  def getRangeUnit(): TemporalUnit = temporalFieldF.rangeUnit.asInstanceOf[ChronoUnitF]
-  def getBaseUnit(): TemporalUnit = temporalFieldF.baseUnit.asInstanceOf[ChronoUnitF]
-  def isTimeBased(): Boolean = temporalFieldF.isTimeBased
+  def isDateBased(): Boolean = temporalFieldF.isDateBased()
+  def getRangeUnit(): TemporalUnit = temporalFieldF.rangeUnit().asInstanceOf[ChronoUnitF]
+  def getBaseUnit(): TemporalUnit = temporalFieldF.baseUnit().asInstanceOf[ChronoUnitF]
+  def isTimeBased(): Boolean = temporalFieldF.isTimeBased()
   def adjustInto[R <: Temporal](temporal: R, newValue: Long): R = ???
   def getDisplayName(locale: Locale): String = ???
   def resolve(fieldValues: java.util.Map[TemporalField, Long], partialTemporal: TemporalAccessor,

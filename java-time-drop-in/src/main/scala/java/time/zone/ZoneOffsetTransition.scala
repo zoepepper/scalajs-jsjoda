@@ -11,15 +11,15 @@ object ZoneOffsetTransition {
 }
 
 class ZoneOffsetTransition protected[time](f: ZoneOffsetTransitionF) extends Wraps(f) {
-  def getInstant(): Instant = f.instant
-  def toEpochSecond(): Long = f.toEpochSecond.toLong
-  def getDateTimeBefore(): LocalDateTime = f.dateTimeBefore
-  def getDateTimeAfter(): LocalDateTime = f.dateTimeAfter
-  def getOffsetBefore(): LocalDateTime = f.offsetBefore
-  def getOffsetAfter(): LocalDateTime = f.offsetAfter
-  def getDuration(): Duration = f.duration
-  def isGap(): Boolean = f.isGap
-  def isOverlap(): Boolean = f.isOverlap
+  def getInstant(): Instant = f.instant()
+  def toEpochSecond(): Long = f.toEpochSecond().toLong
+  def getDateTimeBefore(): LocalDateTime = f.dateTimeBefore()
+  def getDateTimeAfter(): LocalDateTime = f.dateTimeAfter()
+  def getOffsetBefore(): LocalDateTime = f.offsetBefore()
+  def getOffsetAfter(): LocalDateTime = f.offsetAfter()
+  def getDuration(): Duration = f.duration()
+  def isGap(): Boolean = f.isGap()
+  def isOverlap(): Boolean = f.isOverlap()
   def isValidOffset(offset: ZoneOffset): Boolean = f.isValidOffset(offset)
   def compareTo(other: ZoneOffsetTransition): Int = f.compareTo(other)
 

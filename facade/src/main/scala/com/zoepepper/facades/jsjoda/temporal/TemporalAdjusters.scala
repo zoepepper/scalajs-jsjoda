@@ -24,6 +24,7 @@ object TemporalAdjusters extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.TemporalAdjusters")
 class TemporalAdjusters extends js.Object {
   def adjustInto(temporal: Temporal): Temporal = js.native
 }

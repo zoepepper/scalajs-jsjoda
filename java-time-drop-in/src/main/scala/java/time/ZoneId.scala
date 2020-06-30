@@ -6,7 +6,7 @@ import java.time.temporal.TemporalAccessor
 import java.time.zone.ZoneRules
 import java.util.Locale
 
-import collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import com.zoepepper.facades.jsjoda.{JSJoda, JSJodaTimezone, ZoneId => ZoneIdF, ZoneOffset => ZoneOffsetF}
 
 object ZoneId {
@@ -27,9 +27,9 @@ trait ZoneId { self: Wrapper =>
   protected[time] val zoneIdF = self.f.asInstanceOf[ZoneIdF]
 
   def getDisplayName(style: TextStyle, locale: Locale): String = ???
-  def getId(): String = zoneIdF.id
-  def getRules(): ZoneRules = zoneIdF.rules
-  def normalized(): ZoneId = zoneIdF.normalized.asInstanceOf[ZoneOffsetF]
+  def getId(): String = zoneIdF.id()
+  def getRules(): ZoneRules = zoneIdF.rules()
+  def normalized(): ZoneId = zoneIdF.normalized().asInstanceOf[ZoneOffsetF]
 
   override def toString(): String = zoneIdF.toString()
   override def hashCode(): Int = zoneIdF.hashCode()

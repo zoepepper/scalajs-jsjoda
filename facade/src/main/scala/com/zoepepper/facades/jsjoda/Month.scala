@@ -27,6 +27,7 @@ object Month extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.Month")
 class Month extends Temporal {
   def value(): Int = js.native
   def plus(months: Double): Month = js.native

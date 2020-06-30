@@ -15,6 +15,7 @@ object IsoChronology extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.IsoChronology")
 class IsoChronology extends Enum {
   def resolveDate(fieldValues: js.Dictionary[Long], resolverStyle: ResolverStyle): LocalDate = js.native
 }

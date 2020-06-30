@@ -8,7 +8,7 @@ import java.time.{Clock, Instant, LocalDate, LocalDateTime, Period, ZoneId, Zone
 import com.zoepepper.facades.jsjoda.chrono.{IsoChronology => IsoChronologyF}
 
 import scalajs.js.JSConverters._
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 object IsoChronology {
   val INSTANCE: IsoChronology = IsoChronologyF.INSTANCE
@@ -29,7 +29,7 @@ class IsoChronology protected[time](f: IsoChronologyF) extends Wraps(f) with Chr
   def eras(): java.util.List[Era] = ???
   def getCalendarType(): String = ???
   def getId(): String = ???
-  def isLeapYear(prolepticYear: Long): Boolean = IsoChronologyF.isLeapYear(prolepticYear)
+  def isLeapYear(prolepticYear: Long): Boolean = IsoChronologyF.isLeapYear(prolepticYear.toDouble)
   def localDateTime(temporal: TemporalAccessor): LocalDateTime = ???
   def period(years: Int, months: Int, days: Int): Period = ???
   def prolepticYear(era: Era, yearOfEra: Int): Int = ???

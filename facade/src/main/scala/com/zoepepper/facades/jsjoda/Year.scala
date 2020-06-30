@@ -21,6 +21,7 @@ object Year extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.Year")
 class Year extends Temporal {
   def value(): Int = js.native
   def isLeap(): Boolean = js.native
@@ -44,7 +45,4 @@ class Year extends Temporal {
   def format(formatter: DateTimeFormatter): String = js.native
   def `with`(adjuster: TemporalAdjuster): Year = js.native
   def `with`(field: TemporalField, newValue: Double): Year = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

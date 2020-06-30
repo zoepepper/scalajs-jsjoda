@@ -43,8 +43,8 @@ object DateTimeFormatter {
 class DateTimeFormatter protected[time](f: DateTimeFormatterF) extends Wraps(f) {
   def format(temporal: TemporalAccessor): String = f.format(temporal)
   def formatTo(temporal: TemporalAccessor, appendable: Appendable): Unit = ???
-  def getChronology(): Chronology = f.chronology
-  def getDecimalStyle(): DecimalStyle = f.decimalStyle
+  def getChronology(): Chronology = f.chronology()
+  def getDecimalStyle(): DecimalStyle = f.decimalStyle()
   def getLocale(): Locale = ???
   def getResolverFields(): java.util.Set[TemporalField] = f.resolverFields.asInstanceOf[scalajs.js.Array[ChronoField]]
   def getResolverStyle(): ResolverStyle = f.resolverStyle

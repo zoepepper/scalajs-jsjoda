@@ -14,4 +14,5 @@ object ResolverStyle extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ResolverStyle")
 class ResolverStyle extends Enum

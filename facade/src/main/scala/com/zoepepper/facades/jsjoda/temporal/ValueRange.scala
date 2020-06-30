@@ -12,6 +12,7 @@ object ValueRange extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.ValueRange")
 class ValueRange protected[jsjoda]() extends js.Object {
   def isFixed(): Boolean = js.native
   def minimum(): Double = js.native

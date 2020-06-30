@@ -10,6 +10,7 @@ object DecimalStyle extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.DecimalStyle")
 class DecimalStyle extends js.Object {
   def positiveSign(): Char = js.native
   def withPositiveSign(positiveSign: Char): DecimalStyle = js.native

@@ -17,8 +17,8 @@ object Clock extends {
 }
 
 class Clock protected[time](f: ClockF) extends Wraps(f) {
-  def millis(): Long = f.millis.toLong
-  def instant(): Instant = f.instant
-  def getZone(): ZoneId = f.zone.asInstanceOf[ZoneOffsetF]
+  def millis(): Long = f.millis().toLong
+  def instant(): Instant = f.instant()
+  def getZone(): ZoneId = f.zone().asInstanceOf[ZoneOffsetF]
   def withZone(zone: ZoneId): Clock = ???
 }

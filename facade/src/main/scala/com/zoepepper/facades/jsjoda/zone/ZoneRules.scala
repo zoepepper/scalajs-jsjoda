@@ -3,7 +3,7 @@ package com.zoepepper.facades.jsjoda.zone
 import com.zoepepper.facades.jsjoda._
 
 import scalajs.js
-import scalajs.js.annotation.JSGlobal
+import scalajs.js.annotation.{JSGlobal, JSName}
 
 @js.native
 @JSGlobal("JSJoda.ZoneRules")
@@ -26,7 +26,4 @@ trait ZoneRules extends js.Object {
   def previousTransition(instant: Instant): ZoneOffsetTransition = js.native
   def transitions(): js.Array[ZoneOffsetTransition] = js.native
   def transitionRules(): js.Array[ZoneOffsetTransitionRule] = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }

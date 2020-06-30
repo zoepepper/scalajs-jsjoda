@@ -18,6 +18,7 @@ object YearMonth extends js.Object {
 }
 
 @js.native
+@JSGlobal("JSJoda.YearMonth")
 class YearMonth extends Temporal {
   def year(): Int = js.native
   def monthValue(): Int = js.native
@@ -46,7 +47,4 @@ class YearMonth extends Temporal {
   def plus(amount: TemporalAmount): YearMonth = js.native
   def `with`(adjuster: TemporalAdjuster): YearMonth = js.native
   def `with`(field: TemporalField, newValue: Double): YearMonth = js.native
-
-  override def toString(): String = js.native
-  override def equals(obj: Any): Boolean = js.native
 }
