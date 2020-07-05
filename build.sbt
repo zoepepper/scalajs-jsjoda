@@ -16,13 +16,7 @@ def BaseProject(name: String): Project =
         "scm:git:git@github.com:zoepepper/scalajs-jsjoda.git",
         Some("scm:git:git@github.com:zoepepper/scalajs-jsjoda.git"))),
       publishMavenStyle := true,
-      publishTo := {
-        val nexus = "https://oss.sonatype.org/"
-        if (isSnapshot.value)
-          Some("snapshots" at nexus + "content/repositories/snapshots")
-        else
-          Some("releases" at nexus + "service/local/staging/deploy/maven2")
-      },
+      publishTo := sonatypePublishToBundle.value,
       pomExtra :=
         <developers>
           <developer>
