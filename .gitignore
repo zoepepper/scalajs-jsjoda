@@ -4,3 +4,6 @@ target/
 .project
 .settings/
 .idea/
+.hydra/
+.metals/
+project/metals.sbt

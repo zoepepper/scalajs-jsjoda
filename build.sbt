@@ -6,7 +6,7 @@ def BaseProject(name: String): Project =
   Project(name, file(name))
     .settings(
       organization := "com.zoepepper",
-      version := "1.1.2",
+      version := "1.2.0",
       crossScalaVersions := Seq("2.12.11", "2.13.3") ++ Seq("2.11.12").filter(_ => isScalaJS06),
       scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings") ++ Seq("-P:scalajs:suppressMissingJSGlobalDeprecations").filter(_ => isScalaJS06),
       homepage := Some(url("https://github.com/zoepepper/scalajs-jsjoda")),
